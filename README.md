@@ -1,7 +1,15 @@
-Livro de receitas :woman_cook:
+### Bootcamp Full Stack Santander da DIO
 
-Olá! Bem vindos ao meu livro de receitas :cookie:
+Repositório criado para compartilhar  a jornada.
 
-- Strogonoff de frango
-- Pavê
-- 
+## Links Úteis
+
+(`___`)
+
+1.    [Sintaxe básica Markdown](https://www.markdownguide.org/basic-syntax/)
+
+
+
+(`___`)
+
+
