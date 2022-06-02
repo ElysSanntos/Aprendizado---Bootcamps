@@ -4,12 +4,10 @@ Repositório criado para compartilhar  a jornada.
 
 ## Links Úteis
 
-(`___`)
+____
 
-1.    [Sintaxe básica Markdown](https://www.markdownguide.org/basic-syntax/)
+1. [Sintaxe básica Markdown](https://www.markdownguide.org/basic-syntax/)
 
-
-
-(`___`)
+____
 
 
