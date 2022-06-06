@@ -32,11 +32,9 @@ ____
 ## Hastags publicadas
 
 #durmoparasonhar
-
-#tambemaprendonodomingo
-
+#gratidão
 #contratodecompromisso
-
 #santanderbootcampfullstackdeveloper
+#tambemaprendonodomingo
 
 
