@@ -1,0 +1,19 @@
+[{
+        "nome": "Bob's",
+        "avaliacao": "8",
+        "endereco": "R. do México 100",
+        "logo": "http://alurafoods.com/uploads/logos/bobs.png"
+    },
+    {
+        "nome": "Subway",
+        "avaliacao": "8.5",
+        "endereco": "Av. Rio Branco 202",
+        "logo": "http://alurafoods.com/uploads/logos/subway.png"
+    },
+    {
+        "nome": "Experimenta Lanches",
+        "avaliacao": "9",
+        "endereco": "R. do Brasil 545",
+        "logo": "http://alurafoods.com/uploads/logos/e-lanches.png"
+    }
+]
