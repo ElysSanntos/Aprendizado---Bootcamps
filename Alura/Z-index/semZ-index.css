@@ -1,0 +1,25 @@
+div {
+    border: 2px solid black;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    height: 200px;
+    padding: 20px;
+    position: fixed;
+    width: 200px;
+}
+
+.quadrado-1 {
+    background-color: blueviolet;
+}
+
+.quadrado-2 {
+    background-color: lightcoral;
+    left: 50px;
+    top: 50px;
+}
+
+.quadrado-3 {
+    background-color: lightgreen;
+    left: 100px;
+    top: 100px;
+}

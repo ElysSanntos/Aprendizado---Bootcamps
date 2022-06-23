@@ -1,0 +1,104 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --screenSize: "extra small";
+    --containerSize: auto;
+    --gutter: 15px;
+}
+
+
+/* // Small devices (landscape phones, 576px and up) */
+
+@media (min-width: 576px) {
+     :root {
+        --screenSize: "small";
+        --containerSize: 550px;
+    }
+}
+
+
+/* // Medium devices (tablets, 768px and up) */
+
+@media (min-width: 768px) {
+     :root {
+        --screenSize: "medium";
+        --containerSize: 750px;
+    }
+}
+
+
+/* // Large devices (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+     :root {
+        --screenSize: "large";
+        --containerSize: 970px;
+    }
+}
+
+
+/* // Extra large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+     :root {
+        --screenSize: "extra large";
+        --containerSize: 1170px;
+    }
+}
+
+
+/* Grid */
+
+.container {
+    width: var(--containerSize);
+    display: block;
+    margin: 0 auto;
+}
+
+.container-fluid {
+    width: 100%;
+    display: block;
+}
+
+.container:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.col {
+    float: left;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+}
+
+.col-12 {
+    width: 100%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-1 {
+    width: 8.33333%;
+}
+
+
+/* Visual */
+
+* {
+    text-align: center;
+}
+
+.item {
+    background: #ddd;
+    border: 1px solid #bbb;
+    padding: 15px;
+}
+
+span:before {
+    content: var(--screenSize);
+}
