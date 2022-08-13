@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Exemplo01 from './components/Exemplo01';
+import App from './App';
+import './index.css';
 
-ReactDOM.render(
-  <div>
-    
-    <Exemplo01 nome="Elys Sanntos" media="9,0" situacao="Aprovada"/>   
+const root = ReactDOM.createRoot (document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App PrimeiroNome = "Elys" SegundoNome = "Santos">
 
-  </div>,
-  document.getElementById("root")
-);
+    </App>
+  </React.StrictMode>
+)
+
+

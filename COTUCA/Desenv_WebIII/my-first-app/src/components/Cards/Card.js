@@ -1,5 +1,6 @@
 import React from "react";
-import './Card/card.css';
+import './Card.css';
+
 export default function Card(props){
      const estilo = {
        backgroundColor: "#5F9EA0",

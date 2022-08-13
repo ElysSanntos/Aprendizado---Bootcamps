@@ -4,16 +4,20 @@ import NumeroAleatorio from './components/NumeroAleatorio';
 import Card from './components/Cards/Card';
 import './App.css';
 
-export default function App() {
+export default function App(props) {
  return (
-   <div>
-     <Card titulo="Exemplo01">
-       <Exemplo01 nome="Elys" idade="27" />
-     </Card>
+   <div className="app">
+     <h1>Exemplos com React*****</h1>
 
-     <Card titulo="NumeroAleatorio">
-       <NumeroAleatorio min={20} max={40} />
-     </Card>
+     <div className="cards">
+       <Card titulo="Exemplo01">
+         <Exemplo01 PrimeiroNome="Elys" SegundoNome="Santos" idade="45" nota="9,0" situacao="Aprovado"/>
+       </Card>
+
+       <Card titulo="NumeroAleatorio">
+         <NumeroAleatorio min={20} max={40} />
+       </Card>
+     </div>
    </div>
  );
 }
