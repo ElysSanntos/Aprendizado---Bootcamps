@@ -10,17 +10,22 @@ export default function App(props) {
    <div className="app">
      <h1>Exemplos com React</h1>
 
-     <div className="cards">
+     <div className="card">
        <Card titulo="Titulo: Exemplo 1">
          <Exemplo01 nome="ElysSanntos" idade="45" />
        </Card>
      </div>
-     <div className="cards">
+     <div className="card">
        <Card titulo="Titulo: Numero Aleatorio">
          <NumeroAleatorio min={20} max={40} />
        </Card>
      </div>
-     
+
+     <div className ="card">
+       <Card titulo ="Titulo: Comunicação Direta">
+         <ExibeNotas />
+       </Card>
+     </div>
    </div>
  );
 }
