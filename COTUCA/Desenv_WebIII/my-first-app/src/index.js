@@ -1,23 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
-import Exemplo01 from './components/Exemplo01';
-import ExibeNotas from './components/ExibeNotas';
-import NumeroAleatorio from './components/NumeroAleatorio';
-import ObtemNotas from './components/ObtemNotas';
-import VerificaIdade from './components/VerificaIdade';
+import ReactDOM  from 'react-dom/client';
 
-const root = ReactDOM.createRoot (document.getElementById('root'));
-root.render(<App/>, 
+const root = ReactDOM.createRoot (document.getElementById('root'))
+root.render(
   <React.StrictMode>
-<Exemplo01 />
-<ExibeNotas />
-<NumeroAleatorio/>
-<ObtemNotas/>
-<VerificaIdade/>
-
+    <App />
   </React.StrictMode>
-)
+);
 
 

@@ -5,6 +5,7 @@ import Card from './components/Cards/Card';
 import './App.css';
 import ExibeNotas from "./components/ExibeNotas";
 
+
 export default function App(props) {
  return (
    <div className="app">
@@ -12,7 +13,7 @@ export default function App(props) {
 
      <div className="card">
        <Card titulo="Titulo: Exemplo 1">
-         <Exemplo01 nome="ElysSanntos" idade="45" />
+         <Exemplo01 nome="Elys Sanntos" idade="45" />
        </Card>
      </div>
      <div className="card">
@@ -21,9 +22,9 @@ export default function App(props) {
        </Card>
      </div>
 
-     <div className ="card">
-       <Card titulo ="Titulo: Comunicação Direta">
-         <ExibeNotas />
+     <div className="card">
+       <Card titulo="Titulo: Comunicação Direta">
+         <ExibeNotas Nome="Maria" Nota="5" />
        </Card>
      </div>
    </div>
