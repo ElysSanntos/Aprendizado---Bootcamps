@@ -1,5 +1,8 @@
 import React from "react";
 import './Card.css';
+import Exemplo01 from './../Exemplo01';
+import NumeroAleatorio from "../NumeroAleatorio";
+import ObtemNotas from './../ObtemNotas';
 
 export default function Card(props){
      const estilo = {
@@ -14,5 +17,7 @@ export default function Card(props){
             <div className="titulo"> {props.titulo}</div>
             <div className="conteudo">{props.children}</div>
         </div>
+
+        
     );
 }

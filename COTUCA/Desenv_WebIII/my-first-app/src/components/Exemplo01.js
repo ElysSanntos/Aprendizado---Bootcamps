@@ -1,5 +1,6 @@
 import React from "react";
-import VerificaIdade from "./VerificaIdade";
+import VerificaIdade from "./VerificaIdade"; //Chamando o componente filho aqui 
+                                            //no componente pai
 
 
 export default function Exemplo01(props){
@@ -8,12 +9,13 @@ export default function Exemplo01(props){
 
     return (
       <div>
-        <h1>Primeiro componente</h1>
-        <p>Exemplo com component React</p>
-        <p>Seja bem vinda {props.nome}</p>
-        <p>Sua média final é <strong>{props.media}</strong></p>
-        <p>Situação: <b>{props.situacao}</b></p>
-        <VerificaIdade nome={props.nome}  idade={props.idade} />
+        <h1>Primeiro componente!</h1>
+            <p>
+              Nome: <strong> {props.nome}</strong>
+            </p>
+            <p> Idade: {idadeIdeal}</p>
+           
+        <VerificaIdade nome={props.nome} idade={props.idade} />
       </div>
     );
 }
