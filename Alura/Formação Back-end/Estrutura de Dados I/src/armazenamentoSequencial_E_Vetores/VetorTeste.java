@@ -1,4 +1,4 @@
-package estruturaDeDados;
+package armazenamentoSequencial_E_Vetores;
 
 public class VetorTeste {
 

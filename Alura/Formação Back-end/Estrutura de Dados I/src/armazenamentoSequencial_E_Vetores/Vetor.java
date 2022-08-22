@@ -1,4 +1,4 @@
-package estruturaDeDados;
+package armazenamentoSequencial_E_Vetores;
 
 import java.util.Arrays;
 
@@ -33,9 +33,13 @@ public class Vetor {
 	}
 	
 	private void garanteEspaco() {
-		if(totalDeAlunos == alunos.length) {
-			Aluno[] novoArray = new Aluno[]
-		}
+	    if(totalDeAlunos == alunos.length) {
+	        Aluno[] novoArray = new Aluno[alunos.length*2];
+	        for(int i = 0; i < alunos.length; i++) {
+	            novoArray[i] = alunos[i];
+	        }
+	        this.alunos= novoArray;
+	    }
 	}
 	public void adicionaQualquerLugar(int posicao, Aluno aluno) {
 		if(!posicaoValida(posicao)) {
