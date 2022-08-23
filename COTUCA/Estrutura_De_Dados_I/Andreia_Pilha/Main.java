@@ -7,13 +7,21 @@ public class Main {
         Pilha minhaPilha = new Pilha();
         Random rnd = new Random(100);
 
+
         //Gerando números aleatórios para encher a pilha
         while (!minhaPilha.cheia()) {
             minhaPilha.empilhar(rnd.nextInt(100));
 
         }
-        System.out.println(minhaPilha);
+
+        Pilha clone = minhaPilha.clone();
+        System.out.println("Original: " + minhaPilha);
+        System.out.println("Clone     " + clone);
+
         somentePares(minhaPilha);
+
+        System.out.println(minhaPilha);
+        minhaPilha.inverter();
         System.out.println(minhaPilha);
     }
     public static void somentePares(Pilha P) throws Exception{
@@ -35,13 +43,10 @@ public class Main {
             P.empilhar(elemento);
         }
         System.out.println(dePares);
+
     }
-    public static Pilha inverter(Pilha P){
-        Pilha aux = new Pilha();
 
 
 
 
-        return aux;
-    }
 }
