@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ProjetoEscola_API.Controllers
 {
-   // [ApiController]
+   [ApiController]
     [Route ("/")]
     public class HomeController: ControllerBase
     {
