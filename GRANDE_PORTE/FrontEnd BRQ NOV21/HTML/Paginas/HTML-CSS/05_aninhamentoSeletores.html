@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina 33 - Agrupando e alinhando seletores </title>
+    <link rel="stylesheet" href="aninhamentoSeletores.css" media="all">
+
+</head>
+
+<body>
+    <h1>Estilo colocado no H1</h1>
+    <h1 id="black">H1 com seletor - Esta regra renderiza o conteúdo em preto apenas para elementos " h1 " com o atributo id definido como preto .
+        <h2>Estilo colocado no H2</h2>
+        <h3>Estilo colocado no H3</h3>
+        <p>Estilo do Paragrafo</p>
+        <hr>
+        <hr>
+        <p>Esta regra renderizará todos os parágrafos em preto se eles forem filhos diretos do elemento
+            <br> " body" Outros parágrafos colocados dentro de outros elementos como "div"ou"td" não teriam qualquer efeito nesta regra.</p>
+        <div class="exemplo ">Div Exemplo 1 - com Aninhamento</div>
+        <div>Div Exemplo 2</div>
+        <div>
+            <p>Paragrafo dentro da DIV - Ignora a formatação da DIV e mantem as altimas configurações do p
+                <br>A ordem de como você dispoe as configurações é muito importante</p>
+        </div>
+
+
+</body>
+
+</html>

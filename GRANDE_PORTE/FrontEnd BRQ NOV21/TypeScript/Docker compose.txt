@@ -1,0 +1,80 @@
+Docker compose
+
+Criar uma pasta __infra__
+Dentro da pasta um aquivo mysql.yml com o comando:
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: msql
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+Rodar no cmd:
+docker-compose -f __infra__/mysql.yml up -d
+
+Documentação: https://hub.docker.com/_/adminer
+Acesso: http://localhost:8080/
+login: root
+senha: mysql
+
+Para vincular o mySql workbanch ao Docker:
+1 - deletar o container
+Acrescentar a linha ao arquivo.yml 
+**A identação é muito importante para rodar o programa.
+  ports:
+      - 3306:3306
+
+2 - Recriar o container
+3- Testar a conexão no mySql workbanch
+	-home
+	-nova conexao (+)
+	-Testar a conexao
+	-ok
+	-colocar a senha para conectar
+	-clicar na conexão para usar o BD
+	-rodar o comando: show databases; --> Clicar no icone do raio
+
+Jogar o modelo criado para o BD
+
+-database -- na guia EER Diagram
+-foward engineer --Joga as alterações para o BD, quando alterar o nome do BD
+-next
+-Voltar na aba docker
+-rodar 
+-No cmd do mySQL
+   *show databases;
+   *use projetoCRUD
+
+
+====================================================================================================================
+
+docker container ls - mostrar todos os containers
+docker images ls - mostra todas as imagens
+docker ps -a
+docker stop meuMysql- para finalizar
+
+CLI:
+mysql -u root -p
+show databases
+
+
+
+docker hub - repositorio de imagens ==> https://id.docker.com/login/
+
+Baixar imagens: docker pull mysql
+
+Rodar o mySQL Documentação: https://hub.docker.com/_/mysql
+
+docker run --name meuMysql -e MYSQL_ROOT_PASSWORD=mysql -d mysql ==> executar e subir o contanainer indicando as variaveis -e envarioment 
+-d livrar o terminal de poluição - detalhes do processo

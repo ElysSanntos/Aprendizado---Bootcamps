@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Curriculo</title>
+</head>
+
+<body background="papel.jpg">
+    <center>
+        <h2>
+            <font color="blue">Cadastro de Currículo</font>
+        </h2>
+        <form method="get">
+
+            <table border="11" cellspacing="0" cellpadding="11">
+                <tr>
+                    <td>Nome completo</td>
+                    <td><input type="text" name="campoNome" placeholder="Insira seu nome completo" size="50" maxlength="64">
+                        <td>Email para contato</td>
+                        <td><input type="email" name="campoMail" placeholder="Insira seu email" size="64" maxlength="64">
+                        </td>
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Endereço</td>
+                    <td><input type="text" name="campoEndereço" placeholder="Rua e número..." size="50" maxlength="84"></td>
+                    <td><input type="text" name="campoEnderecoBairro" placeholder="Bairro"></td>
+
+                    <td>Estado<select name="campoEstado">
+						<option value="SP">SP</option>
+						<option value="RJ">RJ</option>
+						<option value="BA">BA</option>
+
+					</select>
+                        <input type="text" name="campoCidade" placeholder="Digite sua cidade..." size="50" maxlength="64">
+
+                    </td>
+
+
+
+                </tr>
+
+
+
+
+                <tr>
+                    <td>Idioma</td>
+                    <td><input type="checkbox" name="campoIdioma" value="Espanhol"> Espanhol
+                        <input type="checkbox" name="campoIdioma" value="Inglês"> Inglês
+                        <input type="checkbox" name="campoIdioma" value="Alemão"> Alemão
+                        <input type="checkbox" name="campoIdioma" value="Francês"> Francês</td>
+                    <td>Nível</td>
+                    <td> <input type="radio" name="campoNivel" value="Banana" checked>Iniciante
+                        <input type="radio" name="campoNivel" value="Pera">Intermediário
+                        <input type="radio" name="campoNivel" value="Maçã">Avançado
+                        <input type="radio" name="campoNivel" value="Abacaxi">Fluente</td>
+
+
+                </tr>
+
+                <tr>
+                    <td>Horário desejado</td>
+                    <td><select name="campoTurno">
+
+							<option value="MAN" selected>Manhã</option>
+							<option value="TAR" >Tarde</option>
+							<option value="NOI">Noite</option>
+
+						</select></td>
+                    <td>Data de nascimento</td>
+                    <td>
+                        <input type="date" name="dataAniversario" name="Data de nascimento">
+
+
+
+
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>Resumo Profissional</td>
+                    <td><textarea cols="50" rows="5" name="campoObs">Nos fale um pouco sobre você...</textarea>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" name="botaoOk" value="Entrar">
+                        <input type="reset" name="" value="limpar">
+                    </td>
+
+                </tr>
+            </table>
+
+
+        </form>
+
+        <img src="cad.png" id="icone1">
+        <img src="cadd.png" id="icone2">
+        <img src="cadeirante.png" id="icone3">
+    </center>
+</body>
+
+</html>

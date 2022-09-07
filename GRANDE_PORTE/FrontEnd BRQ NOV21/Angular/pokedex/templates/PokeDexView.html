@@ -1,0 +1,5 @@
+<input type="text" id="pokeFilter" placeholder="Search" ng-model="vm.searchText" />
+
+<ul class="poke-list" id="pokeList" >
+    <poke-list-item-component ng-repeat="pkm in vm.pkmList | filter:vm.searchText" pkm="pkm" ></poke-list-item-component>
+</ul>

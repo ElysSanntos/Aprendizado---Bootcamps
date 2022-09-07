@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<html>
+
+<head>
+    <title>Laço</title>
+    <script type="text/javascript">
+        // imprimir números de 1 a 100
+        document.write("laço de repetição while controlado por contador - Página 125" + "<br>");
+
+        var cont = 0;
+        var soma = 0;
+        var qtdAlunos = 50;
+        while (cont < qtdAlunos) {
+            nota = Math.floor(Math.random() * 100 % 11);
+            console.log(nota);
+            soma += nota;
+            cont++
+        }
+        var media = soma / qtdAlunos;
+        console.log(media);
+        document.write("Nota: " + nota + "<br>");
+        document.write("Média: " + media);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

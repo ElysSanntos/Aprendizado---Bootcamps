@@ -1,0 +1,43 @@
+
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Senha</th>
+            <th>Usuario</th>
+            <th>Cep</th>
+            <th>Logradouro</th>
+            <th>Número</th>
+            <th>Complemento</th>
+            <th>Cidade</th>
+            <th>Bairro</th>
+            <th>Estado</th>
+            <th>Ações</th>
+          </tr>
+    
+          <tr *ngFor="let p of alunos">
+            <td>{{ p.id }}</td>
+            <td>{{ p.nome }}</td>
+            <td>{{ p.email }}</td>
+            <td>{{ p.senha }}</td>
+            <td>{{ p.tipo_usuario }}</td>
+            <td>{{ p.cep }}</td>
+            <td>{{ p.logradouro }}</td>
+            <td>{{ p.numero }}</td>
+            <td>{{ p.complemento }}</td>
+            <td>{{ p.cidade }}</td>
+            <td>{{ p.bairro }}</td>
+            <td>{{ p.estado }}</td>
+            <td>
+                <div class="btn-group">
+                    <button class="btn btn-outline-info" [routerLink]="['/alunos', p.id ]"  > Editar </button>  
+                    <button class="btn btn-outline-danger" (click)="onApagarClick(p)"> Apagar </button> 
+                </div>
+            </td>
+          </tr>
+    </table>
+</div>
+
+

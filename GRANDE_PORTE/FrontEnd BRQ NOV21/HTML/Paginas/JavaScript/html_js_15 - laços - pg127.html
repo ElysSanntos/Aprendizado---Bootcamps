@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<html>
+	<head>
+		<title>Laço pg 127</title>
+		<script type="text/javascript">
+			function pegaAleatorio(min, max, dec)
+			{   
+				x = Math.random();
+			    var massa = (max-min)*x+min;
+				massa = massa.toFixed(dec);
+				return massa;
+			}
+		
+			var cont=0;
+			while(cont<20)
+			{
+				massa  = pegaAleatorio(50,120,3);
+				altura = pegaAleatorio(0.5,2.2,2);
+				console.log(altura);
+				cont++;
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

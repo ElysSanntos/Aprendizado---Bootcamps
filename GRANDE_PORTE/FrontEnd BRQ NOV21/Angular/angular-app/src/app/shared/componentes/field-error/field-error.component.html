@@ -1,0 +1,7 @@
+<div class="alert alert-danger" *ngIf="deveMostrar && controlFilho?.errors?.required == true">
+    Campo Obrigatório
+</div>
+
+<div class="alert alert-danger" *ngIf="deveMostrar && controlFilho?.errors?.minlength">
+    Campo possui menos de {{ controlFilho?.errors?.minlength?.requiredLength }} caracteres
+</div>

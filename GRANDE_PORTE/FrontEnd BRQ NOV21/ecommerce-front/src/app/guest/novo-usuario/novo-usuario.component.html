@@ -1,0 +1,118 @@
+<form [formGroup]="meuFormuser" (submit)="onSubmit()">
+    <div class="mb-3">
+      <label for="exampleInputName1" class="form-label">Nome</label>
+      <input
+        type="text"
+        class="form-control"
+       
+        id="exampleInputName1"
+        aria-describedby="nomeUser"
+        formControlName="nome"
+      />
+  
+      <label for="exampleInputEmail1" class="form-label">Email </label>
+      <input
+        type="email"
+        class="form-control"
+       
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        formControlName="email"
+      />
+      <div id="emailHelp" class="form-text">
+        Nós não iremos compartilhar seu email com nínguem
+      </div>
+    </div>
+    <div class="mb-3">
+        <label for="nasc" class="form-label">Data de nascimento</label>
+        <input type="text" class="form-control" formControlName="nascimento" id="nasc">
+    </div>
+    <div class="mb-3">
+        <label for="CPF" class="form-label">CPF</label>
+        <input type="text" class="form-control" formControlName="cpf" id="CPF">
+    </div>
+    <div class="mb-3">
+        <label for="tel" class="form-label">Telefone</label>
+        <input type="number" class="form-control" formControlName="telefone" id="tel">
+    </div>
+    <div class="mb-3">
+        <label for="cel" class="form-label">Celular</label>
+        <input type="number" class="form-control" formControlName="celular" id="cel">
+    </div>
+    <!-- <div class="mb-3">
+        <label for="perfis" class="form-label">Tipo de perfil</label>
+        <select name="perfis" id="perfis" class="form-control">
+            <option value="">Selecione tipo de perfil</option>
+            <option value="">CLIENTE</option>
+            <option value="">ADMIN</option>
+        </select>
+    </div> -->
+    <div class="mb-3">
+      <label for="exampleInputPassword" class="form-label">Senha</label>
+      <input
+        type="password"
+        class="form-control"
+        
+        id="exampleInputPassword"
+        aria-describedby="passwordUser"
+        formControlName="senha"
+      />
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleInputPassword" class="form-label">Confirmar Senha</label>
+        <input
+          type="password"
+          class="form-control"
+          
+          id="exampleInputPassword"
+          aria-describedby="passwordUser"
+          formControlName="confirmarSenha"
+        />
+      </div>
+  
+    <div formGroupName="endereco">
+        <div class="mb-3">
+            <label for="cep" class="form-label">CEP</label>
+            <input type="text" class="form-control"  id="cep" formControlName="cep" />
+            <label for="logradouro" class="form-label">Logradouro</label>
+            <input
+              type="text"
+              class="form-control"
+              id="log"
+              formControlName="logradouro"
+            />
+            <label for="numero" class="form-label">Número</label>
+            <input
+              type="text"
+              class="form-control"
+              id="num"
+              formControlName="numero"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="complemento" class="form-label">Complemento</label>
+            <input
+              type="text"
+              class="form-control"
+              id="complemento"
+              formControlName="complemento"
+            />
+            <label for="cidade" class="form-label">Cidade</label>
+            <input type="text" class="form-control" id="log" formControlName="cidade" />
+            <label for="bairro" class="form-label">Bairro</label>
+            <input
+              type="text"
+              class="form-control"
+              id="bairro"
+              formControlName="bairro"
+            />
+            <label for="UF" class="form-label">UF</label>
+            <input type="text" class="form-control" id="uf" formControlName="estado" />
+          </div>
+    </div>
+   
+    <button type="submit" class="btn btn-primary" >
+      Enviar
+    </button>
+  </form>

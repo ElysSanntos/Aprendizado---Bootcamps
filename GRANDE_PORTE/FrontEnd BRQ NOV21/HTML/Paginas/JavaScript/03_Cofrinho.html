@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<html>
+
+<head>
+    <title>Cofrinho</title>
+    <script type="text/javascript">
+        function calcular() {
+            var qtd100 = document.getElementById("campo100").value;
+            var qtd050 = document.getElementById("campo050").value;
+            var qtd025 = document.getElementById("campo025").value;
+            var qtd010 = document.getElementById("campo010").value;
+            var qtd005 = document.getElementById("campo005").value;
+            var qtd001 = document.getElementById("campo001").value;
+            var cotdol = document.getElementById("campoDolar").value;
+            var reais = (qtd100 * 1 +
+                qtd050 * 0.50 +
+                qtd025 * 0.25 +
+                qtd010 * 0.10 +
+                qtd005 * 0.05 +
+                qtd001 * 0.01) * cotdol;
+            console.log(reais);
+            var msg = "No cofre há " + reais + " reais.";
+            document.getElementById("spanMsg").innerHTML = msg;
+        }
+
+        function limpar() {
+            document.getElementById("campo100").value = "";
+            document.getElementById("campo050").value = "";
+            document.getElementById("campo025").value = "";
+            document.getElementById("campo010").value = "";
+            document.getElementById("campo005").value = "";
+            document.getElementById("campo001").value = "";
+            document.getElementById("spanMsg").innerHTML = "";
+        }
+    </script>
+</head>
+
+<body style="background-color:rgb(188, 207, 243)">
+    <h1 style="color:rgb(3, 3, 93)">Valor em R$</h1>
+    <p>Quantos Reais há no Cofre com moedas de US$:</p>
+    <table>
+        <tr>
+            <td>Qtd. US$ 1.00</td>
+            <td><input type="number" id="campo100"></td>
+        </tr>
+        <tr>
+            <td>Qtd. US$ 0.50</td>
+            <td><input type="number" id="campo050"></td>
+        </tr>
+        <tr>
+            <td>Qtd. US$ 0.25</td>
+            <td><input type="number" id="campo025"></td>
+        </tr>
+        <tr>
+            <td>Qtd. US$ 0.10</td>
+            <td><input type="number" id="campo010"></td>
+        </tr>
+        <tr>
+            <td>Qtd. US$ 0.05</td>
+            <td><input type="number" id="campo005"></td>
+        </tr>
+        <tr>
+            <td>Qtd. US$ 0.01</td>
+            <td><input type="number" id="campo001"></td>
+        </tr>
+        <tr>
+            <td>Cotação do Dólar </td>
+            <td><input type="number" id="campoDolar"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="button" value="calcular" onclick="calcular()">
+                <input type="button" value="limpar" onclick="limpar()">
+            </td>
+        </tr>
+    </table>
+    <p><span id="spanMsg"></span></p>
+</body>
+
+</html>

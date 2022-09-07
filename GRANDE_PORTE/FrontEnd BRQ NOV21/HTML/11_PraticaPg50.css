@@ -1,0 +1,87 @@
+                                                            h1,
+                                                            h2,
+                                                            h3,
+                                                            p {
+                                                                text-align: left;
+                                                                color: blueviolet;
+                                                            }
+                                                            
+                                                            p {
+                                                                background-color: cornsilk;
+                                                            }
+                                                            
+                                                            .posAbsXY {
+                                                                position: absolute;
+                                                                left: 100px;
+                                                                top: 150px;
+                                                            }
+                                                            
+                                                            div {
+                                                                color: red;
+                                                                text-align: center;
+                                                            }
+                                                            
+                                                            .exemplo {
+                                                                background-color: blanchedalmond;
+                                                            }
+                                                            /*Div aninhada com classe*/
+                                                            
+                                                            div.exemplo {
+                                                                color: rgb(230, 107, 235)
+                                                            }
+                                                            /*Div aninhada com p*/
+                                                            
+                                                            div p {
+                                                                background-color: darkorange;
+                                                            }
+                                                            
+                                                            #black {
+                                                                color: #000000;
+                                                            }
+                                                            /*H1 aninhada com id*/
+                                                            
+                                                            h1#black {
+                                                                color: #000000;
+                                                            }
+                                                            /*Selector universal -- Os Seletores Universais
+Em vez de selecionar elementos de um tipo específico, o seletor universal simplesmente corresponde ao nome de qualquer tipo de elemento -*/
+                                                            
+                                                            * {
+                                                                color: #000000;
+                                                            }
+                                                            
+                                                            body>p {
+                                                                color: rgb(10, 176, 182);
+                                                            }
+                                                            /*Z index*/
+                                                            
+                                                            .figura1,
+                                                            .figura2,
+                                                            .figura3,
+                                                            div {
+                                                                border: 2px solid black;
+                                                                height: 800px;
+                                                                padding: 20px;
+                                                                width: 800px;
+                                                            }
+                                                            
+                                                            .figura1 {
+                                                                background-image: url(/img/rosa.jpg);
+                                                                width: 300px;
+                                                                height: 200px;
+                                                                z-index: 1;
+                                                            }
+                                                            
+                                                            .figura2 {
+                                                                background-image: url(/img/rosa.jpg);
+                                                                width: 300px;
+                                                                height: 200px;
+                                                                z-index: 2;
+                                                            }
+                                                            
+                                                            .figura3 {
+                                                                background-image: url(/img/rosa.jpg);
+                                                                width: 300px;
+                                                                height: 200px;
+                                                                z-index: 3;
+                                                            }

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<html>
+
+<head>
+    <title>Laço</title>
+    <script type="text/javascript">
+        // imprimir números de 1 a 100
+        document.write("Laço de repetição while controlado por contador - Página 126 <br>" + "<br>");
+
+        var cont = 0;
+        var maiorAltura = 0.0;
+        var menorAltura = 9.9;
+        var altura;
+        while (cont < 100) {
+            altura = Math.random();
+            if (altura > maiorAltura) {
+                maiorAltura = altura;
+            }
+            if (altura < menorAltura) {
+                menorAltura = altura;
+            }
+            cont++;
+        }
+
+
+
+        document.write("A menor Altura é: " + menorAltura + "<br>");
+        document.write("A maior Altura é: " + maiorAltura + "<br>");
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

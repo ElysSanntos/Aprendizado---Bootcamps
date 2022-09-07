@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<title>Valida Email</title>
+		<script type="text/javascript">
+			function validarEmail() {
+			    var emailOK = true;
+				var x = document.getElementById("campoEmail").value;
+				var atpos = x.indexOf("@");
+				var dotpos = x.lastIndexOf(".");
+
+				console.log(atpos);
+				console.log(dotpos);
+				
+				//atpos<1 ===> o arrôba não pode começar na primeira posição
+				if (emailOK && (atpos<1)){
+					document.getElementById("spanEmail").innerHTML = "o arrôba não pode começar na primeira posição";
+					emailOK = false;
+				}
+
+				//dotpos<atpos+2 ==> depois do arrôba não pode haver ponto
+				if (emailOK && (dotpos<atpos+2)){
+					document.getElementById("spanEmail").innerHTML = "depois do arrôba não pode haver ponto";
+					emailOK = false;
+				}
+				
+				//dotpos+2>=x.length ===> depois do ponto deve haver no mínino 2 caracteres
+				if(emailOK && (dotpos+2>=x.length)){
+					document.getElementById("spanEmail").innerHTML = "depois do ponto deve haver no mínino 2 caracteres";
+					emailOK = false;
+				}
+				
+				// a1) só pode haver 1 @
+				if(emailOK && (atpos != x.lastIndexOf("@"))){
+					document.getElementById("spanEmail").innerHTML = "só pode haver 1 @";
+					emailOK = false;
+				}
+				
+				
+				
+			    // em relação aos caracteres
+				// c1) deve ser formado por digitos (0-9), letras (a-z) e simbolos @._-
+				// c2) não pode ter letras maiúsculas
+				
+				// em relação ao ponto
+				// p1) não pode começar por ponto
+				//     x.substr(0,1) == '.' está errado
+				// p2) não pode terminar por ponto
+				//     x.charAt(x.length -1) == '.' está errado
+				// p3) não pode haver ponto imediatamente antes e depois do @
+				// p4) não pode haver dois pontos seguidos
+				// p5) o último ponto deve estar a pelo menos 2 ou 3 caracteres do fim do email
+				// p6) após o @ deve haver ao menos 1 ponto
+				
+				// em relação ao @
+				// a1) só pode haver 1 @
+				// a2) não pode começar ou terminar com @
+ 			    return false;
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Testa Email</h1>
+		<form method='get' action=''>
+			<table border="0"> 
+				<tr>
+					<td>Email</td>
+					<td><input type="text" id="campoEmail"/></td>
+					<td><span id="spanEmail"></span></td>
+				</tr>
+			</table>
+		<input type="submit" id="btnEnviar" value="Enviar"	onclick="return validarEmail()"/>
+		<input type="reset" id="btnLimpar" value="Limpar">
+		</form>
+	</body>
+</html>

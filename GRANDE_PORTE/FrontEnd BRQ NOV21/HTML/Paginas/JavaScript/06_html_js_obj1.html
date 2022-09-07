@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<title>Objeto 1</title>
+			<script type="text/javascript">
+				var nave = {nome     : "Enterprise"   ,
+				            propulsao: "Infinita"     ,
+							dono     : "Jeffrey Archer"}
+				document.write("<p>"+nave.nome+"</p>");			
+				document.write("<p>"+nave.propulsao+"</p>");			
+				document.write("<p>"+nave.dono+"</p>");	
+
+				function calc_consumo(distancia){
+				   return distancia / (15 / this.motor);
+				}
+				
+				function imprimeTudo(){
+				    document.write("---------------------<br/>");
+					document.write(this.modelo+"</br>");			
+					document.write(this.marca+"</br>");			
+					document.write(this.ano+"</br>");			
+					document.write(this.motor+"</br>");			
+				}
+				
+				function Carro(modelo, marca, ano, motor ){
+					this.modelo = modelo;
+					this.marca  = marca;
+					this.ano    = ano;
+					this.motor  = motor;
+					this.consumo = calc_consumo;
+				}
+				
+				var f = new Carro("Fusca","VW",1960,1.2);
+				f.imprime = imprimeTudo;
+				
+				var p = new Carro("Passat","VW",1971,1.5);
+				p.imprime = imprimeTudo;
+				
+				document.write("<p>"+f.modelo+"</p>");			
+				document.write("<p>"+f.consumo(1000)+"</p>");			
+				
+				document.write("<p>"+p.modelo+"</p>");			
+				document.write("<p>"+p.consumo(1000)+"</p>");			
+				
+				f.imprime();
+				p.imprime();
+
+			</script>
+	</head>
+	<body>
+			                           
+	</body>
+</html>  

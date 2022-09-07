@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nadador</title>
+
+    <script type="text/javascript">
+        function categoria() {
+            var idade = parseInt(document.getElementById("campoIdade").value);
+            var categoria;
+
+            /*
+				     if(idade <=  4) categoria = "Baby"; 
+                else if(idade <=  7) categoria = "Infantil A";
+ 			    else if(idade <= 11) categoria = "Infantil B";
+				else if(idade <= 13) categoria = "Juvenil A"; 
+				else if(idade <= 17) categoria = "Juvenil B";
+				else                 categoria = "Adulto";
+				*/
+
+            if (idade <= 4) {
+                categoria = "Baby";
+            } else {
+                if (idade <= 7) {
+                    categoria = "Infantil A";
+                } else {
+                    if (idade <= 11) {
+                        categoria = "Infantil B";
+                    } else {
+                        if (idade <= 13) {
+                            categoria = "Juvenil A";
+                        } else {
+                            if (idade <= 17) {
+                                categoria = "Juvenil B";
+                            } else {
+                                categoria = "Adulto";
+                            }
+                        }
+                    }
+                }
+            }
+
+            var msg = "Com idade de  " + idade + " anos, você pertence a categoria: " + categoria;
+            document.getElementById("spanMsg").innerHTML = msg;
+
+
+
+            function limpar() {
+                document.getElementById("campoIdade").value = "";
+                document.getElementById("spanMsg").innerHTML = "";
+            }
+        }
+    </script>
+</head>
+
+<body style="background-color:rgb(188, 207, 243)">
+    <h1 style="color:rgb(3, 3, 93)">Categoria Nadador</h1>
+    <p>Clube Náutico</p>
+    <table>
+        <tr>
+            <td>Idade</td>
+            <td><input type="number" id="campoIdade"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="button" value="Categoria" onclick="categoria()">
+                <input type="button" value="Limpar" onclick="limpar()">
+            </td>
+        </tr>
+    </table>
+    <p><span id="spanMsg"></span></p>
+</body>
+
+</html>

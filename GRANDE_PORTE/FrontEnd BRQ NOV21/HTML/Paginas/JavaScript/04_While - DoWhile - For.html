@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<html>
+	<head>
+		<title>Laço</title>
+		<script type="text/javascript">
+		    // imprimir números de 1 a 100
+            document.write("laço de repetição while controlado por contador<br/>");
+			var cont=0;
+			while(cont < 100){
+				cont++;
+				
+				if(cont%10==0)
+				{
+					continue;
+				}
+				
+				document.write(cont + ' - ');
+				
+				if(cont == 33)
+				{
+					break;
+				}
+			}
+
+			document.write("<br/><br/><br/>");
+			
+			// imprimir números aleatorios até que apareça o número 10
+			document.write("laço de repetição while controlado por sentinela<br/>");
+			var num=Math.floor(Math.random()*100);
+			while(num != 10){
+				document.write(num + ' - ');
+				num=Math.floor(Math.random()*100);
+			}
+
+			document.write("<br/><br/><br/>");
+
+		    // imprimir números de 1 a 100
+            document.write("laço de repetição do/while controlado por contador<br/>");
+			var cont=1;
+			do {
+				document.write(cont + ' - ');
+				cont++;
+			} while(cont <= 100);
+
+			document.write("<br/><br/><br/>");
+
+			// imprimir números aleatorios até que apareça o número 10
+			document.write("laço de repetição do/while controlado por sentinela<br/>");
+			var num=Math.floor(Math.random()*100);
+			do {
+			    // gera números entre 0 e 100
+				// document.write(Math.floor(Math.random()*1000)%101 + ' - ');
+                // gera números entre 1.5 e 3.5
+				// document.write((Math.floor(Math.random()*100)%16+20)/10+' - ');
+				document.write(num + ' - ');
+				num=Math.floor(Math.random()*100);
+			} while(num != 10);
+
+			document.write("<br/><br/><br/>");
+
+            document.write("laço de repetição do/while emulado com while controlado por contador<br/>");
+			var cont=1;
+			while(true){
+				document.write(cont + ' - ');
+				cont++;
+				if(cont > 100)
+				{
+					break;
+				}
+			} 
+
+			document.write("<br/><br/><br/>");
+			
+		    // imprimir números de 1 a 100
+            document.write("laço de repetição for controlado por contador<br/>");
+			for(cont=0;cont < 100;cont++)
+			{
+				document.write(cont + ' - ');
+			}
+
+			document.write("<br/><br/><br/>");
+			
+			// imprimir números aleatorios até que apareça o número 10
+			document.write("laço de repetição for controlado por sentinela<br/>");
+			for(num=Math.floor(Math.random()*100); num != 10; num=Math.floor(Math.random()*100))
+			{
+				document.write(num + ' - ');
+			}
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

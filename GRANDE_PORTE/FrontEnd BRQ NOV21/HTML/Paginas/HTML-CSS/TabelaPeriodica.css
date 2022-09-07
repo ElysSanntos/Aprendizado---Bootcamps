@@ -1,0 +1,94 @@
+    td {
+        text-align: center;
+        width: 80px;
+        height: 80px;
+    }
+    
+    .nome {
+        font-size: 40%;
+    }
+    
+    .simbolo {
+        font-weight: bold;
+    }
+    
+    .numero {
+        font-size: 90%;
+    }
+    
+    .m_transicao {
+        background-color: rosybrown;
+    }
+    
+    .m_alcalino {
+        background-color: darkorange;
+    }
+    
+    .m_alcalino_terroso {
+        background-color: yellow;
+    }
+    
+    .m_representativo {
+        background-color: darkgrey;
+    }
+    
+    .s_metal {
+        background-color: mediumaquamarine;
+    }
+    
+    .halogênio {
+        background-color: darkturquoise;
+    }
+    
+    .g_nobre {
+        background-color: cornflowerblue;
+    }
+    
+    gasoso {
+        color: darkblue;
+    }
+    
+    sólido {
+        color: black;
+    }
+    
+    .n_metal {
+        background-color: lawngreen;
+    }
+    
+    líquido {
+        color: red;
+    }
+    
+    .lantanídeo {
+        background-color: sandybrown;
+    }
+    
+    .zero {
+        background-color: rgb(231, 226, 226);
+    }
+    
+    período {
+        color: fuchsia;
+        font-weight: bold;
+    }
+    
+    .actinídeo {
+        background-color: plum;
+    }
+    
+    desconhecido {
+        color: darkslategrey;
+    }
+    
+    grupo {
+        color: fuchsia;
+        font-size: 150%;
+        font-weight: bold;
+    }
+    
+    metal_alcalino {
+        color: black;
+        font-size: 60%;
+        font-weight: bold;
+    }

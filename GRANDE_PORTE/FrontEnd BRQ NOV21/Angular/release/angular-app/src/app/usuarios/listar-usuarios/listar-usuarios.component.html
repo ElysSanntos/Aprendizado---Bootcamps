@@ -1,0 +1,45 @@
+<p grifaTexto >listar-usuarios works!</p>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Sobrenome</th>
+        <th>Idade</th>
+        <th>Nascimento</th>
+        <th>CPF</th>
+        <th>Investimentos</th>
+        <th>Mostrar Dados</th>
+    </tr>
+    <!-- diretiva estrutural -->
+    <!-- diretiva é um componente sem HTML que altera a estrutra de elementos HTML -->
+    <tr *ngFor="let dados of usuarios; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ dados.nome }}</td>
+        <td>{{ dados.sobrenome }}</td>
+        <td>{{ dados.idade }}</td>
+        <td>{{ dados.nascimento | date: 'dd/MM/yyyy' }}</td>
+        <td> {{ dados.cpf | cpf }}</td>
+        <td> {{ dados.investimentos | currency : 'BRL' }}</td>
+        <td>
+            <span *ngIf="dados.idade <= 15" style="background-color: blue;">{{ dados.idade }}</span>
+            <span *ngIf="dados.idade > 15" style="background-color: red;">{{ dados.idade }}</span>
+        </td>
+        <td> <button class="btn btn-info" (click)="onUsuarioClick( dados )" > Selecionar </button> </td>
+    </tr>
+</table>
+
+<div class="alert-success" *ngIf="seEhMaiorQue18 && usuarioSelecionadoPai">
+    A idade do usuário é maior ou igual a 18!
+</div>
+
+<div class="alert-danger" *ngIf="!seEhMaiorQue18 && usuarioSelecionadoPai" >
+    A idade do usuário é menor que 18!
+</div>
+
+<!-- O componente filho (app-detalhe-usuario) recebe os valor da variável "usuarioSelecionadoPai" (componente pai) -->
+<app-detalhe-usuario 
+    [usuarioSelecionadoDetalhe]="usuarioSelecionadoPai" 
+    (emitirSeMaiorQue18)="metodoDoPai($event)"   
+>
+</app-detalhe-usuario>

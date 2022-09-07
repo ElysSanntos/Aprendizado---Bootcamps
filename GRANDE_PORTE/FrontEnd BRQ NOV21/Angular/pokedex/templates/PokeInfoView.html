@@ -1,0 +1,31 @@
+<a href="/" class="back-button" > &lt; </a>
+
+<div class="poke-profile" >
+    <div>#{{ vm.pkm.number | NumberFormatter }} - {{ vm.pkm.name }}</div>
+    <img class="poke-sprite" ng-src="//serebii.net/sunmoon/pokemon/{{vm.pkm.number | NumberFormatter}}.png" alt="">
+</div>
+
+<ul class="poke-types" >
+    <li ng-repeat="type in vm.pkm.info.types" >
+        <img ng-src="//serebii.net/pokedex-bw/type/{{type.name}}.gif" />
+    </li>
+</ul>
+
+<table class="stats" >
+    <tbody>
+        <tr>
+            <td>Attack</td>
+            <td>Defense</td>
+            <td>Sp. Atk</td>
+            <td>Sp. Def</td>
+            <td>Speed</td>
+        </tr>
+        <tr>
+            <td>{{ vm.pkm.info.attack }}</td>
+            <td>{{ vm.pkm.info.defense }}</td>
+            <td>{{ vm.pkm.info.sp_atk }}</td>
+            <td>{{ vm.pkm.info.sp_def }}</td>
+            <td>{{ vm.pkm.info.speed }}</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,22 @@
+Arquivo Package.json ==> script de inicialização : npx ts-node-dev ./src/server
+
+"scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "script de inicialização : npx ts-node-dev ./src/server"
+
+No CMD: npm run dev
+
+Software de teste js: https://jestjs.io/pt-BR/
+
+
+Transformar o nosso server em um container docker.
+
+https://nodejs.org/en/docs/guides/nodejs-docker-webapp/
+
+
+Bocker Build
+
+No arquivo packege.jason
+
+
+Rodar imagem: npm build

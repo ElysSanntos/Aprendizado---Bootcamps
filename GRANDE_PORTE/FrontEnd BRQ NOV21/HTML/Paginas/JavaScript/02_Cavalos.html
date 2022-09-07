@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<html>
+
+<head>
+    <title>Função _ Cavalos</title>
+</head>
+
+<body style="background-color:rgb(230, 221, 219)">
+    <h1 style="color:blue">Quantidade de Cavalos</h1>
+
+    <script type="text/javascript">
+        function cavalos() {
+            var massa = document.getElementById("campoMassa").value;
+            var altura = document.getElementById("campoAltura").value;;
+            var segundos = document.getElementById("campoSegundos").value;;
+            var cav = Math.ceil(massa * altura / segundos / 745.6999);
+            var msg = "Serão necessários " + cav + " Cavalos";
+            document.getElementById("spanMsg").innerHTML = msg;
+
+        }
+
+
+
+        function limpar() {
+            document.getElementById("campoNum").value = "";
+            document.getElementById("spanMsg").innerHTML = "";
+        }
+    </script>
+    </head>
+
+    <body>
+        <h1>Cavalos</h1>
+        Entre com a massa:
+        <input type="text" id="campoMassa">
+        <br/> Entre com a altura:
+        <input type="text" id="campoAltura">
+        <br/>Entre com os segundos:
+        <input type="text" id="campoSegundos">
+        <br/>
+        <input type="button" value="calcular" onclick="cavalos()">
+        <input type="button" value="limpar" onclick="limpar()">
+        <p><span id="spanMsg">???????</span></p>
+    </body>
+
+</html>

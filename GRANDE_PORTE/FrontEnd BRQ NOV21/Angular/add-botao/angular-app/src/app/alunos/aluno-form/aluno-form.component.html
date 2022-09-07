@@ -1,0 +1,95 @@
+<form [formGroup]="alunoForm" (submit)="onSubmit()">
+
+
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nomeAluno" formControlName="nomeAluno">
+    </div>
+
+    <app-field-error [deveMostrar]="isValid('nomeAluno')" [controlFilho]="alunoForm.controls['nomeAluno']"></app-field-error>
+
+
+    <!--===================================================================-->
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">E-mail</label>
+        <input type="email" class="form-control" [class.is-invalid]="isValid('emailAluno')" id="exampleInputEmail1" formControlName="emailAluno">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+
+    <app-field-error [deveMostrar]="isValid('emailAluno')" [controlFilho]="alunoForm.controls['emailAluno']"></app-field-error>
+
+
+    <!--===================================================================-->
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Senha</label>
+        <input type="password" class="form-control" id="senhaAluno" formControlName="senhaAluno">
+    </div>
+
+    <app-field-error [deveMostrar]="isValid('senhaAluno')" [controlFilho]="alunoForm.controls['senhaAluno']"></app-field-error>
+
+
+    <!--===================================================================-->
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">CEP</label>
+        <input type="text" class="form-control" (blur)="buscarCEP()" [class.is-invalid]="isValid('cepAluno')" id="exampleInputEmail1" formControlName="cepAluno">
+    </div>
+
+    <app-field-error [deveMostrar]="isValid('cepAluno')" [controlFilho]="alunoForm.controls['cepAluno']"></app-field-error>
+
+    <!--===================================================================-->
+
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Rua</label>
+        <input type="text" class="form-control" id="logradouroAluno" formControlName="logradouroAluno">
+    </div>
+
+    <app-field-error [deveMostrar]="isValid('logradouroAluno')" [controlFilho]="alunoForm.controls['logradouroAluno']"></app-field-error>
+
+    <!--===================================================================-->
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Nro</label>
+        <input type="text" class="form-control" [class.is-invalid]="isValid('nroAluno')" id="exampleInputEmail1" formControlName="nroAluno">
+
+    </div>
+
+    <app-field-error [deveMostrar]="isValid('nroAluno')" [controlFilho]="alunoForm.controls['nroAluno']"></app-field-error>
+
+    <!--===================================================================-->
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Complemento</label>
+        <input type="text" class="form-control" [class.is-invalid]="isValid('complementoAluno')" id="exampleInputEmail1" formControlName="complementoAluno">
+
+    </div>
+
+    <app-field-error [deveMostrar]="isValid('complementoAluno')" [controlFilho]="alunoForm.controls['complementoAluno']"></app-field-error>
+
+    <!--===================================================================-->
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Cidade</label>
+        <input type="text" class="form-control" [class.is-invalid]="isValid('cidadeAluno')" id="exampleInputEmail1" formControlName="cidadeAluno">
+
+    </div>
+
+    <app-field-error [deveMostrar]="isValid('cidadeAluno')" [controlFilho]="alunoForm.controls['cidadeAluno']"></app-field-error>
+    <!--===================================================================-->
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Bairro</label>
+        <input type="text" class="form-control" [class.is-invalid]="isValid('bairroAluno')" id="exampleInputEmail1" formControlName="bairroAluno">
+
+    </div>
+
+    <app-field-error [deveMostrar]="isValid('bairroAluno')" [controlFilho]="alunoForm.controls['bairroAluno']"></app-field-error>
+    <!--===================================================================-->
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Estado</label>
+        <input type="text" class="form-control" [class.is-invalid]="isValid('estadoAluno')" id="exampleInputEmail1" formControlName="estadoAluno">
+
+    </div>
+
+    <app-field-error [deveMostrar]="isValid('estadoAluno')" [controlFilho]="alunoForm.controls['estadoAluno']"></app-field-error>
+    <!--===================================================================-->
+
+
+    <button type="submit" class="btn btn-primary" [disabled]="!alunoForm.valid">Enviar</button>
+</form>

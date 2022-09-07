@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<html>
+
+<head>
+    <title>Laço pg 127</title>
+    <script type="text/javascript">
+        function pegaAleatorio(min, max, dec) {
+            x = Math.random();
+            var massa = (max - min) * x + min;
+            massa = massa.toFixed(dec);
+            return massa;
+        }
+
+        var cont = 0;
+        var imc;
+        var msg;
+        var qtd = [0, 0, 0, 0, 0, 0];
+        var msg = ["abaixo do peso", "peso ideal (parabéns!)", "levemente acima do peso", "Obesidade Grau I", "Obesidade Grau II (severa)", "Obesidade Grau III (mórbida)"];
+
+        while (cont < 200) {
+            massa = pegaAleatorio(50, 90, 3);
+            altura = pegaAleatorio(0.5, 2.2, 2);
+            imc = massa / (altura * altura);
+
+            if (imc < 18.5) qtd[0]++;
+            else if (imc < 24.9) qtd[1]++;
+            else if (imc < 29.9) qtd[2]++;
+            else if (imc < 34.9) qtd[3]++;
+            else if (imc < 39.9) qtd[4]++;
+            else qtd[5]++;
+            cont++;
+        }
+
+        for (var i in qtd) {
+            document.write(i + ' - qtde:' + qtd[i] + ' - ' + msg[i] + '<br/>');
+        }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

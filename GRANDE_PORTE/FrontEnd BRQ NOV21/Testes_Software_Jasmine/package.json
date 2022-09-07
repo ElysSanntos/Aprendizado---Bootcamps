@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "karma": "^6.3.9",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-jasmine": "^4.0.1"
+  },
+  "dependencies": {
+    "jasmine-core": "^3.10.1",
+    "karma-webpack": "^5.0.0",
+    "webpack": "^5.65.0"
+  }
+}

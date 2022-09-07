@@ -1,0 +1,131 @@
+<html>
+
+<head>
+    <title></title>
+    <script type="text/javascript">
+        function validarCampoNome() {
+            console.log("validarCampoNome()");
+
+            var nomeOk = true;
+            var valor = document.getElementById("CampoNome").value;
+            const regex = /\W|_/;
+
+            // verificar se há contúdo no campo
+            if (nomeOk && (valor == null || valor == "")) {
+                document.getElementById("spanNome").innerHTML = "Preencher o Nome.";
+                nomeOk = false;
+            }
+            if (regex.test(valorNome)) {
+                document.getElementById("spanNome").innerHTML = "Nome pode conter somente caracteres alfanuméricos.";
+                nomeOk = false;
+            }
+
+            // verificar se o primeiro caractere é espaço em branco
+            if (nomeOk && (valor.substr(0, 1) == " ")) {
+                document.getElementById("spanNome").innerHTML = "Nome não pode começar com espaço.";
+                nomeOk = false;
+            }
+
+            // usar expressão regular, pois só pode haver letras de 
+            // a-z ou A-Z e o ponto (.) 
+
+            return nomeOk;
+        }
+
+        function validarCampoAno() {
+            console.log("validarCampoAno()");
+
+            var anoOk = true;
+            var valor = document.getElementById("CampoAno").value;
+
+            // se foi preenchido o campo
+            if (anoOk && (valor == null || valor == "")) {
+                document.getElementById("spanAno").innerHTML = "Preencher o Ano.";
+                anoOk = false;
+            }
+
+            // se o conteúdo é numérico
+            if (anoOk && (isNaN(valor))) {
+                document.getElementById("spanAno").innerHTML = "Ano tem que ser numérico.";
+                anoOk = false;
+            }
+
+            // se o ano está entre 1900 e 2030
+            if (anoOk && (valor < 1900 || valor > 2030)) {
+                document.getElementById("spanAno").innerHTML = "1900 <= ano <= 2030.";
+                anoOk = false;
+            }
+
+            return anoOk;
+        }
+
+        function validarCampoCNH() {
+            console.log("validarCampoCNH()");
+            var cnhOK = true;
+            var valor = document.getElementById("CampoCNH").value;
+
+            valor = valor.toLowerCase();
+
+            // se foi preenchido o campo
+            if (cnhOK && (valor == null || valor == "")) {
+                document.getElementById("spanCNH").innerHTML = "Preencher com sim ou não";
+                cnhOK = false;
+            }
+
+            if (cnhOK && (valor != 'sim' &&
+                    valor != 'não' &&
+                    valor != 's' &&
+                    valor != 'n')) {
+                document.getElementById("spanCNH").innerHTML = "Preencher com sim/não ou s/n";
+                cnhOK = false;
+            }
+
+            return cnhOK;
+        }
+
+        function limpar() {
+            document.getElementById("spanNome").innerHTML = null;
+            document.getElementById("spanAno").innerHTML = null;
+            document.getElementById("spanCNH").innerHTML = null;
+        }
+
+        function validarForm() {
+            var ok = validarCampoNome();
+            ok = validarCampoAno() && ok;
+            ok = validarCampoCNH() && ok;
+            return ok;
+        }
+    </script>
+
+</head>
+
+<body>
+    <h1>Cadastro
+        <h1>
+            <form method="get" action="">
+                <table border="0">
+                    <tr>
+                        <td>Nome</td>
+                        <td><input type="text" id="CampoNome" name="CampoNome" /></td>
+                        <td><span id="spanNome"></span></td>
+
+                    </tr>
+                    <tr>
+                        <td>Ano Nascimento</td>
+                        <td><input type="text" id="CampoAno" /></td>
+                        <td><span id="spanAno"></span></td>
+                    </tr>
+                    <tr>
+                        <td>tem CNH</td>
+                        <td><input type="text" id="CampoCNH" /></td>
+                        <td><span id="spanCNH"></span></td>
+                    </tr>
+                </table>
+
+                <input type="submit" id="btnExemplo" value="Enviar" onclick="return validarForm()" />
+                <input type="reset" id="btnExemplo" value="Limpar" onclick="limpar()" />
+
+            </form>
+</body>
+
+</html>

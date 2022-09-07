@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<html>
+	<head>
+		<title>Números Primos</title>
+		<script type="text/javascript">
+			function ehPrimo(num)
+			{
+               crivo = Math.ceil(Math.sqrt(num));
+			   div = 2;
+			   while (num%div!=0)
+			   { 
+  				   div++;
+                   if (div >= crivo) break;
+			   }
+			   return div>=crivo;
+			}
+	
+			for(i=2; i<1000; i++)
+			   if(ehPrimo(i))
+			      document.write(i +" - ");
+
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

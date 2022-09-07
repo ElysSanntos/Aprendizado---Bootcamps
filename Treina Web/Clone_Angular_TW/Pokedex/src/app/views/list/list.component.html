@@ -1,0 +1,15 @@
+<input[(ngModel)]="nameFilter" type="text" id="poke-filter" placeholder="Search" maxlength="20">
+
+    <!-- Para quando o mouse for passado por um elemento da lista  a imagem seja renderizada no corpo
+Na tag img vamos fazer um property binding -- Primeiro verifico se existe uma imagem para ser renderizada do contrario eu escondo o elemento com a diretiva ngIf
+Na lista vamos fazer um event binding -- assim consigo armagenar a informação na variavel pkm-->
+
+    <img [src]="pkmSprite" class="selected-pkm" *ngIf="selectedPkm !== null">
+
+
+    <ul class="poke-list">
+        <li class="poke-list-item" *ngFor="let pokemon of pokemonList" (mouseenter)="selectPokemon(pokemon)">
+            <img src="//serebii.net/pokedex-xy/icon/{{ pokemon.number | number:'3.0-0' }}.png">
+            <span>{{ pokemon.number | number:'3.0-0' }} - {{ pokemon.name }}</span>
+        </li>
+    </ul>

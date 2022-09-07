@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculo</title>
+</head>
+
+<body>
+    <h3>Curriculo</h3>
+    <form method='get'>
+        <table border='1' cellspacing='0'>
+            <tr>
+                <td>Nome</td>
+                <td>
+                    <input type='text' name='campoNome' placeholder='Entre seu nome...' size='30' maxlength='60' />
+                </td>
+            </tr>
+
+            <tr>
+                <td>Senha</td>
+                <td>
+                    <input type='password' placeholder='Digite sua senha...' name='campoSenha' maxlength='10' />
+                </td>
+            </tr>
+
+            <tr>
+                <td>Nível</td>
+                <td>
+                    <input type='radio' name='campoNivel' value='0' /> Iniciante
+                    <br/>
+                    <input type='radio' name='campoNivel' value='1' /> Profissional
+                    <br/>
+                    <input type='radio' name='campoNivel' value='2' checked/> Mestre
+                    <br/>
+                    <input type='radio' name='campoNivel' value='3' /> Sayajin
+                </td>
+            </tr>
+
+            <tr>
+                <td>Idioma</td>
+                <td>
+                    <input type='checkbox' name='campoIdioma' checked value='Português' /> Português
+                    <br/>
+                    <input type='checkbox' name='campoIdioma' value='Inglês' /> Inglês
+                    <br/>
+                    <input type='checkbox' name='campoIdioma' checked value='Espanhol' /> Espanhol
+                    <br/>
+                    <input type='checkbox' name='campoIdioma' value='Alemão' /> Alemão
+                </td>
+            </tr>
+
+            <tr>
+                <td>Observação</td>
+                <td>
+                    <textarea name='campoObs' cols='30' rows='5'>BANANA</textarea> <br/>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Time</td>
+                <td>
+                    <select name='campoTime'>
+							<option value='BJR'> Boca Jr.
+							<option value='PSG'> PSG
+							<option value='PSV'> PSV
+							<option value='ABC' selected> ABC
+						</select>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan='2' align='center'>
+                    <input type='submit' />
+                    <input type='reset' value='limpar' />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

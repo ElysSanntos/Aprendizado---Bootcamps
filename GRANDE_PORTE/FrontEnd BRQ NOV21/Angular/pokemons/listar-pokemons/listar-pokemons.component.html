@@ -1,0 +1,55 @@
+<div class="container">
+    <h2 class="text-secondary text-center">API</h2>
+    <p>
+        {{ diaDeHoje | date: "dd/MM/yyyy" }}
+    </p>
+    <hr />
+    <div>
+        <h4 class="text-info">Pokemons</h4>
+        <div> </div>
+        <table class="table" class="table table-bordered">
+            <tr>
+                <th>Nome</th>
+                <th>URL</th>
+                <th>Mostrar Dados</th>
+            </tr>
+
+            <tr *ngFor="
+      let p of pokemons?.results
+        | paginate
+          : {
+              itemsPerPage: this.itemsPerPage,
+              currentPage: page,
+              totalItems: pokemons?.count
+            }
+    ">
+                <td>{{ p.name }}</td>
+                <td>
+                    <a [href]="p.url" target="blank"> {{ p.url }} </a>
+                </td>
+                <td>
+                    <button class="btn btn-info" (click)="onSelecionarClick(p)">
+        Selecionar
+      </button>
+                </td>
+            </tr>
+            <p>Total de Pokemons:{{ pokemons?.count }}</p>
+        </table>
+
+        <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+        <div class="container">
+            <p>Todos Itens exibidos por página:</p>
+
+            <select #quantidadeSelecionada class="form-select form-select-ms" [(ngModel)]="itemsPerPage" (change)="itemsPerPageSelect(quantidadeSelecionada.value)" id="sel1">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+            </select>
+
+        </div>
+
+
+        <app-detalhe-pokemons *ngIf="pokemonSelecionadoPai" [pokemonSelecionadoDetalhe]="pokemonSelecionadoPai" (emitirIdPokemon)="receberIdFilho($event)"></app-detalhe-pokemons>

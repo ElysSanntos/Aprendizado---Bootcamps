@@ -1,0 +1,34 @@
+<p>produto-form works!</p>
+
+<p class="title"> Cadastrar produtos</p>
+
+<form [formGroup]="meuForm" (submit)="onSubmit()">
+    <div class="mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nome" formControlName="nome">
+    </div>
+    <div class="mb-3">
+        <label for="preco" class="form-label">Preço</label>
+        <input type="text" class="form-control" id="preco" formControlName="preco">
+    </div>
+
+    <div class="mb-3">
+        <label for="descricao" class="form-label">Descrição</label>
+        <input type="text" class="form-control" id="descricao" formControlName="descricao">
+    </div>
+
+    <!-- <div class="mb-3">
+        <label for="categoria" class="form-label">Categoria</label>
+        <input type="text" class="form-control" id="categoria" formControlName="categoria">
+    </div> -->
+
+    <div class="mb-3">
+        <label for="categoria" class="form-label">Categoria</label>
+       <select class="form-control" formControlName="categorias">
+           <option value=""> SELECIONE</option>
+           <option *ngFor="let cat of categoriasSelect" [value]="cat.idCategoria">{{ cat.nome }}</option>
+       </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

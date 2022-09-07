@@ -1,0 +1,20 @@
+body {
+    background-color: linen;
+}
+
+h1 {
+    color: #783c00;
+    margin-left: 40px;
+}
+
+h2 {
+    color: rgb(233, 230, 63);
+    font-family: arial;
+    font-size: smaller;
+}
+
+h3 {
+    color: blue;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bolder;
+}

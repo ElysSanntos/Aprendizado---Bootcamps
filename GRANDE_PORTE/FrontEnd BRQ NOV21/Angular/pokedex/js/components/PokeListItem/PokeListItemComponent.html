@@ -1,0 +1,6 @@
+<li class="poke-list-item">
+    <a ng-href="/#!/pokedex/{{ $ctrl.pkm.number }}" >
+        <img ng-src="//serebii.net/pokedex-xy/icon/{{ $ctrl.pkm.number | NumberFormatter }}.png" alt="">
+        <span>{{ $ctrl.pkm.number | NumberFormatter }} - {{ $ctrl.pkm.name }}</span>
+    </a>
+</li>

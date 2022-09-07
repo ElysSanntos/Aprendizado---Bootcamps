@@ -1,0 +1,28 @@
+<p grifaTexto>listar-professores works!</p>
+
+<div class="col-lg-12" style="text-align: right;">
+    <button class="btn btn-success" [routerLink]="['/professores/new']" routerLinkActive="router-link-active">Novo Professor</button>
+</div>
+
+
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Ações</th>
+    </tr>
+
+    <tr *ngFor="let p of professores">
+        <td> {{ p.id }} </td>
+        <td> {{ p.nome }} </td>
+        <td> {{ p.email }} </td>
+        <td>
+            <button class="btn btn-outline-info" [routerLink]="['/professores', p.id ]"> Editar </button>
+            <button class="btn btn-outline-danger" (click)="onApagarClick(p)"> Apagar </button>
+        </td>
+
+    </tr>
+
+</table>

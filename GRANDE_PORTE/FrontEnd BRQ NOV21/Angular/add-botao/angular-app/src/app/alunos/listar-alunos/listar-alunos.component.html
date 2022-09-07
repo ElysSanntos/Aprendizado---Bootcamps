@@ -1,0 +1,48 @@
+<div class="col-lg-12" style="text-align: right;">
+    <button class="btn btn-success" [routerLink]="['/alunos/new']" routerLinkActive="router-link-active">Novo Aluno</button>
+</div>
+
+
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Senha</th>
+        <th>Tipo de Usuário</th>
+        <th>CEP</th>
+        <th>Rua</th>
+        <th>Número</th>
+        <th>Complemento</th>
+        <th>Cidade</th>
+        <th>Bairro</th>
+        <th>Estado</th>
+        <th>Ações</th>
+    </tr>
+
+    <tr *ngFor="let p of alunos ">
+        <td> {{ p.id }} </td>
+        <td> {{ p.nome }} </td>
+        <td> {{ p.email}} </td>
+        <td> {{ p.cep }} </td>
+        <td> {{ p.rua }} </td>
+        <td> {{ p.numero }} </td>
+        <td> {{ p.complemnto }} </td>
+        <td> {{ p.cidade }} </td>
+        <td> {{ p.bairro }} </td>
+        <td> {{ p.estado }} </td>
+        <td>
+            <div class="btn-group ">
+                <button class="btn btn-outline-info " [routerLink]="[ 'usuarios', p.id ] "> Editar </button>
+                <button class="btn btn-outline-danger " (click)="onApagarClick(p) "> Apagar </button> </div>
+        </td>
+
+
+
+        <td>
+
+
+    </tr>
+
+</table>

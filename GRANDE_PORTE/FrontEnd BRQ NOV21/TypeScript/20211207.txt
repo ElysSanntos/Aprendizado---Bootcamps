@@ -1,0 +1,27 @@
+SET UP
+Iniciar o package Jason: npm init -y
+Instalar o typeScript no projeto: npm install typescript --save-dev
+Instalar pacote para os tipos basicos do node: npm install @types/node --save-dev
+Instalar o framework express: npm install express --save
+Instalar pacote para os tipos basicos do express: npm install @types/express --save-dev
+Iniciar o tsc localmente (gera o tsconfig.jason): npx tsc --init
+rodar tsc (cria a pasta dist) : npx tsc -w
+executar o servidor  node: node ./dist/server.js
+Instalar.....: npm install ts-node-dev --save-dev (--save-dev, salva como dependencia de desenvolvimento)
+Executa o arquivo ts e reinicializa o servidor: npx ts-node-dev ./src/server
+
+Executar via prompt: curl -X GET http://localhost:3000/
+                     curl -X POST http://localhost:3000/
+
+
+1 - verificar se o container docker do mysql está funcionando
+2 - acessar o banco a partir do mysql workbench
+3 - criar um banco de dados chamado projetocrud
+4 - instalar dependências: npm install knex mysql2 --save ==>Query builder: knex ==>https://knexjs.org/#Installation-client
+5 - criar pasta database com arquivo index.ts para configurar banco de dados]
+6 - inserir o pacote de tipos do knex: npm install @types/knex --save-dev
+
+
+
+
+

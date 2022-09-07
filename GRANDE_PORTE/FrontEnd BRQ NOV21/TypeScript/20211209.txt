@@ -1,0 +1,70 @@
+Do projeto baixado do professor pelo GIT, rodar o comando 
+
+npm install para puxar a pasta node_modules
+
+
+npm run dev
+
+arquivo package.json - inserir em scrips
+"prebuild": "npx tsc",
+"build": "docker build . -t elyssanntos/projetocrudapi",
+"dev": "npx ts-node-dev ./src/server"
+
+Criar o arquivo Dockerfile na raiz do projeto:
+FROM node:16-alpine
+
+WORKDIR /usr/api
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY ./dist .
+
+EXPOSE 3000
+
+CMD ["node","server.js"]
+
+Depois buildar o projeto -> no cmd : npm run build ==> para criar a imagem do docker ==> coloque a porta setada no expose e rode
+
+Criar arquivos de configuração na raiz do projeto: tem a finalidade de boas praticas para separar essas informações do meio do codigo
+.env
+.env.developement
+
+PORT = 3000
+MYSQL_HOST=localhost
+MYSQL_DATABASE=projetocrud
+MYSQL_USER=root
+MYSQL_PASSWORD=mysql
+
+pacote dotenv
+https://www.npmjs.com/package/dotenv
+
+npm install dotenv --save
+
+Nos arquivos: index e server ts
+import dotenv from 'dotenv';
+
+dotenv.config({
+    path: process.env.NODE_ENV==="development" ? ".env.development": ".env"
+})
+
+Configurações do arquivo index.ts
+const dbConfig = {
+  client: "mysql2",
+  connection: {
+    host: process.env.MYSQL_HOST,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.env.MYSQL_DATABASE,
+  },
+};
+
+No arquivo server
+const port = process.env.PORT;
+
+
+Depois rode no cmd npm rum dev
+
+docker-compose up -d
+

@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<title>Objeto 2s</title>
+			<script type="text/javascript">
+
+				function imprimeTudo(){
+				    document.write("---------------------<br/>");
+					document.write("Modelo...: " + this.modelo+"</br>");			
+					document.write("Marca....: " + this.marca+"</br>");			
+					document.write("Ano......: " + this.ano+"</br>");			
+					document.write("Motor....: " + this.motor+"</br>");			
+					document.write("Rodas....: " + this.rodas+"</br>");			
+					document.write("Consumo..: " + this.consumo(1000)+"</br>");			
+				}
+
+				function calc_consumo(distancia){
+				   return distancia / (15 / this.motor);
+				}
+				
+				function Carro(modelo, marca, ano, motor ){
+					this.modelo = modelo;
+					this.marca  = marca;
+					this.ano    = ano;
+					this.motor  = motor;
+				}
+				
+				var car1 = new Carro("G3","Gol",2000,1.0);
+                var car2 = new Carro("147","Fiat",1984,2.0);
+                var car3 = new Carro("C4","Citroen",2014,1.6);
+                var car4 = new Carro("tuktuk","Piaggio",2000,0.5);
+				car4.rodas = 3;
+	
+				Carro.prototype.rodas = 4;
+				Carro.prototype.consumo = calc_consumo;
+				Carro.prototype.imprime = imprimeTudo;
+				
+				car1.imprime();
+				car2.imprime();
+				car3.imprime();
+				car4.imprime();
+				
+			</script>
+	</head>
+	<body>
+			                           
+	</body>
+</html>  

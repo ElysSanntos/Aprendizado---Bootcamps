@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<html>
+
+<head>
+    <title>Função</title>
+</head>
+
+<body style="background-color:rgb(230, 221, 219)">
+    <h1 style="color:blue">Função</h1>
+
+    <script type="text/javascript">
+        function limpar() {
+            document.getElementById("campoNum").value = "";
+            document.getElementById("spanMsg").innerHTML = "";
+        }
+
+        function verificaPar() {
+            var num = document.getElementById("campoNum").value;
+            var res = num % 2
+            var msg;
+
+            if (isNaN(res) || num == "") {
+                msg = "O dado não é numérico.";
+            } else {
+                if (Math.floor(num) == num) {
+                    if (res == 0) {
+                        msg = "É par!";
+                    } else {
+                        msg = "É impar!";
+                    }
+                } else {
+                    msg = "Não é um número Inteiro.";
+                }
+
+            }
+
+            document.getElementById("spanMsg").innerHTML = msg;
+        }
+    </script>
+    </head>
+
+    <body>
+        <h1>Par ou Impar</h1>
+        Entre um número inteiro:
+        <input type="text" id="campoNum"> <br/>
+        <input type="button" value="calcular" onclick="verificaPar()">
+        <input type="button" value="limpar" onclick="limpar()">
+        <p><span id="spanMsg"></span></p>
+    </body>
+
+</html>

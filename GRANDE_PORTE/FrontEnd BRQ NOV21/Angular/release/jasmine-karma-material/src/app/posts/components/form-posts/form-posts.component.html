@@ -1,0 +1,31 @@
+
+<mat-sidenav-container>
+    <mat-sidenav-content>
+
+        <div class="example-container">
+            <div class="form-container">
+
+                <form [formGroup]="form" (ngSubmit)="submitForm()" novalidate>
+
+                    <!-- Title -->
+                    <mat-form-field class="form-field">
+                        <input matInput placeholder="Tile" formControlName="title">
+                    </mat-form-field>
+
+                    <!-- Body -->
+                    <mat-form-field class="form-field">
+                        <input matInput placeholder="Body" formControlName="body">
+                    </mat-form-field>
+
+                    <!-- Submit -->
+                    <div class="button-wrapper">
+                        <button mat-flat-button color="primary">Submit</button>
+                    </div>
+
+                </form>
+
+
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

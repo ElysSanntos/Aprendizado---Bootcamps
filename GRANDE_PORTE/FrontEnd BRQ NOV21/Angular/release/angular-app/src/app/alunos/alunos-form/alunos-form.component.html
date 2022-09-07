@@ -1,0 +1,133 @@
+
+<form [formGroup]="meuForm" (submit)="onSubmit()" >
+
+    <div class="mb-3">
+        <label class="form-label">Nome</label>
+        <input type="text" class="form-control" id="nome" formControlName="nome">
+    </div>
+
+    <app-field-error 
+        [deveMostrar]="isValid('nome')"
+        [controlFilho]="meuForm.controls['nome']"
+    ></app-field-error>
+
+
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email</label>
+        <input type="email" class="form-control" [class.is-invalid]="isValid('email')" id="exampleInputEmail1" formControlName="email" >
+    </div>
+
+    <app-field-error 
+        [deveMostrar]="isValid('email')"
+        [controlFilho]="meuForm.controls['email']"
+    ></app-field-error>
+
+
+
+    <div class="mb-3">
+        <label  class="form-label">Senha</label>
+        <input type="text" class="form-control" [class.is-invalid]="isValid('senha')" formControlName="senha" >
+    </div>
+
+    <app-field-error 
+        [deveMostrar]="isValid('senha')"
+        [controlFilho]="meuForm.controls['senha']"
+    ></app-field-error>
+
+
+    <div class="mb-3">
+        <label  class="form-label">Tipo Usuário</label>
+        <input type="text" class="form-control" [class.is-invalid]="isValid('tipo_usuario')" formControlName="tipo_usuario" >
+    </div>
+
+    <app-field-error 
+        [deveMostrar]="isValid('tipo_usuario')"
+        [controlFilho]="meuForm.controls['tipo_usuario']"
+    ></app-field-error>
+
+
+
+    <div class="mb-3">
+        <label  class="form-label">CEP</label>
+        <input type="text" class="form-control" (blur)="buscarCEP()" [class.is-invalid]="isValid('cep')" formControlName="cep" >
+    </div>
+
+    <app-field-error 
+        [deveMostrar]="isValid('cep')"
+        [controlFilho]="meuForm.controls['cep']"
+    ></app-field-error>
+
+
+    <div class="mb-3">
+        <label  class="form-label">Logradouro</label>
+        <input type="text" class="form-control" [class.is-invalid]="isValid('logradouro')" formControlName="logradouro" >
+    </div>
+
+    <app-field-error 
+        [deveMostrar]="isValid('logradouro')"
+        [controlFilho]="meuForm.controls['logradouro']"
+    ></app-field-error>
+
+
+
+
+    <div class="mb-3">
+        <label  class="form-label">Número</label>
+        <input type="text" class="form-control" [class.is-invalid]="isValid('numero')" formControlName="numero" >
+    </div>
+
+    <app-field-error 
+        [deveMostrar]="isValid('numero')"
+        [controlFilho]="meuForm.controls['numero']"
+    ></app-field-error>
+
+
+
+    <div class="mb-3">
+        <label  class="form-label">Complemento</label>
+        <input type="text" class="form-control" [class.is-invalid]="isValid('complemento')" formControlName="complemento" >
+    </div>
+
+    <app-field-error 
+        [deveMostrar]="isValid('complemento')"
+        [controlFilho]="meuForm.controls['complemento']"
+    ></app-field-error>
+    
+
+
+    <div class="mb-3">
+        <label  class="form-label">Cidade</label>
+        <input type="text" class="form-control" [class.is-invalid]="isValid('cidade')" formControlName="cidade" >
+    </div>
+
+    <app-field-error 
+        [deveMostrar]="isValid('cidade')"
+        [controlFilho]="meuForm.controls['cidade']"
+    ></app-field-error>
+
+
+
+    <div class="mb-3">
+        <label  class="form-label">Bairro</label>
+        <input type="text" class="form-control" [class.is-invalid]="isValid('bairro')" formControlName="bairro" >
+    </div>
+
+    <app-field-error 
+        [deveMostrar]="isValid('bairro')"
+        [controlFilho]="meuForm.controls['bairro']"
+    ></app-field-error>
+
+
+    <div class="mb-3">
+        <label  class="form-label">Estado</label>
+        <input type="text" class="form-control" [class.is-invalid]="isValid('estado')" formControlName="estado" >
+    </div>
+
+    <app-field-error 
+        [deveMostrar]="isValid('estado')"
+        [controlFilho]="meuForm.controls['estado']"
+    ></app-field-error>
+    
+    <button type="submit" class="btn btn-primary" [disabled]="!meuForm.valid" >Enviar</button>
+</form>

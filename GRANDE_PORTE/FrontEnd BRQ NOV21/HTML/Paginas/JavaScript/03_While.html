@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laço</title>
+    <script type="text/javascript">
+        // imprimir números de 1 a 100
+        document.write("laço de repetição controlado por contador<br/>");
+        var cont = 1;
+        while (cont <= 100) {
+            document.write(cont + ' - ');
+            cont++;
+        }
+
+        document.write("<br/><br/><br/>");
+
+        // imprimir números aleatorios até que apareça o número 10
+        document.write("laço de repetição controlado por sentinela<br/>");
+        var num = Math.floor(Math.random() * 100);
+        while (num != 10) {
+            document.write(num + ' - ');
+            num = Math.floor(Math.random() * 100);
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

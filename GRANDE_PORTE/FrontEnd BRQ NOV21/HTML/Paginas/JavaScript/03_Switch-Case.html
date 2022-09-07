@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<html>
+
+<head>
+    <title>Switch</title>
+    <script type="text/javascript">
+        var cargo = 'Gerente';
+        // uso original do switch
+        switch (cargo) {
+            case 'Diretor':
+                document.write('Passagem Áerea <br/>');
+                document.write('Hospedagem Hotel 5 estrelas<br/>');
+            case 'Gerente':
+                document.write('Hospedagem Hotel 3 estrelas<br/>');
+            case 'Lider Técnico':
+                document.write('Vale Combustível<br/>');
+                document.write('Vale Teatro/Cinema<br/>');
+            case 'Analista':
+                document.write('Seguro de Vida<br/>');
+            case 'Programador':
+                document.write('Vale Academia<br/>');
+            default:
+                document.write('Vale Alimentação<br/>');
+                document.write('Vale Refeição<br/>');
+                document.write('Vale Transporte<br/>');
+                document.write('Plano de Saúde<br/>');
+                document.write('Plano Odontológico<br/>');
+        }
+
+        var opcao = 3;
+        // switch imitando uma cadeia de ifs
+        switch (opcao) {
+            case 1:
+                document.write('opção 1 <br/>');
+                break;
+            case 2:
+                document.write('opção 2 <br/>');
+                break;
+            case 3:
+                document.write('opção 3 <br/>');
+                break;
+            case 4:
+                document.write('opção 4 <br/>');
+                break;
+            default:
+                document.write('opção inválida <br/>');
+        }
+
+        var idade = 12;
+        switch (idade) {
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+                document.write('Categoria Baby <br/>');
+                break;
+            case 5:
+            case 6:
+            case 7:
+                document.write('Categoria Infantil A <br/>');
+                break;
+            case 8:
+            case 9:
+            case 10:
+            case 11:
+                document.write('Categoria Infantil B <br/>');
+                break;
+            case 12:
+            case 13:
+                document.write('Categoria Juvenil A <br/>');
+                break;
+            case 14:
+            case 15:
+            case 16:
+            case 17:
+                document.write('Categoria Juvenil b <br/>');
+                break;
+            default:
+                document.write('Categoria Adulto <br/>');
+                break;
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<html>
+
+<head>
+    <title></title>
+    <script type="text/javascript">
+        function mascara(src, mask) {
+            var i = src.value.length;
+            var saida = "#";
+            var texto = mask.substring(i)
+            console.log("i=" + i);
+            console.log("saida=" + saida);
+            console.log("texto=" + texto);
+            console.log("texto.substring(0, 1)=" + texto.substring(0, 1));
+            console.log("-------------------------");
+            console.log(texto.substring(0, 1));
+            if (texto.substring(0, 1) != saida) {
+                src.value += texto.substring(0, 1);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    CEP: <input type="text" maxlength="9" name="cep" onkeypress="mascara(this, '#####-###')" />
+    <br/> CPF: <input type="text" maxlength="14" name="cpf" onkeypress="mascara(this, '###.###.###-##')" />
+    <br/> Telefone: <input type="text" maxlength="16" name="telefone" onkeypress="mascara(this, '(##)#.####-####')" />
+</body>
+
+</html>
