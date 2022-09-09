@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulários</title>
+</head>
+
+<body>
+
+    <h1>Conhecendo os elementos de um Formulários</h1>
+
+    <form action="">
+        <input type="text" placeholder="Nome" maxlength="5" />
+        <br>
+        <input type="email" placeholder="E-mail" />
+        <br>
+        <input type="search" placeholder="Busca" />
+        <br>
+        <input type="url" placeholder="http://">
+        <br>
+        <input type="number" placeholder="123" />
+        <br>
+    </form>
+    <br><br>
+    <form action="">
+        <input type="radio" name=minhaopcao/> Opção A
+        <input type="radio" name=minhaopcao/>Opção B
+        <br>
+        <input type="checkbox" name=minhaopcao/> Opção A
+        <input type="checkbox" name=minhaopcao/>Opção B
+    </form>
+    <h2>Inputs de Tempo</h2>
+    <form action="">
+        <input type="date" />
+        <br>
+        <input type="time" />
+        <br>
+        <input type="week" />
+        <br>
+        <input type="month" />
+        <br>
+        <input type="range" min="0" max="10" />
+    </form>
+    <h2>Inputs</h2>
+    <form action="">
+        <input type="color" /><br>
+        <input type="file" /><br>
+        <input type="button" value="Botão" /><br>
+        <input type="submit" /><br>
+        <input type="reset" /><br>
+    </form>
+    <h3>Select</h3>
+    <form>
+        <select>
+            <option value="HTML">HTML 5</option>
+            <option value="CSS">CSS 3</option>
+            <option value="JavaScript">JavaScript</option>
+        </select>
+        <br><br>
+        <select multiple="">
+            <option value="HTML">HTML 5</option>
+            <option value="CSS">CSS 3</option>
+            <option value="JavaScript">JavaScript</option>
+        </select>
+    </form>
+    <h2>Data List</h2>
+    <form action="">
+        <input type="text" list="navegadores">
+        <datalist id="navegadores">
+            <option value="Internet Explorer">
+            <option value="Firefox">
+            <option value="Chrome">
+            <option value="Opera">
+            <option value="Safari">
+        </datalist>
+    </form>
+
+    <h2>
+        Fieldset
+    </h2>
+
+    <form action="">
+        <fieldset>
+            <legend>Cadastro</legend>
+            <input type="text">
+            <input type="text">
+            <input type="text">
+        </fieldset>
+        <fieldset>
+            <input type="text">
+            <input type="text">
+            <input type="text">
+        </fieldset>
+
+    </form>
+
+    <h3>Label</h3>
+    <form action="">
+        <label for="nome">Nome</label>
+        <input type="text" name="" id="nome">
+    </form>
+
+    <h3>Output</h3>
+    <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+        0<input type="range" id="a" value="50">100
+        <br>
+        <input type="number" id="b" value="50">
+        <output name="x" for="a b"></output>
+    </form>
+
+
+</body>
+
+</html>
