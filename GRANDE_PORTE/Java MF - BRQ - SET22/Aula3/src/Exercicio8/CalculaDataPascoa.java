@@ -35,7 +35,7 @@ public class CalculaDataPascoa {
 				int MES = (h + k - 7 * L + 114) / 31;
 				int DIA = ((h + k - 7 * L + 114) % 31) + 1;
 				
-				System.out.println("Em "+ ANO + " ,a Pácoa será no dia: " + DIA +"" + MES);
+				System.out.println("Em "+ ANO + " ,a Pácoa será no dia: " + DIA +"/" + MES);
 
 	}
 	
