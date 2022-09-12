@@ -16,6 +16,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+/* configurada para sempre abrir através do protocolo HTTPS*/
 //app.UseHttpsRedirection();
 
 app.UseAuthorization();
