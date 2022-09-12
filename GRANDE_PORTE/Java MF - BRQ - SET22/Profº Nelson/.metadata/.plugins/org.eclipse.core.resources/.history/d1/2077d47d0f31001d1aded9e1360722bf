@@ -1,0 +1,10 @@
+public class P1E06 {
+	public static void main(String[] args) {
+		double raio, perimetro, area;
+		raio = 1.5;
+		perimetro = 2.0 * 3.14159 * raio;
+		area = 3.14159 * raio * raio;
+		System.out.println("Perimetro = " + perimetro);
+		System.out.println("Area      = " + area);
+	}
+}

@@ -1,0 +1,11 @@
+
+public class Calculadora {
+
+	public static void main(String[] args) {
+		double raiz = Math.sqrt(2.0);
+		double potencia = Math.pow(2.0, 10.0);
+		System.out.println(raiz);
+		System.out.println(potencia);
+	}
+
+}

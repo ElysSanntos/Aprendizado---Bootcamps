@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class TestaScanner {
+	public static void main(String[] args) {
+		Scanner ze = new Scanner(System.in);
+		System.out.print("Entre um numero..: ");
+	    int n = ze.nextInt();
+	    ze.reset();
+		System.out.println("numero digitado = " + n);
+		
+		System.out.print("Entre um nome..: ");
+		String nome = ze.nextLine();
+	    ze.reset();
+		System.out.println("nome digitado = " + nome);
+		
+
+
+	}
+}

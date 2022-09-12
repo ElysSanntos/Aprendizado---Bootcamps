@@ -1,0 +1,17 @@
+public class Cliente {
+	// atributos
+	public int    idCliente;
+	public String nomeCliente;
+	public String cpfClinte;
+	// valor default
+	public double limiteCliente = 5000.0;
+	
+	// métodos
+	public void exibeLimite() {
+		System.out.println("limite = " + limiteCliente);
+	}
+	
+	public void OlaMundo() {
+		System.out.println("Olá Mundo!");
+	}
+}

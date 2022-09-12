@@ -1,0 +1,16 @@
+package Vendas;
+
+public class Produto {
+	public int idProduto;
+	public String descProduto;
+	
+	public Produto() {}
+	public Produto(String descProduto) {
+		this.descProduto = descProduto;
+	}
+	
+	public void imprime() {
+		System.out.println("idProduto   = "+idProduto);
+		System.out.println("descProduto = "+descProduto);
+	}
+}

@@ -1,0 +1,8 @@
+public class TestaCliente {
+	public static void main(String[] args) {
+		new Cliente();
+		Cliente c01 = new Cliente();
+		System.out.println(c01);
+		
+	}
+}

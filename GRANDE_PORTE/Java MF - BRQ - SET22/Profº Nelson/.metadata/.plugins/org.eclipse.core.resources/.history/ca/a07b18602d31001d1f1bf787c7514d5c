@@ -1,0 +1,11 @@
+public class TestaCliente {
+	public static void main(String[] args) {
+		Cliente c01 = new Cliente();
+		Cliente c02 = new Cliente();
+		c01.limiteCliente = 25000.0;
+		c01.exibeLimite();
+		c02.exibeLimite();
+		c01.OlaMundo();
+		System.out.println(c02.dobra(8));
+	}
+}

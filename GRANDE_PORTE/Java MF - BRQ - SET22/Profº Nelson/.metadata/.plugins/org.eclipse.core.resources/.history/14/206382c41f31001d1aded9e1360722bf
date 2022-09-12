@@ -1,0 +1,16 @@
+
+
+public class TestaCliente {
+	public static void main(String[] args) {
+		Cliente c01 = new Cliente();
+		c01.exibeLimite();
+		
+		c01.idCliente = 10;
+		c01.nomeCliente = "jose";
+		c01.cpfClinte = "111.111.111-11";
+		c01.limiteCliente = 25000.0;
+		c01.exibeLimite();
+		System.out.println(c01.limiteCliente);
+		
+	}
+}

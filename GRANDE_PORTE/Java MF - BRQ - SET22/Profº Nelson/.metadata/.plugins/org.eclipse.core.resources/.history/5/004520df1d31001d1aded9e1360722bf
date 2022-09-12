@@ -1,0 +1,12 @@
+public class Cliente {
+	// atributos
+	public int    idCliente;
+	public String nomeCliente;
+	public String cpfClinte;
+	public double limiteCliente;
+	
+	// métodos
+	public void exibeLimite() {
+		System.out.println("limite = " + limiteCliente);
+	}
+}

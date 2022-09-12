@@ -1,0 +1,12 @@
+public class TestaCliente {
+	public static void main(String[] args) {
+		Cliente c01 = new Cliente();
+		Cliente c02 = new Cliente();
+		
+		c01.idCliente = 10;
+		c01.nomeCliente = "jose";
+		c01.cpfClinte = "111.111.111-11";
+		c01.limiteCliente = 5000.0;
+		
+	}
+}
