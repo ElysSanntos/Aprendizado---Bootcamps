@@ -35,5 +35,5 @@ namespace ProjetoEscola_API.Controllers
                 };
 
             }
-    } 
+} 
 }
