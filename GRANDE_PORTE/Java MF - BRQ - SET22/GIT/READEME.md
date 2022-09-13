@@ -33,4 +33,5 @@ ex: git add index.html
 obs: devemos observar a branch de destino e usar o merge para a branch de origem
 
 > - **.ignore**
->>>As alterações realizadas em arquivos que já estão no repositório remoto, não sofrem alteração.
+>>>As alterações realizadas em arquivos que já estão no repositório remoto, não sofrem alteração. 
+> **Para corrigir, precisa deletar o arquivo do remoto, add no .ignore e commitar**
