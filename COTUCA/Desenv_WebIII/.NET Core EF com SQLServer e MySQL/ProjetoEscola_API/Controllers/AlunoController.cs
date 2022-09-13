@@ -5,8 +5,7 @@ using ProjetoEscola_API.Models;
 
 namespace ProjetoEscola_API.Controllers
 {
-    public class AlunoController
-    {
+    
         [Route("api/[controller]")]
         [ApiController]
         public class AlunoControllers : ControllerBase
@@ -27,4 +26,3 @@ namespace ProjetoEscola_API.Controllers
             }
         }
     }
-}
