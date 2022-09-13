@@ -1,0 +1,24 @@
+.tituloListagem { 
+ margin-left: 20px; 
+} 
+.listaAlunos { 
+ margin-left: 20px; 
+ font-family: 
+'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+} 
+.cabecTabela { 
+ color: white; 
+ background-color: black; 
+ font-size: 20px; 
+ text-align: left; 
+} 
+th, td { 
+ padding: 10px; 
+} 
+.tabTituloRa { 
+ width: 100px; 
+} 
+.tabTituloNome { 
+ width: 400px; 
+}
+
