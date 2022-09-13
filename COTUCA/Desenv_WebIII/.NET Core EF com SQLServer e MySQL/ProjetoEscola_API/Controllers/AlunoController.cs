@@ -57,7 +57,7 @@ namespace ProjetoEscola_API.Controllers
                 if (await _context.SaveChangesAsync() == 1)
                 {
                 //return Ok();
-                return Created($"/api/aluno/{model.RA}", model);
+                return Created($"/api/aluno/{model.ra}", model);
                         }
                     }
                 catch
