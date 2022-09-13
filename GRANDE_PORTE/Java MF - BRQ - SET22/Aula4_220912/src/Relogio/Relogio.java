@@ -62,15 +62,21 @@ public class Relogio {
 	 * Adianta o horário em segundos
 	 * qtdSegundos == Segundos para adiantar
 	 */
+	
+	/*1 dia tem 24 horas
+	 *1 dia tem 1440 minuots
+	 *1 dia tem 86400 segundos
+	 *1 hora tem 60 minutos
+	 *1 hora tem 3600 segundos*/
 		 
 	public void adiantar(int qtdSegundo) {
 		
 		int segundosAgora = (this.hora * 3600)
 				+ (this.minuto * 60) + this.segundo + qtdSegundo;
-		segundosAgora %= 86400;
-		this.hora = segundosAgora / 3600;
-		this.minuto = (segundosAgora / 60) % 60;
-		this.segundo = segundosAgora % 60;
+		segundosAgora %= 86400;//Desprezo os segundos excedentes do calculo
+		this.hora = segundosAgora / 3600;//pego os segundos informados e divido pelos segundos de 1 hora, que vira minutos
+		this.minuto = (segundosAgora / 60) % 60; // desprezo os minutos que passarem de 60
+		this.segundo = segundosAgora % 60; // desprezo os segundos que passarem de 60
 		
 	}
 	/**
