@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ProjetoEscola_API.Models;
-using System.Diagnostics.CodeAnalysis;
+
 
 /*Nessa classe definiremos o contexto de dados na nossa aplicação, assim como as tabelas.*/
 
