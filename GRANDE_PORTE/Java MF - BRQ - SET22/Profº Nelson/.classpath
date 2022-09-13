@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="P01pg19ex1/src"/>
+	<classpathentry kind="src" path="P01pg19ex2/src"/>
+	<classpathentry kind="src" path="P01pg19ex3/src"/>
+	<classpathentry kind="src" path="P01pg19ex4/src"/>
+	<classpathentry kind="src" path="P01pg45ex01/src"/>
+	<classpathentry kind="src" path="P01pg46ex02/src"/>
+	<classpathentry kind="src" path="P01pg47ex03/src"/>
+	<classpathentry kind="src" path="P01pg48ex04/src"/>
+	<classpathentry kind="src" path="P01pg49ex05/src"/>
+	<classpathentry kind="src" path="P01pg50ex06/src"/>
+	<classpathentry kind="src" path="P01pg52/src"/>
+	<classpathentry kind="src" path="P02Exemplo01/src"/>
+	<classpathentry kind="src" path="P02Exemplo02/src"/>
+	<classpathentry kind="src" path="P02Exemplo03/src"/>
+	<classpathentry kind="src" path="P02Exemplo04/src"/>
+	<classpathentry kind="src" path="P02Exemplo05/src"/>
+	<classpathentry kind="src" path="P02pg48ex01/src"/>
+	<classpathentry kind="output" path="P01pg19ex1/bin"/>
+</classpath>
