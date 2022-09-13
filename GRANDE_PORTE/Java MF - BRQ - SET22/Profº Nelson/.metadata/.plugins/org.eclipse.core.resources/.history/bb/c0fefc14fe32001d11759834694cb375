@@ -1,0 +1,9 @@
+public class TestaRelogio {
+	public static void main(String[] args) {
+		Relogio cassio = new Relogio();
+		Relogio rolex = new Relogio(10,30,0);
+		
+		cassio.exibeHorario();
+		rolex.exibeHorario();
+	}
+}

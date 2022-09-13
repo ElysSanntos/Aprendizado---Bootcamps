@@ -1,0 +1,7 @@
+public class TestaNotas {
+	public static void main(String[] args) {
+		AlunoDisciplina a1 = new AlunoDisciplina();
+		AlunoDisciplina a2 = new AlunoDisciplina(121,443);
+		AlunoDisciplina a3 = new AlunoDisciplina(221,321, 8.0, 7.0);
+	}
+}
