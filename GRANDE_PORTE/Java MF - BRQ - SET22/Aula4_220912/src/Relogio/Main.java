@@ -19,14 +19,14 @@ public class Main {
     oriente.exibeHorario();
     
     System.out.println("\n====Hora adiantada====\n");
-    cassio.adiantar(40);;
+    cassio.adiantar(400000000);;
     cassio.exibeHorario();
     
     oriente.adiantar(30);
     oriente.exibeHorario();
     
     System.out.println("\n=====Hora atrasada====\n");
-    cassio.atrasar(40);;
+    cassio.atrasar(400000000);;
     cassio.exibeHorario();
     
     oriente.atrasar(30);

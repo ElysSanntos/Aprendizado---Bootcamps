@@ -67,7 +67,7 @@ public class Relogio {
 		
 		int segundosAgora = (this.hora * 3600)
 				+ (this.minuto * 60) + this.segundo + qtdSegundo;
-		
+		segundosAgora %= 86400;
 		this.hora = segundosAgora / 3600;
 		this.minuto = (segundosAgora / 60) % 60;
 		this.segundo = segundosAgora % 60;
@@ -81,7 +81,7 @@ public class Relogio {
 		
 		int segundosAgora = ((this.hora * 3600) + (this.minuto * 60) 
 				+ this.segundo) - qtdSegundos;
-		
+		segundosAgora %= 86400;
 		this.hora = segundosAgora / 3600;
 		this.minuto = (segundosAgora / 60) % 60;
 		this.segundo = segundosAgora % 60;
