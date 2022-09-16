@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using ProjetoEscola_API.Data;
 using ProjetoEscola_API.Models;
 
+
 namespace ProjetoEscola_API.Controllers
 {
     
