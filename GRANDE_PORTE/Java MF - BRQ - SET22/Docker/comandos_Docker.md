@@ -38,7 +38,7 @@ Obs: o container deve estar parado!!!!!
     Ex: docker rm objective_euler
 ```
 
-# Eu posso estipular o nome de um container
+# Eu posso definir o nome de um container
 
 Obs: exemplo na criação do container
 O nome da imagem sempre precisa ser o último parâmetro do docker run
@@ -55,5 +55,10 @@ Obs: exemplo na criação do container
 
 ```
     docker run  --name NOMEDOCONTAINERDESEJO -p PORTA-HOSPEDEIRO:PORTA-CONTAINER  NOMEDAIMAGEM
-    Ex: docker run --name hello-world -p 80:80  docker/getting-started
+    
+    1º parar o conteiner   ==> docker stop hello-world
+    2º excluir o conteiner ==> docker rm hello-world
+    3º recriar o container ==> docker run --name hello-world -p 80:80  docker/getting-started
+    5º acessar o navegador ==> http://localhost
+
 ```
