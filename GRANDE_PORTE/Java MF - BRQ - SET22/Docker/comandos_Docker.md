@@ -23,7 +23,7 @@
     docker ps -a    ==> lista todos os containers
 ```
 
-# Se eu quiser parar a execuçõ de um container:
+# Se eu quiser parar a execuções de um container:
 
 ```
     docker stop NOMEDOCONTAINER
