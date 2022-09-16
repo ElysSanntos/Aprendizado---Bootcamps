@@ -1,11 +1,19 @@
+<h2 align = "center" >Aula 2  - Docker - 15/09/2022<h2>
+<h3 align = "center" >Professor Fabrizio<h3>
+</br></br>
+ 
+ 
+
+
 # Principais comandos
 
 ## Como iniciar um container (que ainda não existe)?
 
 ```
+
     docker run NOME-DA IMAGEM
 
-    EX: docker run docker/getting-started
+    docker run docker/getting-started
 ```
 
 ## para listar os container que estão em execução
@@ -31,7 +39,7 @@
 
 # Para remover um container:
 
-Obs: o container deve estar parado!!!!!
+Obs: o container deve estar parado.
 
 ```
     docker run NOMEDOCONTAINER
@@ -60,5 +68,7 @@ Obs: exemplo na criação do container
     2º excluir o conteiner ==> docker rm hello-world
     3º recriar o container ==> docker run --name hello-world -p 80:80  docker/getting-started
     5º acessar o navegador ==> http://localhost
+
+    
 
 ```
