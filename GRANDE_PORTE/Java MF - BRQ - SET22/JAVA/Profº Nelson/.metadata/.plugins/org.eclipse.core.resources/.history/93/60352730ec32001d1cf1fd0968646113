@@ -1,8 +1,0 @@
-public class BarMerindus {
-	public static void main(String[] args) {
-		ContaCorrente c1 = new ContaCorrente();
-		ContaCorrente c2 = new ContaCorrente(121,1000.0);
-		
-		
-	}
-}

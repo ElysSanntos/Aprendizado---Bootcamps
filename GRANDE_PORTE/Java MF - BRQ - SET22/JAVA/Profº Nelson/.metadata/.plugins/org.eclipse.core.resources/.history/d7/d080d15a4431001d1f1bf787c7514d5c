@@ -1,9 +1,0 @@
-public class Numeros {
-	public static void main(String[] args) {
-		Integer n = new Integer(10);
-		Integer a = 10;
-		System.out.println(a.intValue());
-		System.out.println(a);
-		
-	}
-}

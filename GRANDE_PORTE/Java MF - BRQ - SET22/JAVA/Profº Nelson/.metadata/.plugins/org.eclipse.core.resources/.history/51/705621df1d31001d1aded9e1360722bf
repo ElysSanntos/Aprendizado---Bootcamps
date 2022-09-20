@@ -1,8 +1,0 @@
-public class TestaCliente {
-	public static void main(String[] args) {
-		new Cliente();
-		Cliente c01 = new Cliente();
-		Cliente c02;
-		c02 = new Cliente();		
-	}
-}
