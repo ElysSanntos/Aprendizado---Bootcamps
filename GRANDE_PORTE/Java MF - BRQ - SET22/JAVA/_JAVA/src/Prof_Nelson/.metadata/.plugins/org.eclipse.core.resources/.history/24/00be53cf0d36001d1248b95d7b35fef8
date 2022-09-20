@@ -1,0 +1,12 @@
+public class DesvioCondicional {
+
+	public static void main(String[] args) {
+		String texto = "banana";
+		
+		if(texto.length() == 12/2 ) {
+			System.out.println("ola");
+		}
+
+	}
+
+}

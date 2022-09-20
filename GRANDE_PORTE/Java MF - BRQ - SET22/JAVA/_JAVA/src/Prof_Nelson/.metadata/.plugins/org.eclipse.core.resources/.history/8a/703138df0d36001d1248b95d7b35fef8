@@ -1,0 +1,13 @@
+public class DesvioCondicional {
+
+	public static void main(String[] args) {
+		int a=0;
+		
+		if( a==0 )
+			System.out.println("a eh igual a zero!");
+		
+
+
+	}
+
+}

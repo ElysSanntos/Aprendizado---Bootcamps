@@ -68,7 +68,7 @@ Obs: exemplo na criação do container
     
     1º parar o conteiner   ==> docker stop hello-world
     2º excluir o conteiner ==> docker rm hello-world
-    3º recriar o container ==> docker run --name hello-world -p 80:80  docker/getting-started
+    3º recriar o container ==> docker run --name hello-word -p 80:80 -p 8000:80 docker/etting-started
     5º acessar o navegador ==> http://localhost
 
     

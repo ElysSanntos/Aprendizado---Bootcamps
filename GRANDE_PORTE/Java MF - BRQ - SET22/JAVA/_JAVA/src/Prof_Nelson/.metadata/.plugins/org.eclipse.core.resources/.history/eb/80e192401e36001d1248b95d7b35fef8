@@ -1,0 +1,27 @@
+public class casos {
+	public static void main(String[] args) {
+		int nivel=16;
+		
+		switch(nivel) {
+		case  6: System.out.println("Auxilio Viagem"); 
+		         System.out.println("Auxilio Hospedagem");
+		case  5: System.out.println("Auxilio Moradia"); 
+		case  4: System.out.println("Auxilio Combustivel"); 
+		case  3: System.out.println("Seguro Saude"); 
+		case  2: System.out.println("Seguro de Vida"); 
+		case  1: System.out.println("vale Refeicao"); 
+		         System.out.println("vale Refrigerante");
+		case  0: System.out.println("vale transporte");
+		default: System.out.println("agua");
+		}
+		
+		int opcao=2;
+		switch (opcao) {
+		case  1: System.out.println("Abrir");
+		case  2: System.out.println("Ler");
+		case  3: System.out.println("Escrever");
+		case  4: System.out.println("Fechar");
+		default: System.out.println("Sair");
+		}
+	}
+}

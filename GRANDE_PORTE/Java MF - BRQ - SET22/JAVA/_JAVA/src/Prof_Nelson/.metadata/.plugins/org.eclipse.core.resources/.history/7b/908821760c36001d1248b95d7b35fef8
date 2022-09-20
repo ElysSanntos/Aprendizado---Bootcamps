@@ -1,0 +1,11 @@
+public class DesvioCondicional {
+
+	public static void main(String[] args) {
+		
+		if(0) {
+			System.out.println("ola");
+		}
+
+	}
+
+}
