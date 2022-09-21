@@ -127,3 +127,63 @@ find . -name notes.txt ==> ncontrar arquivos no diretório atual,
 sudo  ==> permite que que você execute tarefas que exigem permissões root ou administrativas. Porém, não é muito aconselhável usá-lo diariamente porque pode ser que um erro aconteça se você fizer algo de errado.  
 
 ```
+
+<h2 align = "center" >Aula 4  - Docker - 21/09/2022<h2>
+
+<h3 align = "center" ><a href="https://github.com/ffborelli/">Professor: Fabrizio Borelli</a></h3>
+</br></br>
+
+
+# dentro do container, iremos criar uma pasta
+
+```
+    mkdir pasta1
+```
+
+Para sair do container, digite:         exit
+
+# Removendo o container para verificar o que acontece com o seu conteúdo
+
+```
+    docker stop hello-word
+    docker rm hello-word
+```
+
+# Subindo um novo container da mesma imagem
+
+```
+    docker run --name hello-world -p 80:80 -p 8000:80  docker/getting-started
+    docker exec -it hello-world /bin/sh
+```
+
+# Como podemos fazer para ao deletar um container, não perdermos dados do mesmo?
+
+Resp: usando o conceito de volume
+
+```
+    docker run -v PASTA_DO_HOSPEDEIRO:PASTA_DO_CONTAINER
+
+    docker rm hello-world
+    
+    docker run --name hello-world -p 80:80 -p 8000:80 -v ${PWD}/meu-volume_SO:/meu-volume-container docker/getting-started
+
+    docker exec -it hello-world /bin/sh
+
+cd meu-volume-container/
+touch arquivo.txt
+tail -f arquivo.txt 
+docker run --name hello-world -p 80:80 -p 8000:80 -v ${PWD}/meu-volume:/meu-volume-container docker/getting-started
+docker exec -it hello-world /bin/sh
+cd ..
+touch t.txt
+docker run --name hello-world -p 80:80 -p 8000:80 -v ${PWD}/meu-volume:/meu-volume-container-3 docker/getting-started
+
+```
+
+# Criar uma imagem de MySql
+
+´´´
+
+docker run -d --name=mysql-java-1 -p 3306:3306 --env="MYSQL_ROOT_PASSWORD=root" -v ${PWD}/mysql-datadir:/var/lib/mysql    mysql
+
+´´´
