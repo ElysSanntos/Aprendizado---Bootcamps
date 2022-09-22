@@ -187,3 +187,30 @@ docker run --name hello-world -p 80:80 -p 8000:80 -v ${PWD}/meu-volume:/meu-volu
 docker run -d --name=mysql-java-1 -p 3306:3306 --env="MYSQL_ROOT_PASSWORD=root" -v ${PWD}/mysql-datadir:/var/lib/mysql    mysql
 
 ´´´
+# Para acessar o Banco de dados
+
+´´´
+mysql -uroot -proot
+
+
+´´´
+# Criando um dataBase
+
+´´´
+
+create database db_correntista;
+
+use db_correntista;
+
+create table contas (cd_contas int primary key auto_increment, nome varchar(40));
+
+show databases;
+
+insert into contas (nome) VALUES ('JUAN');
+insert into contas (nome) VALUES ('Maria');
+
+select * from contas;
+
+´´´
+
+
