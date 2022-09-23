@@ -321,6 +321,11 @@ docker run -d --name brq-nginx-1-container -p 95:80 brq-nginx:latest
 
 ```
 
+<h2 align = "center" >Aula 6  - Docker - xx/09/2022<h2>
+
+<h3 align = "center" ><a href="https://github.com/ffborelli/">Professor: Fabrizio Borelli</a></h3>
+</br></br>
+
 
 
 
