@@ -156,9 +156,9 @@ Para sair do container, digite:         exit
     docker exec -it hello-world /bin/sh
 ```
 
-# Como podemos fazer para ao deletar um container, não perdermos dados do mesmo?
+## Como podemos fazer para ao deletar um container, não perdermos dados do mesmo?
 
-Resp: usando o conceito de volume
+### Resp: usando o conceito de volume
 
 ```
     docker run -v PASTA_DO_HOSPEDEIRO:PASTA_DO_CONTAINER
@@ -180,23 +180,20 @@ docker run --name hello-world -p 80:80 -p 8000:80 -v ${PWD}/meu-volume:/meu-volu
 
 ```
 
-# Criar uma imagem de MySql
-
-´´´
-
+## Criar uma imagem de MySql
+```
 docker run -d --name=mysql-java-1 -p 3306:3306 --env="MYSQL_ROOT_PASSWORD=root" -v ${PWD}/mysql-datadir:/var/lib/mysql    mysql
 
-´´´
-# Para acessar o Banco de dados
+```
 
-´´´
+## Para acessar o Banco de dados
+```
 mysql -uroot -proot
 
+```
+## Criando um dataBase
 
-´´´
-# Criando um dataBase
-
-´´´
+```
 
 create database db_correntista;
 
@@ -211,6 +208,119 @@ insert into contas (nome) VALUES ('Maria');
 
 select * from contas;
 
-´´´
+```
+
+
+
+<h2 align = "center" >Aula 5  - Docker - 22/09/2022<h2>
+
+<h3 align = "center" ><a href="https://github.com/ffborelli/">Professor: Fabrizio Borelli</a></h3>
+</br></br>
+
+# nginx
+
+## o que é o Dockerfile?
+
+```
+É um arquivo na qual o Docker usa para saber como criar uma imagem (é um passo-a-passo). Em geral, quando vamos criar a nossa imagem partimos de uma outra imagem padrão
+
+```
+## Para partir de uma imagem, devemos usar a palavra FROM
+### O comando abaixo deve ser inserido no arquivo **Dockerfile**
+### **latest** é a versão mais recente da imagem
+
+```
+FROM nginx:latest
+
+COPY conf.txt /
+
+```
+
+## Documentação: 
+
+https://hub.docker.com/_/nginx
+
+## Baixar imagem nginx
+```
+docker run --name nginx -p 80:80 nginx:latest
+
+```
+## copiando o arquivo conf.txt(criado na pasta ngnix) para a raiz da imagem (futuro container)
+```
+
+1 . cd nginx
+
+2 . COPY conf.txt /
+
+```
+
+## Para criar a nossa própria imagem, devemos usar o comando docker build 
+```
+
+ docker build -t NOME-DA-IMAGEM:TAG .
+ 
+ docker build -t brq-nginx:latest .
+
+ ```
+ ## Verificar as imagens existentes
+ ```
+
+ docker images    ==> Verifica quantas imagens temos no container
+
+```
+## Subir nosso container
+```
+ docker run --name brq-nginx-container -p 90:80 brq-nginx:latest
+
+ ```
+
+## Visualizar a nossa imagem via Browser
+
+```
+ http://localhost:90/   
+
+ ```
+ ## Entrar no container criado
+ ```
+ docker exec -it brq-nginx-container /bin/sh
+
+ ls ==> visualizar o conteúdo do container.
+
+ ```
+
+ ## Criar uma nova instancia do nosso container
+
+ ```
+ docker run -d --name brq-nginx-container-instanciado -p 100:80 brq-nginx:latest
+
+ ** Usar porta diferente
+ ** -d ==> detash significa separar, isso vai liberar o console para continuar sendo usado
+
+ ```
+
+## Atualizar todos os possiveis pacotes que podemos vir a instalar. Deve ser setado no arquivo Dockerfile.
+
+```
+RUN apt-get update 
+RUN apt-get install nano -y
+
+```
+
+## Construir novamente a imagem
+
+```
+docker build -t brq-nginx:latest .
+
+```
+## Recriar o container com a nova versão
+
+```
+docker run -d --name brq-nginx-container -p 90:80 brq-nginx:latest
+
+docker run -d --name brq-nginx-1-container -p 95:80 brq-nginx:latest
+
+```
+
+
 
 
