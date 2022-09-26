@@ -21,6 +21,7 @@ public class TestaArrayList {
 		 
 		 cornucopia.add(1,"C");
 		 cornucopia.add("C");
+		 //Substituir o conteúdo de uma posição
 		 cornucopia.set(0,"Pedro");
 		 
 		 // exibe informações e elementos do array list
