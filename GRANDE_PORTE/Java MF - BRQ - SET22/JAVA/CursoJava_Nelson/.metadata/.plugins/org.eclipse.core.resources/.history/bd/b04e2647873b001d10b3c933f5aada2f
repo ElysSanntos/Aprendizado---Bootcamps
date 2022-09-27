@@ -1,0 +1,20 @@
+
+public class UsoDoArray {
+
+	public static void main(String[] args) {
+		int [] billy = new int[5];
+		int [] maria = {23,34,98,77};
+		
+		billy[0]=3;
+		billy[1]=100;
+		billy[2]=billy[0]*2;
+		billy[billy[0]]=9;
+		
+		System.out.println(billy[2]);
+		System.out.println(maria[2]);
+		System.out.println(billy.length);
+		System.out.println(maria.length);
+
+	}
+
+}

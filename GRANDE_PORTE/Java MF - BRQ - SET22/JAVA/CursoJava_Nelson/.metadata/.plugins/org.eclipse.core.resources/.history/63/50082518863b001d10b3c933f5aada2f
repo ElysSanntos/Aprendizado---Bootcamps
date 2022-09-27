@@ -1,0 +1,15 @@
+
+public class UsoDoArray {
+
+	public static void main(String[] args) {
+		int [] billy = new int[5];
+		int [] maria = {23,34,98,77};
+
+		System.out.println(billy[5]);
+		System.out.println(maria[2]);
+		System.out.println(billy.length);
+		System.out.println(maria.length);
+
+	}
+
+}

@@ -1,0 +1,12 @@
+public class DesvioCondicional {
+
+	public static void main(String[] args) {
+		int a = 0;
+		
+		if("bom dia") {
+			System.out.println("ola");
+		}
+
+	}
+
+}

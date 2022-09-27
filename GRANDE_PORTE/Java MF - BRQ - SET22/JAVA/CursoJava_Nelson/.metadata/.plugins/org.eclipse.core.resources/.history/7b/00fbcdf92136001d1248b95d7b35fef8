@@ -1,0 +1,14 @@
+import java.util.Random;
+
+public class Aleatorio {
+
+	public static void main(String[] args) {
+		//System.out.println(Math.random());
+		
+		Random mariaLouca = new Random(2022);
+		System.out.println(mariaLouca.nextFloat());
+		
+		
+	}
+
+}

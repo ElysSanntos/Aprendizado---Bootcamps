@@ -1,0 +1,15 @@
+public class casos {
+	public static void main(String[] args) {
+		int nivel=4;
+		
+		switch(nivel) {
+		case 6: System.out.println("Auxilio Viagem"); 
+		case 5: System.out.println("Auxilio Moradia"); 
+		case 4: System.out.println("Auxilio Combustivel"); 
+		case 3: System.out.println("Seguro Saude"); 
+		case 2: System.out.println("Seguro de Vida"); 
+		case 1: System.out.println("vale Refeição"); 
+		case 0: System.out.println("vale transporte"); 
+		}
+	}
+}

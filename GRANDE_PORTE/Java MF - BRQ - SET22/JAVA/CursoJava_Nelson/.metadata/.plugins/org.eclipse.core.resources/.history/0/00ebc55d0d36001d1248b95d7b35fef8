@@ -1,0 +1,12 @@
+public class DesvioCondicional {
+
+	public static void main(String[] args) {
+		String texto = "Salve o Corinthians!!! O campeão dos campeoes.";
+		
+		if(texto.length() > 1000) {
+			System.out.println("ola");
+		}
+
+	}
+
+}
