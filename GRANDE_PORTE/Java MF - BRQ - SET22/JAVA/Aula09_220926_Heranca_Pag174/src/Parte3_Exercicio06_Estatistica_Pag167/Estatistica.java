@@ -22,6 +22,19 @@ public class Estatistica {
 		public double[] getValores(double[] dados) {
 			return valores;
 		}
+		
+		public double  valoresDesordenados(double[] valores) {
+
+			double repo = 0.0;
+			
+			for (int i =  0; i< valores.length; i++){
+				repo = valores[i];
+				
+				System.out.print(" - " +repo);
+				
+			}
+			return repo;
+		}
 
 		// m�todos pr�prios
 		public void ordena() {
@@ -135,12 +148,5 @@ public class Estatistica {
 			
 		}
 		
-		public void valoresDesordenados(double[] dados) {
-
-			double repo = 0.0;
-			for (double balde: dados){
-				return repo;
-				
-			}
-		}
+		
 	}
