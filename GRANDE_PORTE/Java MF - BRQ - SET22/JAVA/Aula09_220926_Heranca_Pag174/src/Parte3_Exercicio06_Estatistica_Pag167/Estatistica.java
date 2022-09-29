@@ -23,7 +23,7 @@ public class Estatistica {
 			return valores;
 		}
 
-		// métodos próprios
+		// mï¿½todos prï¿½prios
 		public void ordena() {
 			mergeSort(valores,valores.length);
 		}
@@ -136,9 +136,10 @@ public class Estatistica {
 		}
 		
 		public void valoresDesordenados(double[] dados) {
-			for (int i = 0; i <dados.length; i++) {
-				
-				return;
+
+			double repo = 0.0;
+			for (double balde: dados){
+				return repo;
 				
 			}
 		}

@@ -9,16 +9,16 @@ public class TestaEstatistica {
 		Estatistica e = new Estatistica(dados);
 		
 		e.ordena();
-		System.out.println("MÈdia........: "+e.media());
+		System.out.println("M√©dia........: "+e.media());
 		System.out.println("Moda.........: "+e.moda());
 		System.out.println("Mediana......: "+e.mediana());
 		System.out.println("Variancia....: "+e.variancia());
-		System.out.println("Desvio Padr„o: "+e.desviopadrao());
+		System.out.println("Desvio Padr√£o: "+e.desviopadrao());
 		
 		System.out.println("\n==========Valores desordenados=======\n");
 		System.out.println(e.getValores(dados));
 		System.out.print(dados);
-		e.valoresDesordenados(dados);
+		e.valoresDesordenados(repo);
 		
 		System.out.println();
 		
