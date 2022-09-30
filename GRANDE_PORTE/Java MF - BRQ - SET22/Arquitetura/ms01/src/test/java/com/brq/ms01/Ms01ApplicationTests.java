@@ -1,10 +1,10 @@
-package com.brq.artefato;
+package com.brq.ms01;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ArtefatoApplicationTests {
+class Ms01ApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -93,3 +93,9 @@ Exemplo:
 # Introdução a IDE Intelijl
 ## Criar projeto
 https://start.spring.io/
+
+
+<h2 align = "center" >Aula 3  - Arquitetura - 29/09/2022<h2>
+
+<h3 align = "center" ><a href="https://github.com/ffborelli/">Professor: Fabrizio Borelli</a></h3>
+</br></br>

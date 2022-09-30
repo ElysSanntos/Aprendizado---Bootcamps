@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87ed6b45-e8ce-48b2-b221-1ef0d505c65a" name="Changes" comment="" />
+    <list default="true" id="4c5710da-7056-4970-a8d4-8bca2e66ca49" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,7 +24,10 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="2FSfuoBYbK4HC1tMPGsiRsLifUe" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2FQ9lOfKOFQdYlIjQc6aSDFto6u" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -32,6 +35,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -40,18 +47,34 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler"
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "spring.configuration.checksum": "bf632f9dfdec482d6b561782a6fc2879"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="ArtefatoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="artefato" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.brq.microServico.ArtefatoApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="87ed6b45-e8ce-48b2-b221-1ef0d505c65a" name="Changes" comment="" />
-      <created>1664490632457</created>
+      <changelist id="4c5710da-7056-4970-a8d4-8bca2e66ca49" name="Changes" comment="" />
+      <created>1664413592973</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1664490632457</updated>
-      <workItem from="1664490633795" duration="363000" />
+      <updated>1664413592973</updated>
+      <workItem from="1664413595452" duration="739000" />
+      <workItem from="1664455273073" duration="12000" />
+      <workItem from="1664481668755" duration="4120000" />
+      <workItem from="1664490204527" duration="425000" />
     </task>
     <servers />
   </component>
@@ -68,5 +91,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

@@ -1,13 +1,13 @@
-package com.brq.artefato;
+package com.br.microServico01;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ArtefatoApplication {
+public class Ms1Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ArtefatoApplication.class, args);
+		SpringApplication.run(Ms1Application.class, args);
 	}
 
 }

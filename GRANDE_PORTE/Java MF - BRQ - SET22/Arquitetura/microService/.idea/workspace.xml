@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87ed6b45-e8ce-48b2-b221-1ef0d505c65a" name="Changes" comment="" />
+    <list default="true" id="8e947611-23c2-4ece-922f-8f35fc9dc84d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,15 +16,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
-        <option name="useMavenConfig" value="true" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
-  <component name="ProjectId" id="2FSfuoBYbK4HC1tMPGsiRsLifUe" />
+  <component name="ProjectId" id="2FSgerKFY534JXV0pJhGe92qYD6" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -35,23 +27,28 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Workspace/Aprendizado---Bootcamps/GRANDE_PORTE/Java MF - BRQ - SET22/Arquitetura/MicroServico01",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler"
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "project.propCompiler"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="87ed6b45-e8ce-48b2-b221-1ef0d505c65a" name="Changes" comment="" />
-      <created>1664490632457</created>
+      <changelist id="8e947611-23c2-4ece-922f-8f35fc9dc84d" name="Changes" comment="" />
+      <created>1664490998597</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1664490632457</updated>
-      <workItem from="1664490633795" duration="363000" />
+      <updated>1664490998597</updated>
+      <workItem from="1664491000187" duration="559000" />
     </task>
     <servers />
   </component>
@@ -68,5 +65,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
