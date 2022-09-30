@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UsuarioController {
 
+
     // Commenter de linha
    /* Commenter de bloco*/
 
