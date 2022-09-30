@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UsuarioController {
 
     // Commenter de linha
-    //tentando commitar
-    /* Commenter de bloco*/
+   /* Commenter de bloco*/
 
     //Permite associar o verbo GET com a rota /usuarios
     @GetMapping("usuarios")
