@@ -15,15 +15,15 @@ public class TestaEstatistica {
 			System.out.println("\n");
 			
 		
-		e.ordena();// a partir daqui, todos os dados ficam ordenados, e não é possivel realizar a impressaão original
-		System.out.println("Média........: "+e.media());
+		e.ordena();// a partir daqui, todos os dados ficam ordenados, e nï¿½o ï¿½ possivel realizar a impressaï¿½o original
+		System.out.println("MÃ©dia........: "+e.media());
 		System.out.println("Moda.........: "+e.moda());
 		System.out.println("Mediana......: "+e.mediana());
 		System.out.println("Variancia....: "+e.variancia());
-		System.out.println("Desvio Padrão: "+e.desviopadrao());
+		System.out.println("Desvio PadrÃ£o: "+e.desviopadrao());
 		
 		System.out.println("\n==========Valores desordenados=======\n");
-		System.out.println("Endereço memoria: "+ dados);
+		System.out.println("EndereÃ§o memoria: "+ dados);
 		System.out.println();
 		System.out.println("\n");
 
