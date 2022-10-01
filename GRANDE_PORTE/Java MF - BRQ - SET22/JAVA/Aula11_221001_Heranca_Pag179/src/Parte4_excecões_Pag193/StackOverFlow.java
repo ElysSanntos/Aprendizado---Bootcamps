@@ -6,9 +6,12 @@ public class StackOverFlow {
 
 
 		try {
-			double milenium [][][][][] = new double[365][24][60][60][1000];
+			double milenium [][][][][] = new double[365][24][60][60][10000];
 			
-		} catch (OutOfMemoryError error) {
+		} 
+		// OutOfMemoryError
+		catch(Error error)
+		 {
 			System.out.println("Contate o IVO....");
 			System.out.println(error);
 		}

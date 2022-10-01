@@ -1,0 +1,9 @@
+public class TestaProduto {
+	public static void main(String[] args) {
+		Produto p1 = new Produto(1,"Livro");
+		Produto p2 = new Produto(3,"Tablet");
+		
+		System.out.println(p1.equals(p2));
+		
+	}
+}

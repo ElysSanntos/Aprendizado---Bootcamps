@@ -1,0 +1,28 @@
+public class TrataExcecoes {
+	public static void main(String[] args) {
+		int [] num = {0,1,2,3,4};
+		double [][][][][] s;
+		try {
+			for(int i=0;i<num.length;i++) {
+				System.out.println(num[i]);
+			}
+			int x = 10 / 0;
+			vaiEstourar(30000);
+			s = new double[365][24][60][60][1000];
+		}
+		catch(Error e) {
+			System.out.println("Contate a Elys...");
+			System.out.println(e);
+			s = null;
+		}
+		catch(Exception e) {
+			System.out.println("Contate a Ivo...");
+			System.out.println(e);
+		}		
+	}
+	
+	public static void vaiEstourar(int a) {
+		if (a<0) return;
+		vaiEstourar(--a);
+	}
+}

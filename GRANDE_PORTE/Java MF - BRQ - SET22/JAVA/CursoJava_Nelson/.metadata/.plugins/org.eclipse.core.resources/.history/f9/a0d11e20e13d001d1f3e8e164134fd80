@@ -1,0 +1,9 @@
+
+public class TestaCosseno {
+
+	public static void main(String[] args) {
+		Cosseno c = new Cosseno(1.0);
+
+	}
+
+}

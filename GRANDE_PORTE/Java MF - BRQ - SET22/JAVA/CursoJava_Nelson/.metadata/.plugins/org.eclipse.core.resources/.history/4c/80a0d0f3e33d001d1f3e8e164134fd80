@@ -1,0 +1,9 @@
+public class TestaCosseno {
+	public static void main(String[] args) {
+		Cosseno c = new Cosseno(1.0);
+		c.calculaParcelas();
+		c.somaParcelas();
+		System.out.println("Cosseno nosso = " + c.getCosseno());
+		System.out.println("Cosseno Math  = " + Math.cos(1.0));
+	}
+}

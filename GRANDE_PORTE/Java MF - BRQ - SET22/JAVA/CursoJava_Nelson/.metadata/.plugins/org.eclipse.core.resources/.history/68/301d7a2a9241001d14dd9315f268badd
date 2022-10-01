@@ -1,0 +1,20 @@
+public class TrataExcecoes {
+	public static void main(String[] args) {
+		int [] num = {0,1,2,3,4};
+		double [][][][][] s;
+
+			for(int i=0;i<num.length;i++) {
+				System.out.println(num[i]);
+			}
+			int x = 10 / 10;
+			vaiEstourar(30);
+			s = new double[365][24][60][60][1000];
+
+		
+	}
+	
+	public static void vaiEstourar(int a) {
+		if (a<0) return;
+		vaiEstourar(--a);
+	}
+}

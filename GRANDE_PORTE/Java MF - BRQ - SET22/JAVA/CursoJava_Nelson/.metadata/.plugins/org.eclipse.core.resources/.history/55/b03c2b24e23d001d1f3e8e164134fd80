@@ -1,0 +1,30 @@
+public class Cosseno {
+	// atributos
+	private double x;
+	private double [] parcelas;
+	private double cosseno;
+	
+	// construtores
+	public Cosseno() {}
+	public Cosseno(double x) {
+		this.x = x;
+	}
+	
+	// getters e setters
+	public double getX() {
+		return x;
+	}
+	public double[] getParcelas() {
+		return parcelas;
+	}
+	public double getCosseno() {
+		return cosseno;
+	}
+	public void setX(double x) {
+		this.x = x;
+	}
+
+	public void calculaParcelas() {}
+	public void somaParcelas() {}
+	
+}

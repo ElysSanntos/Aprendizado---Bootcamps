@@ -7,7 +7,7 @@ public class TryCatchFinally {
 			 int[] num = {0,1,2,3,4};
 			 try{
 			 for(int i=0;i<10;i++)
-			 System.out.println(num[i]);
+			 System.out.println("Array : "+num[i]);
 			 }
 			 catch(Exception e){
 			 System.out.println("Um erro ocorreu => " + e);

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;Estatística.java&apos; to &apos;Estatistica.java&apos;&#x0D;&#x0A;- Original project: &apos;P03pg53PRF&apos;&#x0D;&#x0A;- Original element: &apos;Estatística.java&apos;&#x0D;&#x0A;- Renamed element: &apos;Estatistica.java&apos;" description="Rename compilation unit &apos;Estatística.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;{Estatística.java" name="Estatistica.java" references="false" stamp="1664231731698" version="1.0"/>
+</session>

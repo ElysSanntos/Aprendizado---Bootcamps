@@ -1,0 +1,13 @@
+public class TestaFrio {
+	public static void main(String[] args) {
+		int cont = 0;
+		
+		PrevisaoDoTempo ze = new PrevisaoDoTempo();
+		
+		while(cont < 100) {
+			System.out.println(cont);
+			ze.getTemperatura();
+			cont++;
+		}
+	}
+}
