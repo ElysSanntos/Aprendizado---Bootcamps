@@ -1,0 +1,41 @@
+public class Pesquisa {
+	// atributos da classe
+	private static int sequencia;
+	
+	// atributos da instância
+	private int numPesquisa;
+	private char sexo;
+	private char resposta;
+	
+	// construtores
+	public Pesquisa() {
+		sequencia++;
+		numPesquisa = sequencia;
+	}
+	public Pesquisa (char sexo, char resposta) {
+		sequencia++;
+		numPesquisa = sequencia;
+		this.sexo = sexo;
+		this.resposta = resposta;
+	}
+	
+	// getters
+	public int getNumPesquisa() {
+		return numPesquisa;
+	}
+	public char getSexo() {
+		return sexo;
+	}
+	public char getResposta() {
+		return resposta;
+	}
+
+	// setters
+	public void setSexo(char sexo) {
+		this.sexo = sexo;
+	}
+	public void setResposta(char resposta) {
+		this.resposta = resposta;
+	}
+	
+}

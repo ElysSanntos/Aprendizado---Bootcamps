@@ -1,0 +1,6 @@
+
+public class Estatistica {
+	// atributo
+	private double [] valores;
+	public Estatistica() {}
+}

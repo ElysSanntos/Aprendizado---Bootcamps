@@ -1,0 +1,95 @@
+public class Estatistica {
+	// atributo
+	private double[] valores;
+
+	// construtores
+	public Estatistica() {
+	}
+
+	public Estatistica(double[] valores) {
+		this.valores = valores;
+	}
+
+	// getters e setters
+	public void setValores(double[] valores) {
+		this.valores = valores;
+	}
+
+	public double[] getValores() {
+		return valores;
+	}
+
+	// métodos próprios
+	public void ordena() {
+		mergeSort(valores,valores.length);
+	}
+
+	public void mergeSort(double[] a, int n) {
+		if (n < 2) {
+			return;
+		}
+		int mid = n / 2;
+		double[] l = new double[mid];
+		double[] r = new double[n - mid];
+
+		for (int i = 0; i < mid; i++) {
+			l[i] = a[i];
+		}
+		for (int i = mid; i < n; i++) {
+			r[i - mid] = a[i];
+		}
+		mergeSort(l, mid);
+		mergeSort(r, n - mid);
+
+		merge(a, l, r, mid, n - mid);
+	}
+
+	public void merge(double[] a, double[] l, double[] r, int left, int right) {
+		int i = 0, j = 0, k = 0;
+		while (i < left && j < right) {
+			if (l[i] <= r[j]) {
+				a[k++] = l[i++];
+			} else {
+				a[k++] = r[j++];
+			}
+		}
+		while (i < left) {
+			a[k++] = l[i++];
+		}
+		while (j < right) {
+			a[k++] = r[j++];
+		}
+	}
+
+	public double media() {
+		double soma= 0.0;
+		for(double balde:valores) {
+			soma += balde;
+		}
+		return soma / valores.length;
+	}
+
+	public double moda() {
+		return 0.0;
+	}
+
+	public double mediana() {
+		return 0.0;
+	}
+
+	public double variancia() {
+		return 0.0;
+	}
+
+	public double desviopadrao() {
+		return 0.0;
+	}
+	
+	public void imprimeValores() {
+		for(double balde:valores) {
+			System.out.print(balde+ "  ");
+		}
+		// para pular linha
+		System.out.println();
+	}
+}

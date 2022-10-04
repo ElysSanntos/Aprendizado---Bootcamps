@@ -1,0 +1,31 @@
+import java.text.SimpleDateFormat;
+
+public class TestaCopias {
+	public static void main(String[] args) {
+		SimpleDateFormat ft = new SimpleDateFormat("dd/MM/yyyy");
+		
+		try {
+			// Pessoa
+			String dataNascimento = "10/05/1998";
+			Pessoa pes01 = new Pessoa("Jose da Silva", 
+					                  "111.111.111-11", 
+					                  ft.parse(dataNascimento));
+			System.out.println("Pessoa 100 copias = R$"+
+					           pes01.tirarCopias(100));
+			// Aluno
+			dataNascimento = "05/06/2000";
+			Aluno alu01 = new Aluno("Maria Costa e Silva",
+					"222.222.222-22",
+					ft.parse(dataNascimento),
+					"232213-8"
+					);
+			System.out.println("Aluno 100 copias = R$"+
+			           alu01.tirarCopias(100));
+			// Professor
+			// Funcionario
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+
+}

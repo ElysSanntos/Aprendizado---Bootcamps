@@ -1,0 +1,17 @@
+public class TestaPessoa {
+	public static void main(String[] args) {
+		Pessoa [] povo = new Pessoa[5];
+		
+		povo[0] = new Pessoa(123,"Jose Pereira", 1.652);
+		povo[1] = new Pessoa(754,"Ana Lee", 1.83);
+		povo[2] = new Pessoa(874,"Denis Oliveira", 1.53);
+		povo[3] = new Pessoa(694,"Augusto Viana", 1.71);
+		povo[4] = new Pessoa(458,"Maria Costa", 1.65);
+		
+		double media = Math.floor(Pessoa.mediaAltura(povo)*10000.0)/10000.0;
+		System.out.println("Altura media = " + media);
+		System.out.printf("Altura media = '%.2f'" + media);
+		
+	}
+
+}

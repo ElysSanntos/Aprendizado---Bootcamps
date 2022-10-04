@@ -1,0 +1,31 @@
+
+public class Funcionario extends Pessoa{
+	public int funcional;
+	public String Cargo;
+	
+	public Funcionario() {}
+	public Funcionario(int funcional, String cargo) {
+		this.funcional = funcional;
+		Cargo = cargo;
+	}
+	public int getFuncional() {
+		return funcional;
+	}
+	public String getCargo() {
+		return Cargo;
+	}
+	public void setFuncional(int funcional) {
+		this.funcional = funcional;
+	}
+	public void setCargo(String cargo) {
+		Cargo = cargo;
+	}
+
+	public void imprimeFuncionario() {
+		System.out.println("id.........:");
+		System.out.println("nome.......:");
+		System.out.println("funcional..:"+funcional);
+		System.out.println("cargo......:"+cargo);
+	}
+	
+}

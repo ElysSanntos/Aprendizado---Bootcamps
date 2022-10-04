@@ -1,0 +1,21 @@
+import java.util.ArrayList;
+
+public class TestaArrayList {
+
+	public static void main(String[] args) {
+		ArrayList cornucopia = new ArrayList();
+		
+		cornucopia.add(5);
+		cornucopia.add(3.1);
+		cornucopia.add(0,"ana");
+		cornucopia.add(1,"nelson");
+		System.out.println(cornucopia);
+		cornucopia.set(0,"Mariana");
+		cornucopia.set(1,false);
+		System.out.println(cornucopia);
+		System.out.println(cornucopia.size());
+		
+		
+	}
+
+}

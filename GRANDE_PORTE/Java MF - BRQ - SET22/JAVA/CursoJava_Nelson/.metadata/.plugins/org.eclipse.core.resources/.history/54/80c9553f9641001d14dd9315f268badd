@@ -1,0 +1,13 @@
+public class TestaFinnaly {
+	public static void main(String[] args) {
+		try {
+			int x = 10 / 10;
+		}
+		catch(Exception e) {
+			System.out.println("Vai estudar matematica...");
+		}
+		
+		
+
+	}
+}

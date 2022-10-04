@@ -1,0 +1,34 @@
+
+public class Estatistica {
+	// atributo
+	private double [] valores;
+	// construtores
+	public Estatistica() {}
+	public Estatistica(double [] valores) {
+		this.valores = valores;
+	}
+	// getters e setters
+	public void setValores(double [] valores) {
+		this.valores = valores;
+	}
+	public double [] getValores() {
+		return valores;
+	}
+	// métodos próprios
+	public void ordena() {}
+	public double media() {
+		return 0.0;
+	}
+	public double moda() {
+		return 0.0;
+	}
+	public double mediana() {
+		return 0.0;
+	}
+	public double variancia() {
+		return 0.0;
+	}
+	public double desviopadrao() {
+		return 0.0;
+	}
+}

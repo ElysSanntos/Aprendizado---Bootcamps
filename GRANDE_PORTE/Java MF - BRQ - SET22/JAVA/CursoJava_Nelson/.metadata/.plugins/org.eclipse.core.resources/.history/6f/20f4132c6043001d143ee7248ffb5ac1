@@ -1,0 +1,7 @@
+import java.util.Date;
+
+public class Aniversarios {
+	public static void main(String[] args) {
+		Date d1 = new Date();
+	}
+}

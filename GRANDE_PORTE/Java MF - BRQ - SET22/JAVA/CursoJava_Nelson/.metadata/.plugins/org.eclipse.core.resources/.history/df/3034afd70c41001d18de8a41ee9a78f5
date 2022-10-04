@@ -1,0 +1,6 @@
+public class TestaPovo {
+	public static void main(String[] args) {
+		Pessoa p = new Pessoa(1,"Adilson");
+		p.imprimeDados();
+	}
+}

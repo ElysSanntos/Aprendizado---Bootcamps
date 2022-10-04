@@ -1,0 +1,34 @@
+public class Veiculo {
+    private int velocidade = 0;
+    private int velocidadeMax = 100;
+
+    public int getVelocidade(){
+       return this.velocidade;
+    }
+
+    public int getVelocidadeMax(){
+       return this.velocidadeMax;
+    }
+
+    public void acelera(int incremento)
+    {
+        if(velocidade + incremento > velocidademax){
+            // lançar exceção ...
+        }
+        else
+        {
+           velocidade += incremento;
+        }
+    }
+
+    public void desacelara(int decremento)
+    {
+        if(velocidade - decremento < 0){
+            // lançar exceção ...
+        }
+        else
+        {
+           velocidade -= decremento;
+        }
+    }
+}

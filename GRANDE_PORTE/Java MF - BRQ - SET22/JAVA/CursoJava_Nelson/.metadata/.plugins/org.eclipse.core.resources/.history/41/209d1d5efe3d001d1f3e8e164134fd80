@@ -1,0 +1,6 @@
+package DiretorioDaElys;
+import guerrinha.SuperWar;
+
+public class GuerraDoParaguai extends SuperWar{
+	public int ano;
+}

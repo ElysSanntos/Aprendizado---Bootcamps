@@ -1,0 +1,12 @@
+public class TestaPoligonos {
+	public static void main(String[] args) {
+		CPoligono  p = new CPoligono();
+		CRetangulo r = new CRetangulo();
+		CTriangulo t = new CTriangulo();
+		
+		p.setValores(3, 4);
+		r.setValores(3, 4);
+		t.setValores(3, 4);
+		
+	}
+}

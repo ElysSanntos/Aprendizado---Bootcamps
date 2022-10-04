@@ -1,0 +1,17 @@
+import java.util.Date;
+
+public class Aniversarios {
+	public static void main(String[] args) {
+		try {
+		Date d1 = new Date();
+		System.out.println(d1);
+		// Thread.sleep(7000);
+		// System.out.println(d1);
+		Date d2 = new Date(-71020800);
+		System.out.println(d2);
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
+	}
+}

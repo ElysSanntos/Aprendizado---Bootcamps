@@ -1,0 +1,19 @@
+import java.util.ArrayList;
+
+public class PesquisaDeOpiniao {
+
+	public static void main(String[] args) {
+		ArrayList IBOPE = new ArrayList();
+		IBOPE.add(new Pesquisa('M','S'));
+		IBOPE.add(new Pesquisa('F','S'));
+		IBOPE.add(new Pesquisa('F','N'));
+		IBOPE.add(new Pesquisa('M','N'));
+		
+		Pesquisa p = new Pesquisa();
+		p.setSexo('F');
+		p.setResposta('N');
+		IBOPE.add(p);
+		
+	}
+
+}
