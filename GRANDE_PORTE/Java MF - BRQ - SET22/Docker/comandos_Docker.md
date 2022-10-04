@@ -154,6 +154,7 @@ Para sair do container, digite:         exit
 ```
     docker run --name hello-world -p 80:80 -p 8000:80  docker/getting-started
     docker exec -it hello-world /bin/sh
+    ls
 ```
 
 # Como podemos fazer para ao deletar um container, não perdermos dados do mesmo?
