@@ -1,0 +1,20 @@
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class FormatandoDatas {
+	public static void main(String[] args) {
+		SimpleDateFormat ft1 = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat ft2 = new SimpleDateFormat("E dd/MM/yyyy G");
+		String nascimento = "01/14/1967";
+		Date n=null;
+		try {
+			n = ft1.parse(nascimento);
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
+		finally {
+			System.out.println(ft2.format(n));
+		}
+	}
+}
