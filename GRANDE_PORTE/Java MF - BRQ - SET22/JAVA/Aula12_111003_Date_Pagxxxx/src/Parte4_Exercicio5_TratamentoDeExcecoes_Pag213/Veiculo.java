@@ -1,5 +1,9 @@
 package Parte4_Exercicio5_TratamentoDeExcecoes_Pag213;
 
+/*Implemente tratamento de exce��o na classe Ve�culo abaixo, lan�ando exce��es 
+ * quando a velocidade estiver abaixo de zero ou acima do limite m�ximos. 
+ * Escreva um programa para testar esta classe*/
+
 public class Veiculo {
     private int velocidade = 0;
     private int velocidadeMax = 100;

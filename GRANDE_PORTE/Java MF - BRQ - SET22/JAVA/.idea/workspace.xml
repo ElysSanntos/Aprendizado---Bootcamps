@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88b5df11-44da-4a47-94eb-be931fabb42f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Aula09_220926_Heranca_Pag174/src/Parte3_Exercicio06_Estatistica_Pag167/TestaEstatistica.java" beforeDir="false" afterPath="$PROJECT_DIR$/Aula09_220926_Heranca_Pag174/src/Parte3_Exercicio06_Estatistica_Pag167/TestaEstatistica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JAVA.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JAVA.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Aula12_111003_Date_Pagxxxx/src/Parte4_Exercicio5_TratamentoDeExcecoes_Pag213/Veiculo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Aula12_111003_Date_Pagxxxx/src/Parte4_Exercicio5_TratamentoDeExcecoes_Pag213/Veiculo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +36,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "js.buildTools.gulp.gulp_package_dir": "",
-    "last_opened_file_path": "D:/Workspace/Aprendizado---Bootcamps/GRANDE_PORTE/Java MF - BRQ - SET22/JAVA",
+    "last_opened_file_path": "D:/Workspace/Aprendizado---Bootcamps/GRANDE_PORTE/Java MF - BRQ - SET22/Arquitetura",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -75,6 +73,7 @@
       <updated>1664454557581</updated>
       <workItem from="1664454558891" duration="703000" />
       <workItem from="1664620755717" duration="1151000" />
+      <workItem from="1664920154136" duration="33000" />
     </task>
     <servers />
   </component>
