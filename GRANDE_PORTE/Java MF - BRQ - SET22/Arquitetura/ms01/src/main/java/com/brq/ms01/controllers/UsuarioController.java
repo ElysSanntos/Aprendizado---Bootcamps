@@ -1,47 +1,93 @@
 package com.brq.ms01.controllers;
 
 import com.brq.ms01.models.UsuarioModel;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
-// comentário
+// comentário de linha
 
 /*
- * comentário
+ * comentário de bloco
  * */
 
 @RestController
 public class UsuarioController {
     //Este ArrayList é para fins didáticos / aqui simula um BD
-    public ArrayList<UsuarioModel> user = new ArrayList<>();
+    private ArrayList<UsuarioModel> users = new ArrayList<>();
+
+    //simular um auto increment
+    private int counter = 1;
+
 
     /* o @GetMapping permite associoar o verbo GET com a rota /usuarios*/
-    @GetMapping("usuarios")
+    @GetMapping("usuarios")//essa variavel é da URL (localhost:8080/usuarios)
     public ArrayList<UsuarioModel> getAllUsuarios() {
 
+        return users;
+    }
 
-
-        UsuarioModel u = new UsuarioModel();
-        u.setId(1);
-        u.setNome("Manoel");
-        u.setEmail("manoel@gmail.com");
-        user.add(u);
-
-        UsuarioModel u2 = new UsuarioModel();
-        u2.setId(22);
-        u2.setNome("Jair");
-        u2.setEmail("melhorjairseacostumando@gmail.com");
-
-
-        user.add(u2);
-
+    @PostMapping("usuarios")//essa variavel é da URL (localhost:8080/usuarios)
+    /* @RequestBody ==> pega o que está vindo do body lá no postman e transforma/converte em um objeto
+       do tipo UsuarioModel */
+    public UsuarioModel create(@RequestBody UsuarioModel user) {
+        user.setId(counter);
+        System.out.println(user);//exibe no console o que recebemos do post
+        users.add(user); // add o objeto no array list
+        counter++;
         return user;
     }
-    @PostMapping("usuarios")
-    public String create(){
-        return "POST Usuários";
+
+    //Métdo Path
+    @PatchMapping("usuarios/{id}")
+    //@RequestBody --> pega os dados do body converte para a variavel user do tipo UsuarioModel
+    //@PathVariable -> pega o id/ valor associado na rota  que está na URL e associar a int id
+    public UsuarioModel update(@RequestBody UsuarioModel user, @PathVariable int id) {
+
+        //Como localizar o user a ser alterado?
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getId() == id) {
+                //Localizamos o user a ser alterado
+                users.get(i).setNome(user.getNome());
+                users.get(i).setEmail(user.getEmail());
+
+                return users.get(i);
+            }
+        }
+        //caso o id passado seja inexistente é retornado null
+        return null;
+
+
+    }
+
+    @DeleteMapping("usuarios/{id}")
+    public String delete(@PathVariable int id) {
+
+        //ForEach ou balde
+        //for (UsuarioModel variavelLocal: users)
+        //Tipo do objeto nome da variavel local que vai assumir cada possição do arrayList:
+        // onde está o array list
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getId() == id) {
+                users.remove(i);
+                return "Usuario deletado com sucesso!";
+            }
+
+
+        }
+        return "User não encontrado.";
+    }
+
+    @GetMapping("usuarios/{id}")//essa variavel é da URL (localhost:8080/usuarios)
+    public UsuarioModel getOne(@PathVariable int id) {
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getId() == id) {
+
+                return users.get(i);
+
+            }
+
+        }
+        return null;
     }
 }
