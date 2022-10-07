@@ -1,6 +1,8 @@
 package com.brq.ms01.controllers;
 
 import com.brq.ms01.models.UsuarioModel;
+import com.brq.ms01.services.UsuarioService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -18,6 +20,12 @@ public class UsuarioController {
 
     //simular um auto increment
     private int counter = 1;
+
+    @Autowired
+    private UsuarioService userService;
+    public void teste(){
+
+    }
 
 
     /* o @GetMapping permite associoar o verbo GET com a rota /usuarios*/
