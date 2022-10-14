@@ -6,96 +6,88 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
-// comentário de linha
+
+// comentário
 
 /*
- * comentário de bloco
+ * comentário
  * */
 
 @RestController
 public class UsuarioController {
-    //Este ArrayList é para fins didáticos / aqui simula um BD
-    private ArrayList<UsuarioModel> users = new ArrayList<>();
 
-    //simular um auto increment
-    private int counter = 1;
 
+
+    // private UsuarioService usuService = new UsuarioService();
+    // @Autowired é importante pois permite que o Spring "instancie" o objeto do tipo UsuarioService
     @Autowired
-    private UsuarioService userService;
-    public void teste(){
+    private UsuarioService usuService;
 
+
+    /*
+     * o @GetMapping permite associoar o verbo GET com a rota /usuarios
+     * */
+    @GetMapping("usuarios")
+    public List<UsuarioModel> getAllUsuarios(){
+
+        // ISSO É VERDADEIRO?????
+        /*
+         * EM JAVA, NÃÃÃÃÃÃÃOOOO SE COMPARA STRING COM OPERADOR ==
+         * */
+//        if ("aaa" == "aaa"){
+//
+//        }
+//        if ("aaa".equalsIgnoreCase("aaa")){
+//
+//        }
+        usuService.mostrarMensagemService();
+        //return usuarios;
+//        ArrayList<UsuarioModel> usuarios = usuService.getAllUsuarios();
+//          MANIPULAR AQUI
+//        return usuarios;
+
+        //return usuService.getAllUsuarios();
+        return usuService.getAllUsuarios();
     }
 
+    @PostMapping("usuarios")
+    public UsuarioModel create(@RequestBody UsuarioModel usuario){
+//        UsuarioModel u = usuService.create(usuario);
+//        return u;
+        return usuService.create(usuario);
 
-    /* o @GetMapping permite associoar o verbo GET com a rota /usuarios*/
-    @GetMapping("usuarios")//essa variavel é da URL (localhost:8080/usuarios)
-    public ArrayList<UsuarioModel> getAllUsuarios() {
+    } // create
 
-        return users;
-    }
+    // /usuarios/1 -> o valor do id vai ser 1
 
-    @PostMapping("usuarios")//essa variavel é da URL (localhost:8080/usuarios)
-    /* @RequestBody ==> pega o que está vindo do body lá no postman e transforma/converte em um objeto
-       do tipo UsuarioModel */
-    public UsuarioModel create(@RequestBody UsuarioModel user) {
-        user.setId(counter);
-        System.out.println(user);//exibe no console o que recebemos do post
-        users.add(user); // add o objeto no array list
-        counter++;
-        return user;
-    }
-
-    //Métdo Path
     @PatchMapping("usuarios/{id}")
-    //@RequestBody --> pega os dados do body converte para a variavel user do tipo UsuarioModel
-    //@PathVariable -> pega o id/ valor associado na rota  que está na URL e associar a int id
-    public UsuarioModel update(@RequestBody UsuarioModel user, @PathVariable int id) {
-
-        //Como localizar o user a ser alterado?
-        for (int i = 0; i < users.size(); i++) {
-            if (users.get(i).getId() == id) {
-                //Localizamos o user a ser alterado
-                users.get(i).setNome(user.getNome());
-                users.get(i).setEmail(user.getEmail());
-
-                return users.get(i);
-            }
-        }
-        //caso o id passado seja inexistente é retornado null
-        return null;
-
-
-    }
+    public UsuarioModel update(@RequestBody UsuarioModel usuarioBody,
+                               @PathVariable int id ){
+        //        UsuarioModel u = usuService.update(id, usuarioBody);
+        //        return u;
+        return usuService.update(id, usuarioBody);
+    } // update()
 
     @DeleteMapping("usuarios/{id}")
-    public String delete(@PathVariable int id) {
+    public String delete(@PathVariable int id){
 
-        //ForEach ou balde
-        //for (UsuarioModel variavelLocal: users)
-        //Tipo do objeto nome da variavel local que vai assumir cada possição do arrayList:
-        // onde está o array list
-        for (int i = 0; i < users.size(); i++) {
-            if (users.get(i).getId() == id) {
-                users.remove(i);
-                return "Usuario deletado com sucesso!";
-            }
+//        String response = usuService.delete(id);
+//        return response;
 
+        return usuService.delete(id);
+    } // delete
 
-        }
-        return "User não encontrado.";
-    }
+    // busca por apenas um usuário (pelo id)
+    @GetMapping("usuarios/{id}")
+    public UsuarioModel getOne(@PathVariable int id){
 
-    @GetMapping("usuarios/{id}")//essa variavel é da URL (localhost:8080/usuarios)
-    public UsuarioModel getOne(@PathVariable int id) {
-        for (int i = 0; i < users.size(); i++) {
-            if (users.get(i).getId() == id) {
+//        UsuarioModel u = usuService.getOne(id);
+//        return u;
 
-                return users.get(i);
+        return usuService.getOne(id);
 
-            }
+    } // getOne
 
-        }
-        return null;
-    }
-}
+} // UsuarioController
