@@ -1,6 +1,6 @@
-package Parte05_Revisao_FazendinhaFeliz_Pag248;
+package Parte05_Revisao_FazendinhaFeliz_Interface_Pag316;
 
-public class Vaca extends Animal {
+public class Vaca extends Animal  {
 	public Vaca() {}
 	public Vaca(String nome, int idade, double peso, String especie) {
 		super(nome, idade, peso, especie);

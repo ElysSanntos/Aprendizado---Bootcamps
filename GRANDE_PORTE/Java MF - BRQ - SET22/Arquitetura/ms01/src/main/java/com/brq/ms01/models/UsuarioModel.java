@@ -25,7 +25,7 @@ public class UsuarioModel {
 	@Id
 	@Column(name = "id_user" )
 	private int id;
-	@Column(name = "name_user")
+	@Column(name = "nome_user")
 	private String nome;
 	@Column(name = "email_user")
 	private String email;

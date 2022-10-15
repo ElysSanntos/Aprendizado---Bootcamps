@@ -1,6 +1,6 @@
-package Parte05_Revisao_FazendinhaFeliz_Pag248;
+package Parte05_Revisao_FazendinhaFeliz_Interface_Pag316;
 
-public abstract class Animal {
+public abstract class Animal implements InterfaceSons{
 	// atributos
 	protected String nome;
 	protected int idade;
@@ -42,6 +42,5 @@ public abstract class Animal {
 		this.especie = especie;
 	}
 	
-	// métodos próprios
-	public abstract void som();
+	
 }
