@@ -36,14 +36,22 @@ public class UsuarioService {
 		//return usuarios;
 	}
 
-	public UsuarioModel create(UsuarioModel usuario){
+	public UsuarioModel create(UsuarioModel usuario){//POST
 
-		usuario.setId( counter );
-		usuarios.add(usuario);
-		counter++;
+		//usuario.setId( counter );
+		//usuarios.add(usuario);
+		//counter++;
+
+
+		/*Chamar a camada repository que vai fazer
+		INSERT INTO db_curso_java.usuarios(nome_user, email_user)
+		VALUES('Tarcisão do Asfalto', 'tda@patriota.com.br')
+		* */
+		UsuarioModel usuarioSalvo = usuRepository.save(usuario);
 
 		// return "POST Usuários";
-		return usuario;
+		//return usuario;
+		return usuarioSalvo;
 	}
 
 	public UsuarioModel update(int id, UsuarioModel usuarioBody){
@@ -55,8 +63,8 @@ public class UsuarioService {
 				usuarios.get(i).setEmail( usuarioBody.getEmail() );
 
 				return usuarios.get(i);
-			} // if
-		}// for
+			}
+		}
 
 		return null;
 	}
@@ -66,22 +74,25 @@ public class UsuarioService {
 //        for (UsuarioModel usuarioLocal: usuarios) {
 //            usuarios.remove(usuarioLocal);
 //        }
-		for (int i = 0; i < usuarios.size(); i++){
-			// se achar o usuário, então delete do arraylist
-			if (usuarios.get(i).getId() == id){
-				usuarios.remove(i);
-				return "Usuário delatado com sucesso!";
-			} // if
-		} // for
-		return "Usuário não encontrado";
+//		for (int i = 0; i < usuarios.size(); i++){
+//			// se achar o usuário, então delete do arraylist
+//			if (usuarios.get(i).getId() == id){
+//				usuarios.remove(i);
+//				return "Usuário delatado com sucesso!";
+//			} // if
+//		} // for
+//		return "Usuário não encontrado";
+
+		usuRepository.deleteById(id);
+		return "Usuário deletado com sucesso!";
 	}
 
 	public UsuarioModel getOne(int id){
 		for (int i = 0; i < usuarios.size(); i++){
 			if (usuarios.get(i).getId() == id){
 				return usuarios.get(i);
-			} // if
-		} // for
+			}
+		}
 		return null;
 	}
 }

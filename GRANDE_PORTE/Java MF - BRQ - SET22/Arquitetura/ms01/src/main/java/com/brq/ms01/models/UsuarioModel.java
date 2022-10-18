@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /*@Data gera em tempo de execução os getters-setters-toString*/
 @Data
@@ -23,6 +20,7 @@ public class UsuarioModel {
 
 	/*O meu usuário deve ter um id, nome e email - Eu quero criar um ArrayList de Usuários*/
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // informa a estrategia a ser utilizada para criar o ID
 	@Column(name = "id_user" )
 	private int id;
 	@Column(name = "nome_user")
