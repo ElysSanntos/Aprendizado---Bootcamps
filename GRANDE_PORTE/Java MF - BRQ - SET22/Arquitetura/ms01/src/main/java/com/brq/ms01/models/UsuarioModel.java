@@ -23,10 +23,15 @@ public class UsuarioModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // informa a estrategia a ser utilizada para criar o ID
 	@Column(name = "id_user" )
 	private int id;
+
 	@Column(name = "nome_user")
 	private String nome;
+
 	@Column(name = "email_user")
 	private String email;
+
+	@Column(name = "telefone_user")
+	private String telefone;
 
 
 

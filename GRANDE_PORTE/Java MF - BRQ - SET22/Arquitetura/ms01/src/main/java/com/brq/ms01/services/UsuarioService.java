@@ -8,6 +8,7 @@ import java.util.List;
 
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 /*
  * A camada Service é responsável por armazenar as regras de negócio da aplicação
@@ -23,11 +24,11 @@ public class UsuarioService {
 	private UsuarioRepository usuRepository;
 
 
-	public void mostrarMensagemService(){
+	public void mostrarMensagemService() {
 		System.out.println("Mensagem do serviço");
 	}
 
-	public List<UsuarioModel> getAllUsuarios(){
+	public List<UsuarioModel> getAllUsuarios() {
 
 		/*A repository vai executar : Select * from usuarios;*/
 		List<UsuarioModel> list = usuRepository.findAll();
@@ -36,7 +37,7 @@ public class UsuarioService {
 		//return usuarios;
 	}
 
-	public UsuarioModel create(UsuarioModel usuario){//POST
+	public UsuarioModel create(UsuarioModel usuario) {//POST
 
 		//usuario.setId( counter );
 		//usuarios.add(usuario);
@@ -54,22 +55,52 @@ public class UsuarioService {
 		return usuarioSalvo;
 	}
 
-	public UsuarioModel update(int id, UsuarioModel usuarioBody){
-		// como achar o usuário a ser alterado?
-		for ( int i = 0; i <  usuarios.size(); i++ ){
-			if (usuarios.get(i).getId() == id){
-				// achamos o usuário a ser alterado
-				usuarios.get(i).setNome( usuarioBody.getNome() );
-				usuarios.get(i).setEmail( usuarioBody.getEmail() );
+	public UsuarioModel update(int id, UsuarioModel usuarioBody) {
 
-				return usuarios.get(i);
-			}
+		//Refatoração mais simples
+		/*
+		* UsuarioModel usuario = usuRepository.findByOd(id).orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+		* meuUsuario.setEmail(usuarioBody.getEmail());
+		  meuUsuario.setNome(usuarioBody.getNome());
+		  *
+		  * return usuRepository.save(usuario);*/
+
+		//Verificar se os dados existem
+		Optional<UsuarioModel> usuarioOptional = usuRepository.findById(id);
+
+		//Se eu achei o usuario no banco
+		if (usuarioOptional.isPresent()) {
+			//retorn os valores do usuario encontrado no banco de dados
+			UsuarioModel meuUsuario = usuarioOptional.get();
+
+			meuUsuario.setEmail(usuarioBody.getEmail());
+			meuUsuario.setNome(usuarioBody.getNome());
+
+			//Dar o update
+			UsuarioModel usuarioSalvo = usuRepository.save(meuUsuario);
+
+			return usuarioSalvo;
 		}
-
-		return null;
+		//Não achei o usuario no Banco
+		//Lambida é um metodo sem nome
+		else {
+			return usuarioOptional.orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+		}
+		// como achar o usuário a ser alterado?
+//		for ( int i = 0; i <  usuarios.size(); i++ ){
+//			if (usuarios.get(i).getId() == id){
+//				// achamos o usuário a ser alterado
+//				usuarios.get(i).setNome( usuarioBody.getNome() );
+//				usuarios.get(i).setEmail( usuarioBody.getEmail() );
+//
+//				return usuarios.get(i);
+//			}
+//		}
+//
+//		return null;
 	}
 
-	public String delete(int id){
+	public String delete(int id) {
 		// FORECH
 //        for (UsuarioModel usuarioLocal: usuarios) {
 //            usuarios.remove(usuarioLocal);
@@ -87,12 +118,29 @@ public class UsuarioService {
 		return "Usuário deletado com sucesso!";
 	}
 
-	public UsuarioModel getOne(int id){
-		for (int i = 0; i < usuarios.size(); i++){
-			if (usuarios.get(i).getId() == id){
-				return usuarios.get(i);
-			}
+	public UsuarioModel getOne(int id) {
+
+		//Retornando em uma unica linha de código
+		/*return usuarioOptional.findbyId(id)
+				              .orElseThrow(
+									  () -> new RuntimeException("Usuário não localizado"));*/
+
+		Optional<UsuarioModel> usuarioOptional = usuRepository.findById(id);
+
+		if (usuarioOptional.isPresent()) {
+			UsuarioModel usuarioOne = usuarioOptional.get();
+
+			return usuarioOne;
 		}
-		return null;
+
+//		for (int i = 0; i < usuarios.size(); i++){
+//			if (usuarios.get(i).getId() == id){
+//				return usuarios.get(i);
+//			}
+
+		//return null;
+		else {
+			return usuarioOptional.orElseThrow(() -> new RuntimeException("Usuário não localizado"));
+		}
 	}
 }
