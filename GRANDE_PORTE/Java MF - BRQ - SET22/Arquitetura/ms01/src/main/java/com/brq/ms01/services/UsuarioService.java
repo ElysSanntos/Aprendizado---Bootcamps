@@ -1,5 +1,6 @@
 package com.brq.ms01.services;
 
+import com.brq.ms01.dtos.UsuarioDTO;
 import com.brq.ms01.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,25 +38,39 @@ public class UsuarioService {
 		//return usuarios;
 	}
 
-	public UsuarioModel create(UsuarioModel usuario) {//POST
+	public UsuarioDTO create(UsuarioDTO usuario) {//POST
 
 		//usuario.setId( counter );
 		//usuarios.add(usuario);
 		//counter++;
 
+		//TEMOS QUE CONVERTER UM DTO PARA UM MODEL
+
+		/*//Jeito Go Horse
+		UsuarioModel usuarioDTOtoMOdel = new UsuarioModel();
+		usuarioDTOtoMOdel.setId(usuario.getId());
+		usuarioDTOtoMOdel.setNome(usuario.getNome());
+		usuarioDTOtoMOdel.setTelefone(usuario.getTelefone());
+		usuarioDTOtoMOdel.setEmail(usuario.getEmail());
+
+		UsuarioModel usuarioSalvo = usuRepository.save(usuarioDTOtoMOdel);*/
+
+		//Jeito elegante - Converter o objeto de destino para o objeto de origem
 
 		/*Chamar a camada repository que vai fazer
 		INSERT INTO db_curso_java.usuarios(nome_user, email_user)
 		VALUES('Tarcisão do Asfalto', 'tda@patriota.com.br')
 		* */
-		UsuarioModel usuarioSalvo = usuRepository.save(usuario);
+		UsuarioModel usuarioSalvo = usuRepository.save(usuario.toModel());
 
-		// return "POST Usuários";
-		//return usuario;
-		return usuarioSalvo;
+		/*
+		 return "POST Usuários";
+		return usuario;
+		*/
+		return usuarioSalvo.toDTO();
 	}
 
-	public UsuarioModel update(int id, UsuarioModel usuarioBody) {
+	public UsuarioDTO update(int id, UsuarioModel usuarioBody) {
 
 		//Refatoração mais simples
 		/*
@@ -79,12 +94,12 @@ public class UsuarioService {
 			//Dar o update
 			UsuarioModel usuarioSalvo = usuRepository.save(meuUsuario);
 
-			return usuarioSalvo;
+			return usuarioSalvo.toDTO();
 		}
 		//Não achei o usuario no Banco
 		//Lambida é um metodo sem nome
 		else {
-			return usuarioOptional.orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+			return usuarioOptional.orElseThrow(() -> new RuntimeException("Usuário não encontrado")).toDTO();
 		}
 		// como achar o usuário a ser alterado?
 //		for ( int i = 0; i <  usuarios.size(); i++ ){
@@ -118,7 +133,7 @@ public class UsuarioService {
 		return "Usuário deletado com sucesso!";
 	}
 
-	public UsuarioModel getOne(int id) {
+	public UsuarioDTO getOne(int id) {
 
 		//Retornando em uma unica linha de código
 		/*return usuarioOptional.findbyId(id)
@@ -130,7 +145,7 @@ public class UsuarioService {
 		if (usuarioOptional.isPresent()) {
 			UsuarioModel usuarioOne = usuarioOptional.get();
 
-			return usuarioOne;
+			return usuarioOne.toDTO();
 		}
 
 //		for (int i = 0; i < usuarios.size(); i++){
@@ -140,7 +155,7 @@ public class UsuarioService {
 
 		//return null;
 		else {
-			return usuarioOptional.orElseThrow(() -> new RuntimeException("Usuário não localizado"));
+			return usuarioOptional.orElseThrow(() -> new RuntimeException("Usuário não localizado")).toDTO();
 		}
 	}
 }
