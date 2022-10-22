@@ -29,12 +29,21 @@ public class UsuarioService {
 		System.out.println("Mensagem do serviço");
 	}
 
-	public List<UsuarioModel> getAllUsuarios() {
+	public List<UsuarioDTO> getAllUsuarios() {
 
 		/*A repository vai executar : Select * from usuarios;*/
 		List<UsuarioModel> list = usuRepository.findAll();
 
-		return list;
+		//COMO CONVERTER UMA LISTA DE MODEL PARA UMA LISTA DE DTO?
+
+		List<UsuarioDTO> listDTO = new ArrayList<>();
+
+		//Tipo da Variavel - nome da variavel : variavel
+		for (UsuarioModel balde : list ) {
+
+			listDTO.add(balde.toDTO());
+		}
+		return listDTO;
 		//return usuarios;
 	}
 
@@ -70,7 +79,7 @@ public class UsuarioService {
 		return usuarioSalvo.toDTO();
 	}
 
-	public UsuarioDTO update(int id, UsuarioModel usuarioBody) {
+	public UsuarioDTO update(int id, UsuarioDTO usuarioBody) {
 
 		//Refatoração mais simples
 		/*

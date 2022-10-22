@@ -6,6 +6,7 @@ import com.brq.ms01.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class UsuarioController {
 	 * o @GetMapping permite associoar o verbo GET com a rota /usuarios
 	 * */
 	@GetMapping("usuarios")
-	public List<UsuarioModel> getAllUsuarios() {
+	public List<UsuarioDTO> getAllUsuarios() {
 
 		// ISSO É VERDADEIRO?????
 		/*
@@ -53,7 +54,7 @@ public class UsuarioController {
 	}
 
 	@PostMapping("usuarios")
-	public UsuarioDTO create(@RequestBody UsuarioDTO usuario) {
+	public UsuarioDTO create(@Valid @RequestBody UsuarioDTO usuario) {
 //        UsuarioModel u = usuService.create(usuario);
 //        return u;
 		return usuService.create(usuario);
@@ -63,11 +64,11 @@ public class UsuarioController {
 	// /usuarios/1 -> o valor do id vai ser 1
 
 	@PatchMapping("usuarios/{id}")
-	public UsuarioModel update(@RequestBody UsuarioModel usuarioBody,
+	public UsuarioDTO update(@RequestBody UsuarioDTO usuarioBody,
 	                           @PathVariable int id) {
 		//        UsuarioModel u = usuService.update(id, usuarioBody);
 		//        return u;
-		return usuService.update(id, usuarioBody).toModel();
+		return usuService.update(id, usuarioBody);
 	}
 
 	@DeleteMapping("usuarios/{id}")
