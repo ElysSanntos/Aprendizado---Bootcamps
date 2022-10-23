@@ -18,8 +18,8 @@ import java.util.Optional;
 public class UsuarioService {
 
 	// ESTE ARRAYLIST É DIDÁTICO, POIS ESTÁ SIMULANDO UM BANCO DE DADOS
-	private ArrayList<UsuarioModel> usuarios = new ArrayList<>();
-	private int counter = 1;
+//	private ArrayList<UsuarioModel> usuarios = new ArrayList<>();
+//	private int counter = 1;
 
 	@Autowired
 	private UsuarioRepository usuRepository;
