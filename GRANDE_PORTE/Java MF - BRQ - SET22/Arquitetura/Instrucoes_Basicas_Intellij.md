@@ -8,6 +8,9 @@
 
 - File -> Settings -> Appearance & Behavior -> Appearance
 - File -> Settings -> Editor -> General -> Change font size with Ctrl+Mouse Wheel
+- Atalho ==> CTRL + Shift + A ==> Digite por exemplo Wheel e já estará nas configurações.
+
+
 
 ### Acesso à pasta do Linux
 
@@ -32,3 +35,6 @@
 - ALT+INSERT (criar construtor, get/set, etc.)
 - CTRL+ALT+L (auto-indentação)
 - Settings/Preferences (Ctrl+Alt+S) -> Editor -> General -> Auto Import (Add unambiguous imports on the fly / Optimeze imports on the fly)
+- Auto-reload ==> CTRL+SHIFT+A ==> Auto-reload Projects
+![](img/Auto-Reload.png)
+

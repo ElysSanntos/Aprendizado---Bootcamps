@@ -8,12 +8,13 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+@ResController
 public class ProfessorController {
 
 	@Autowired
 	private ProfessorService profService;
 
-	@GetMapping("professor")
+	@GetMapping("/professor")
 	public List<ProfessorDTO> getAllProfs() {
 
 		profService.mostrarMsgService();
@@ -21,20 +22,20 @@ public class ProfessorController {
 		return profService.getAllProfs();
 	}
 
-	@PostMapping("professor")
+	@PostMapping("/professor")
 	public ProfessorDTO create(@Valid @RequestBody ProfessorDTO professorDTO) {
 
 		return profService.verboPost(professorDTO);
 	}
 
-	@PatchMapping("professor/{id}")
+	@PatchMapping("/professor/{id}")
 	public ProfessorDTO update(@RequestBody ProfessorDTO professorBody,
 	                           @PathVariable int id) {
 
 		return profService.verboUpdate(id, professorBody);
 	}
 
-	@DeleteMapping("professor/{id}")
+	@DeleteMapping("/professor/{id}")
 	public ProfessorDTO getOne(@PathVariable int id) {
 
 		return profService.verboGetOne(id);
