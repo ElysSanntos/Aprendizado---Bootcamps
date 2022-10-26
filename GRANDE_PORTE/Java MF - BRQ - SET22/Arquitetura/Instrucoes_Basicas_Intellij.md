@@ -29,6 +29,7 @@
 - File -> Invalidate Caches / Restart
 - Apagar subpasta Jetbrains em ~/.cache
 
+
 ### Edição
 
 - CTRL+Espaço (auto completar)
