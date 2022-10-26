@@ -18,7 +18,7 @@ import java.util.List;
  * Para cada tipo de exceção, podemos manipular desde o status
  * até a mensagem de retorno
  * */
-@Slf4j
+@Slf4j /*Vai ser explicado na proxima aula*/
 @ControllerAdvice
 public class ResourceExceptionHandler {
 
@@ -36,16 +36,43 @@ public class ResourceExceptionHandler {
 *
 * */
 		//@Builder
-		StandardError standardError = StandardError
-				                              .builder()
-				                              .timestamp(new Date(System.currentTimeMillis() ))
-				                              .status(HttpStatus.BAD_REQUEST.value())
-				                              .error("Validation Error")
-				                              .message(exception.getMessage())
-				                              .path(request.getRequestURI())
-				                              .build();
+//		StandardError standardError = StandardError
+//				                              .builder()
+//				                              .timestamp(new Date(System.currentTimeMillis() ))
+//				                              .status(HttpStatus.BAD_REQUEST.value())
+//				                              .error("Validation Error")
+//				                              .message(exception.getMessage())
+//				                              .path(request.getRequestURI())
+//				                              .build();
 
-		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(standardError);
+		ValidationError validationError = new ValidationError();
+
+		validationError.setTimestamp(new Date(System.currentTimeMillis()));
+		validationError.setStatus(HttpStatus.BAD_REQUEST.value());
+		validationError.setError("Validation Error");
+		//validationError.setMessage(exception.getMessage());
+		validationError.setMessage("Erro ao validar os campos!");
+		validationError.setPath(request.getRequestURI());
+
+		/* Uma lista de todos os erros vindos da exceção*/
+		List<FieldError> listErrors = exception.getBindingResult().getFieldErrors();
+
+		/*para cada erro da exceção*/
+		for (FieldError baldeError : listErrors) {
+
+			/*crio m obj FieldMessage com o nome do campo e o erro retornado do mesmo*/
+			FieldMessage fieldMessage = new FieldMessage();
+			fieldMessage.setField(baldeError.getField());
+			fieldMessage.setMessage(baldeError.getDefaultMessage());
+
+			/*adiciono o campo e seu respectivo erro no atributo ERRORS do retorno*/
+			validationError.getErrors().add(fieldMessage);
+		}
+
+		log.info(exception.getMessage());
+		log.info("Fabrizio é legal");
+
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(validationError);
 
 	}
 }

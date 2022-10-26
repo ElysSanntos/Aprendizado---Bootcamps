@@ -7,15 +7,16 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
-@Builder //
+@Builder //Uma forma de construção onde ocorre a instanciação de uma classe e o uso de todos os getters e setters de forma mais elegante.
 @Data //Pega entre outros os Getters e Setters
-@AllArgsConstructor
-@NoArgsConstructor
+@AllArgsConstructor//Construtor com todos os atributos
+@NoArgsConstructor//Construtor padrão vazio
 public class StandardError {
-	private Date timestamp;
-	private Integer status;
-	private String error;
-	private String path;
-	private String message;
+	protected Date timestamp;
+	protected Integer status;
+	protected String error;
+	protected String path;
+	protected String message;
+
 
 }
