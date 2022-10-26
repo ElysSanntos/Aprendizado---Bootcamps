@@ -1,170 +1,172 @@
 package com.brq.ms01.services;
 
 import com.brq.ms01.dtos.UsuarioDTO;
+import com.brq.ms01.models.UsuarioModel;
 import com.brq.ms01.repositories.UsuarioRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.brq.ms01.models.UsuarioModel;
-import java.util.List;
-
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+
 
 /*
  * A camada Service é responsável por armazenar as regras de negócio da aplicação
  * */
+@Slf4j
 @Service
 public class UsuarioService {
 
 	// ESTE ARRAYLIST É DIDÁTICO, POIS ESTÁ SIMULANDO UM BANCO DE DADOS
-//	private ArrayList<UsuarioModel> usuarios = new ArrayList<>();
-//	private int counter = 1;
+	private ArrayList<UsuarioModel> usuarios = new ArrayList<>();
+	private int counter = 1;
 
 	@Autowired
 	private UsuarioRepository usuRepository;
 
-
-	public void mostrarMensagemService() {
+	public void mostrarMensagemService(){
 		System.out.println("Mensagem do serviço");
 	}
 
-	public List<UsuarioDTO> getAllUsuarios() {
+	public List<UsuarioDTO> getAllUsuarios(){
 
-		/*A repository vai executar : Select * from usuarios;*/
+		// a repository vai executar : SELECT * FROM usuarios;
 		List<UsuarioModel> list = usuRepository.findAll();
 
-		//COMO CONVERTER UMA LISTA DE MODEL PARA UMA LISTA DE DTO?
+		// COMO CONVERTER UMA LISTA DE MODEL PARA LISTA DE DTO?
 
 		List<UsuarioDTO> listDTO = new ArrayList<>();
 
-		//Tipo da Variavel - nome da variavel : variavel
-		for (UsuarioModel balde : list ) {
-
-			listDTO.add(balde.toDTO());
+		// Tipo da variável -
+		for (UsuarioModel balde : list) {
+			listDTO.add( balde.toDTO() );
 		}
+
 		return listDTO;
 		//return usuarios;
 	}
 
-	public UsuarioDTO create(UsuarioDTO usuario) {//POST
+	public UsuarioDTO create(UsuarioDTO usuario){
 
-		//usuario.setId( counter );
+		// usuario.setId( counter );
 		//usuarios.add(usuario);
 		//counter++;
 
-		//TEMOS QUE CONVERTER UM DTO PARA UM MODEL
+		// TEMOS QUE CONVERTER UM DTO PARA UM MODEL
+		// jeito Fabrizio (Burro)
+//        UsuarioModel usuarioDTOtoModel = new UsuarioModel();
+//        usuarioDTOtoModel.setId( usuario.getId() );
+//        usuarioDTOtoModel.setNome(usuario.getNome());
+//        usuarioDTOtoModel.setTelefone(usuario.getTelefone());
+//        usuarioDTOtoModel.setEmail(usuario.getEmail());
 
-		/*//Jeito Go Horse
-		UsuarioModel usuarioDTOtoMOdel = new UsuarioModel();
-		usuarioDTOtoMOdel.setId(usuario.getId());
-		usuarioDTOtoMOdel.setNome(usuario.getNome());
-		usuarioDTOtoMOdel.setTelefone(usuario.getTelefone());
-		usuarioDTOtoMOdel.setEmail(usuario.getEmail());
+		UsuarioModel usuarioSalvo = null;
 
-		UsuarioModel usuarioSalvo = usuRepository.save(usuarioDTOtoMOdel);*/
+		try{
+			// INSERT INTO usuarios (name_user, email_user ) VALUEs()....
+			usuarioSalvo = usuRepository.save( usuario.toModel() );
+			// return  usuRepository.save( usuario );
+			// return "POST Usuários";
+			//return usuario;
+			log.info(usuarioSalvo.toString());
+		}
+		catch (Exception exception){
+			log.error("Erro ao salvar o usuário: " + exception.getMessage());
+		}
 
-		//Jeito elegante - Converter o objeto de destino para o objeto de origem
-
-		/*Chamar a camada repository que vai fazer
-		INSERT INTO db_curso_java.usuarios(nome_user, email_user)
-		VALUES('Tarcisão do Asfalto', 'tda@patriota.com.br')
-		* */
-		UsuarioModel usuarioSalvo = usuRepository.save(usuario.toModel());
-
-		/*
-		 return "POST Usuários";
-		return usuario;
-		*/
 		return usuarioSalvo.toDTO();
 	}
 
-	public UsuarioDTO update(int id, UsuarioDTO usuarioBody) {
+	public UsuarioDTO update(int id, UsuarioDTO usuarioBody)  {
 
-		//Refatoração mais simples
-		/*
-		* UsuarioModel usuario = usuRepository.findByOd(id).orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
-		* meuUsuario.setEmail(usuarioBody.getEmail());
-		  meuUsuario.setNome(usuarioBody.getNome());
-		  *
-		  * return usuRepository.save(usuario);*/
+		UsuarioModel usuario = usuRepository.findById(id)
+				                       .orElseThrow( () -> new RuntimeException("Usuário não localizado") );
 
-		//Verificar se os dados existem
-		Optional<UsuarioModel> usuarioOptional = usuRepository.findById(id);
 
-		//Se eu achei o usuario no banco
-		if (usuarioOptional.isPresent()) {
-			//retorn os valores do usuario encontrado no banco de dados
-			UsuarioModel meuUsuario = usuarioOptional.get();
+		usuario.setEmail( usuarioBody.getEmail() );
+		usuario.setNome( usuarioBody.getNome() );
+		usuario.setTelefone( usuarioBody.getTelefone() );
 
-			meuUsuario.setEmail(usuarioBody.getEmail());
-			meuUsuario.setNome(usuarioBody.getNome());
+		return usuRepository.save(usuario).toDTO();
 
-			//Dar o update
-			UsuarioModel usuarioSalvo = usuRepository.save(meuUsuario);
 
-			return usuarioSalvo.toDTO();
-		}
-		//Não achei o usuario no Banco
-		//Lambida é um metodo sem nome
-		else {
-			return usuarioOptional.orElseThrow(() -> new RuntimeException("Usuário não encontrado")).toDTO();
-		}
-		// como achar o usuário a ser alterado?
-//		for ( int i = 0; i <  usuarios.size(); i++ ){
-//			if (usuarios.get(i).getId() == id){
-//				// achamos o usuário a ser alterado
-//				usuarios.get(i).setNome( usuarioBody.getNome() );
-//				usuarios.get(i).setEmail( usuarioBody.getEmail() );
+//        // ver se os dados existem
+//        Optional<UsuarioModel> usuarioOptional = usuRepository.findById(id);
 //
-//				return usuarios.get(i);
-//			}
-//		}
+//        // eu achei o usuário no banco de dados
+//        if (usuarioOptional.isPresent()){
+//            // retorna os valores do usuário encontrado no banco de dados
+//            UsuarioModel meuUsuario = usuarioOptional.get();
 //
-//		return null;
+//            meuUsuario.setEmail( usuarioBody.getEmail() );
+//            meuUsuario.setNome( usuarioBody.getNome() );
+//
+//            UsuarioModel usuarioSalvo = usuRepository.save(meuUsuario);
+//
+//            return usuarioSalvo;
+//        }
+//        // não achei o usuário no banco
+//        else{
+//            return usuarioOptional.orElseThrow( () -> new RuntimeException("Usuário não encontrado"));
+//        }
+
+//        // como achar o usuário a ser alterado?
+//        for ( int i = 0; i <  usuarios.size(); i++ ){
+//            if (usuarios.get(i).getId() == id){
+//                // achamos o usuário a ser alterado
+//                usuarios.get(i).setNome( usuarioBody.getNome() );
+//                usuarios.get(i).setEmail( usuarioBody.getEmail() );
+//
+//                return usuarios.get(i);
+//            } // if
+//        }// for
+//
+//        return null;
 	}
 
-	public String delete(int id) {
+	public String delete(int id){
 		// FORECH
 //        for (UsuarioModel usuarioLocal: usuarios) {
 //            usuarios.remove(usuarioLocal);
 //        }
-//		for (int i = 0; i < usuarios.size(); i++){
-//			// se achar o usuário, então delete do arraylist
-//			if (usuarios.get(i).getId() == id){
-//				usuarios.remove(i);
-//				return "Usuário delatado com sucesso!";
-//			} // if
-//		} // for
-//		return "Usuário não encontrado";
+//        for (int i = 0; i < usuarios.size(); i++){
+//            // se achar o usuário, então delete do arraylist
+//            if (usuarios.get(i).getId() == id){
+//                usuarios.remove(i);
+//                return "Usuário delatado com sucesso!";
+//            } // if
+//        } // for
+//        return "Usuário não encontrado";
 
 		usuRepository.deleteById(id);
 		return "Usuário deletado com sucesso!";
 	}
 
-	public UsuarioDTO getOne(int id) {
+	public UsuarioDTO getOne(int id){
 
-		//Retornando em uma unica linha de código
-		/*return usuarioOptional.findbyId(id)
-				              .orElseThrow(
-									  () -> new RuntimeException("Usuário não localizado"));*/
+		UsuarioModel usuario = usuRepository.findById(id)
+				                       .orElseThrow( () -> new RuntimeException("Usuário não localizado"));
 
-		Optional<UsuarioModel> usuarioOptional = usuRepository.findById(id);
+		return usuario.toDTO();
+//        Optional<UsuarioModel> usuarioOptional = usuRepository.findById(id);
+//
+//        if (usuarioOptional.isPresent()){
+//            UsuarioModel usuario = usuarioOptional.get();
+//
+//            return usuario;
+//        }
+//        else {
+//            return usuarioOptional.orElseThrow( ()-> new RuntimeException("Usuário não localizado") );
+//        }
 
-		if (usuarioOptional.isPresent()) {
-			UsuarioModel usuarioOne = usuarioOptional.get();
 
-			return usuarioOne.toDTO();
-		}
-
-//		for (int i = 0; i < usuarios.size(); i++){
-//			if (usuarios.get(i).getId() == id){
-//				return usuarios.get(i);
-//			}
-
-		//return null;
-		else {
-			return usuarioOptional.orElseThrow(() -> new RuntimeException("Usuário não localizado")).toDTO();
-		}
+//        for (int i = 0; i < usuarios.size(); i++){
+//            if (usuarios.get(i).getId() == id){
+//                return usuarios.get(i);
+//            } // if
+//        } // for
+//        return null;
 	}
 }
