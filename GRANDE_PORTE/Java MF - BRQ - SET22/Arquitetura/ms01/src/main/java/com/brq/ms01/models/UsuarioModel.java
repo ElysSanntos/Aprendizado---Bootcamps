@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import org.modelmapper.ModelMapper;
 
 import javax.persistence.*;
+import java.util.List;
+
 
 /*@Data gera em tempo de execução os getters-setters-toString*/
 @Data
@@ -23,7 +25,7 @@ public class UsuarioModel {
 	/*O meu usuário deve ter um id, nome e email - Eu quero criar um ArrayList de Usuários*/
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // informa a estrategia a ser utilizada para criar o ID
-	@Column(name = "id_user" )
+	@Column(name = "id_user")
 	private int id;
 
 	@Column(name = "nome_user")
@@ -34,13 +36,15 @@ public class UsuarioModel {
 
 	@Column(name = "telefone_user")
 	private String telefone;
+	// no mappedBy guardamos a variável JAVA que mapeia esta entidade (UsuarioModel)
+	@OneToMany(mappedBy = "usuario")
+	private List<financiamentoModel> financiamentos;
 
-	public UsuarioDTO toDTO(){
+	public UsuarioDTO toDTO() {
 		ModelMapper mapper = new ModelMapper();
 
 		return mapper.map(this, UsuarioDTO.class);
 	}
-
 
 
 }

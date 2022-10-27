@@ -31,3 +31,17 @@ CREATE INDEX usuarios_idade
 
 ALTER TABLE usuarios
 	DROP COLUMN idade;
+
+-- 26 de outubro
+-- Referenciando a chave estrangeira
+
+	CREATE TABLE financiamentos(
+	id_financiamento int primary key 
+		auto_increment,
+	numero_contrato int,
+	valor decimal(13,2),
+	usuario_id int,
+	FOREIGN KEY (usuario_id)
+	 references 
+		usuarios(id_user) 
+);

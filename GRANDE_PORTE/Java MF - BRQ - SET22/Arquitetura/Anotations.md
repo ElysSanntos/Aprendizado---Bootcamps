@@ -26,7 +26,9 @@ Em geral geramos os construtores, getters, setters e o método toString()e refer
 | **@Builder** | Uma forma de construção onde ocorre a instanciação de uma classe e o uso de todos os getters e setters de forma mais elegante |  ***  |
 | **ResponseEntity** |  permite retornar o status, headers e o body da requisição para o cliente|  ***  |
 |**@Slf4j**  |  |  ***  |
-|  |  |  ***  |
-|  |  |  ***  |
+| **@OneToOne** |  |  ***  |
+| **@JoinColumn** (name = "usuario_id") |  |  ***  |
 |  |  |  ***  |
 
+
+	
