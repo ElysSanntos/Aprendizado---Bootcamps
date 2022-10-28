@@ -10,8 +10,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "financiamentos")
-public class financiamentoModel {
+@Table( name = "financiamentos")
+public class FinanciamentoModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,8 +23,9 @@ public class financiamentoModel {
 
 	@Column(name = "valor")
 	private Double valor;
-	// A entidade que possui a chave estrangeira deve ter o @JoinColumn
+
+	// a entidade que possui a chave estrangeira deve ter o @JoinColumn
 	@ManyToOne
-	@JoinColumn(name = "usuario_id")
+	@JoinColumn (name = "usuario_id")
 	private UsuarioModel usuario;
 }
