@@ -74,6 +74,7 @@ public class UsuarioService {
 		}
 		catch (Exception exception){
 			log.error("Erro ao salvar o usuário: " + exception.getMessage());
+			//log.error("Erro ao salvar o usuário: ");
 		}
 
 		return usuarioSalvo.toDTO();
@@ -141,7 +142,7 @@ public class UsuarioService {
 //        return "Usuário não encontrado";
 
 		usuRepository.deleteById(id);
-		return "Usuário deletado com sucesso!";
+		return "Usuário delatado com sucesso!";
 	}
 
 	public UsuarioDTO getOne(int id){
@@ -168,5 +169,44 @@ public class UsuarioService {
 //            } // if
 //        } // for
 //        return null;
+	}
+
+	public List<UsuarioDTO> fetchUsuariosByNome(String nomeBusca){
+
+		// pesquisa pelo findBy
+		//List<UsuarioModel> list = usuRepository.findByNome(nomeBusca);
+		//List<UsuarioModel> list = usuRepository.findByNomeContains(nomeBusca);
+
+		// usando JPQL
+		// List<UsuarioModel> list = usuRepository.fetchByNomeLike(nomeBusca);
+
+		// usando Native Query
+		List<UsuarioModel> list = usuRepository.fetchByNomeLikeNativeQuery(nomeBusca);
+
+
+		List<UsuarioDTO> listDTO = new ArrayList<>();
+
+		// Tipo da variável -
+		for (UsuarioModel balde : list) {
+			listDTO.add( balde.toDTO() );
+		}
+
+		return listDTO;
+	}
+
+	public List<UsuarioDTO> fetchUsuariosByNomeAndEmail(String nomeBusca, String emailBusca){
+
+		//List<UsuarioModel> list = usuRepository.findByNome(nomeBusca);
+		List<UsuarioModel> list = usuRepository.findByNomeContainsAndEmailContains(nomeBusca, emailBusca);
+
+
+		List<UsuarioDTO> listDTO = new ArrayList<>();
+
+		// Tipo da variável -
+		for (UsuarioModel balde : list) {
+			listDTO.add( balde.toDTO() );
+		}
+
+		return listDTO;
 	}
 }
