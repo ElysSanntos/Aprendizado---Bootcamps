@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Builder
 @Data //Pega entre outros, os Getters e Setters
 @AllArgsConstructor
 @NoArgsConstructor
