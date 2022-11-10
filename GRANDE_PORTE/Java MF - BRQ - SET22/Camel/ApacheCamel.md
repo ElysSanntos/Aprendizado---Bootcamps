@@ -158,6 +158,28 @@ O objetivo dessa configuração é para que a aplicação saiba qual a classe co
 
 ![](img/32_ConfigMaven.png)
 
+## Usando o BD H2
+
+A URL para realizar o acesso ao BD, fica informada no arquivo application.properties
+*-* **spring.datasource.url=jdbc:h2:file:./testdb**  
+*-* http://localhost:8080/h2-console
+
+Criamos uma tabela base:
+
+```
+CREATE TABLE IF NOT EXISTS usuarios(
+	id_user int primary key auto_increment,
+	nome_user varchar(40),
+	email_user varchar(50)
+);
+
+
+INSERT INTO usuarios
+	(nome_user, email_user)
+VALUES('Elys', 'elys@brq.com');
+
+```
+
 
 - A **mensagem** contém dados que serão transferidos para uma rota. Cada mensagem tem um identificador exclusivo e é construído a partir de um corpo, cabeçalhos e anexos.
 
