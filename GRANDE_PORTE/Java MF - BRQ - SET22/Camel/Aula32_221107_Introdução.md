@@ -164,7 +164,7 @@ A URL para realizar o acesso ao BD, fica informada no arquivo application.proper
 *-* **spring.datasource.url=jdbc:h2:file:./testdb**  
 *-* http://localhost:8080/h2-console
 
-Criamos uma tabela base:
+### Criamos uma tabela base:
 
 ```
 CREATE TABLE IF NOT EXISTS usuarios(
@@ -180,11 +180,86 @@ VALUES('Elys', 'elys@brq.com');
 
 ```
 
+![](img/32_BD_H2_Tabela.png)
 
-- A **mensagem** contém dados que serão transferidos para uma rota. Cada mensagem tem um identificador exclusivo e é construído a partir de um corpo, cabeçalhos e anexos.
+### Criando a primeira rota
 
-- **Exchange** é criado quando uma mensagem é recebida por um consumidor durante o processo de roteamento. Este permite capturar dados da mensagem trocada entre a rota.
+Neste primeiro momento nosso objetivo é mover os arquivos da Pasta A para a Pasta B.
+Ou seja de forma simplificada é uma rota que vai levar a Pasta A para a Pasta B.
 
-- **Endpoint** é um canal através do qual o sistema pode receber ou enviar uma mensagem. Ele pode se referir a um URI de serviço da Web, URI de fila, arquivo, endereço de e-mail, etc.
+![](img/32_Camel_Pasta.jpg)
 
-- **Processor** é uma interface Java que é usada para adicionar lógica de integração personalizada a uma rota. Ele contém um único método de processo usado para pré-formar a lógica de negócios personalizada em uma mensagem recebida por um consumidor.
+1. Criar o **pacote routes**
+2. No pacote routes, vamos criar uma nova **classe** java de nome: **CopyFilesRoute**
+3. Para que possamos informar ao Spring que vamos criar uma rota no Camel precisamos extender(herança) da classe RouterBuilder
+
+```
+import org.apache.camel.builder.RouteBuilder;
+
+public class CopyFilesRoute extends RouteBuilder  {
+
+    }
+```
+*-* 3.1. **Note** que a classe herdada RouteBuilder, é uma **classe abstrata**, assim temos que implementar um método dela que se chama configure().
+![](img/32_RouterBuilder.png)
+
+![](img/32_Implements.png)
+
+```
+import org.apache.camel.builder.RouteBuilder;
+import org.springframework.stereotype.Component;
+
+public class CopyFilesRoute extends RouteBuilder  {
+    @Override
+    public  void configure() throws Exception{
+        }
+
+    }
+```
+4. Agora vamos criar a nossa rota que será do tipo arquivo, e parte (FROM) da pasta input, e tem como destino (TO) a pasta output.
+
+    - Precisamos informar que a classe é um @Component, vamos pensar nesse momento que a notação diz ao Spring que ele vai gerenciar. 
+
+    <span style="font-family:Fira Code; font-size:1.5em;color: #00BFFF">O Camel possui diversos templates de rotas, o que estamos usando neste momento é do <b>tipo arquivo<b/></span>
+
+```
+
+import org.apache.camel.builder.RouteBuilder;
+import org.springframework.stereotype.Component;
+
+@Component
+public class CopyFilesRoute extends RouteBuilder  {
+
+	@Override
+	public  void configure() throws Exception{
+
+		/*A rota é do tipo arquivo e parte da pasta input*/
+		from("file:input")
+				/*A rota é do tipo arquivo e tem com odestino a paste output*/
+				.to("file:output");
+
+	}
+}
+
+
+```
+<span style="font-family:Fira Code; font-size:1.5em;color: #00BFFF">Note, que no Console temos a mensagem abaixo, nos informando que que o arquivo foi consumido da pasta input e que temos uma rota startada. </span>
+
+```
+INFO ..: Route: route1 started and consuming from: file://input
+
+INFO...: Total 1 routes, of which 1 are started
+
+```
+
+5. Precisamos criar a pasta de origem e o arquivo que vai trafegar na rota. Vamos criar na raiz do projeto:
+    - Botão direito sobre o projeto ms04 > New > Directory > vamos criar as duas pastar informadas no código:
+        - input > botão direito > New > File 
+            - Vamos nomear como : teste.txt 
+            - Podemos colocar qualquer conteúdo no arquivo, dado que trata se de um pequeno teste.
+        - output
+6. Start o serviço:
+    - o objetivo é que  o arquivo seja movido da pasta input para a pasta output  
+    - Funcionou, entretanto nesse primeiro momento, identificamos que o arquivo foi movido corretamente para o destino, e na origem foi criada uma pasta oculta com o arquivo de origem.
+    ![](img/32_pastaOculta.png)
+
