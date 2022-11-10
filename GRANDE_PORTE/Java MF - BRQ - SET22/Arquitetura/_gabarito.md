@@ -4,6 +4,7 @@
 - [Tabela de cores](https://celke.com.br/artigo/tabela-de-cores-html-nome-hexadecimal-rgb)
 
 - <span style="font-family:Papyrus; font-size:2em;color: #FF4500">Papyrus</span>
+<span style="font-family:Papyrus; font-size:1.2em;color: #FF4500">XXXXXX</span>
 
 - <span style="font-family:nabla; font-size:2em;color: #A52A2A">nabla</span>
 
