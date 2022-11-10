@@ -31,3 +31,72 @@ CREATE INDEX usuarios_idade
 
 ALTER TABLE usuarios
 	DROP COLUMN idade;
+
+-- 26 de outubro
+-- Referenciando a chave estrangeira
+
+	CREATE TABLE financiamentos(
+	id_financiamento int primary key 
+		auto_increment,
+	numero_contrato int,
+	valor decimal(13,2),
+	usuario_id int,
+	FOREIGN KEY (usuario_id)
+	 references 
+		usuarios(id_user) 
+);
+
+CREATE TABLE enderecos (
+	id_endereco int primary key auto_increment,
+	rua_endereco varchar(255),
+	numero_endereco varchar(100),
+	cep_endereco varchar(10),
+	usuario_id int UNIQUE,
+	FOREIGN KEY (usuario_id)
+	 references 
+		usuarios(id_user) 
+);
+
+INSERT INTO db_curso_java.enderecos
+(rua_endereco, numero_endereco, 
+	cep_endereco, usuario_id)
+VALUES('Rua X', '12', '03456711', 2);
+
+CREATE TABLE consorcios (
+	id_consorcio int PRIMARY KEY auto_increment,
+	nome_consorcio varchar(255),
+	tipo_consorcio varchar(100),
+	valor_consorcio decimal(13,2)
+);
+
+
+CREATE TABLE usuario_consorcio(
+	id_usuario_consorcio int PRIMARY KEY auto_increment,
+	usuario_id int,
+	consorcio_id int,
+	FOREIGN KEY (usuario_id)
+	 references 
+		usuarios(id_user),
+	FOREIGN KEY (consorcio_id)
+	 references 
+		consorcios(id_consorcio)
+);
+INSERT INTO db_curso_java.consorcios
+(nome_consorcio, tipo_consorcio, valor_consorcio)
+VALUES('pirâmide', 'imóvel', 6);
+
+INSERT INTO db_curso_java.consorcios
+(nome_consorcio, tipo_consorcio, valor_consorcio)
+VALUES('lata velha', 'automóvel', 1);
+
+INSERT INTO db_curso_java.usuario_consorcio
+(usuario_id, consorcio_id)
+VALUES(2, 1);
+
+INSERT INTO db_curso_java.usuario_consorcio
+(usuario_id, consorcio_id)
+VALUES(2, 2);
+
+INSERT INTO db_curso_java.usuario_consorcio
+(usuario_id, consorcio_id)
+VALUES(22, 1);
