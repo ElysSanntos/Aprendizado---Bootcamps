@@ -11,7 +11,7 @@ public class CopyFilesRoute extends RouteBuilder  {
 
 		/*A rota é do tipo arquivo e parte da pasta input*/
 		from("file:input")
-				/*A rota é do tipo arquivo e tem com odestino a paste output*/
+				/*A rota é do tipo arquivo e tem com o destino a paste output*/
 				.to("file:output");
 
 	}

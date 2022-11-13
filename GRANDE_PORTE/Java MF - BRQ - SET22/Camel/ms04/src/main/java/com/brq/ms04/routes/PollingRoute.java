@@ -21,7 +21,7 @@ public class PollingRoute extends RouteBuilder {
 		from("timer:polling?period=5000")
 				//.to("https://economia.awesomeapi.com.br/json/last/USD-BRL")
 				.to(url)
-				.process(new PollingProcessor())
-				.log("${body}");
+				.process(new PollingProcessor());
+				//.log("${body}");
 	}
 }
