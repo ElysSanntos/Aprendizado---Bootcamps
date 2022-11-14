@@ -1,0 +1,1 @@
+Qualquer coisa que eu coloque neste arquivo deve ser copiado para a pasta output

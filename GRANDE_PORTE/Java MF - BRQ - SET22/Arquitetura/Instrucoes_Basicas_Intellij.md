@@ -6,16 +6,14 @@
 
 ### Configurações essenciais de aparência:
 
-- File -> Settings -> Appearance & Behavior -> Appearance
-- File -> Settings -> Editor -> General -> Change font size with Ctrl+Mouse Wheel
-- Atalho ==> CTRL + Shift + A ==> Digite por exemplo Wheel e já estará nas configurações.
-
-
+ - <span style="font-family:DejaVu Sans Mono; font-size:1.2em;color: #A020F0">File -> Settings -> Appearance & Behavior -> Appearance</span>
+  - <span style="font-family:DejaVu Sans Mono; font-size:1.2em;color: #A020F0">- File -> Settings -> Editor -> General -> Change font size with Ctrl+Mouse Wheel</span>
+   - <span style="font-family:DejaVu Sans Mono; font-size:1.2em;color: #A020F0">File Atalho ==> CTRL + Shift + A ==> Digite por exemplo Wheel e já estará nas configurações.</span>
 
 ### Acesso à pasta do Linux
+ - <span style="font-family:DejaVu Sans Mono; font-size:1.2em;color: #A020F0">Settings/Preferences (Ctrl+Alt+S) -> Build, Execution, Deployment -> Trusted Locations
+  (adicionar pasta dos projetos)</span>
 
-- Settings/Preferences (Ctrl+Alt+S) -> Build, Execution, Deployment -> Trusted Locations
-  (adicionar pasta dos projetos)
 
 ### Para executar um projeto
 
@@ -25,9 +23,9 @@
 - Botão "Play"
 
 ### Limpar cache e outros
+ - <span style="font-family:DejaVu Sans Mono; font-size:1.2em;color: #A020F0">File -> Invalidate Caches / Restart</span>
 
-- File -> Invalidate Caches / Restart
-- Apagar subpasta Jetbrains em ~/.cache
+- <span style="font-family:DejaVu Sans Mono; font-size:1.2em;color: #A020F0">Apagar subpasta Jetbrains em ~/.cache</span>
 
 
 ### Edição

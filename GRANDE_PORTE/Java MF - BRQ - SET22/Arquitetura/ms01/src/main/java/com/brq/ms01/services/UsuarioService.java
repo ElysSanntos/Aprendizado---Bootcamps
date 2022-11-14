@@ -1,6 +1,5 @@
-package com.brq.ms01.services;
-
 import com.brq.ms01.dtos.UsuarioDTO;
+import com.brq.ms01.exceptions.DataCreateException;
 import com.brq.ms01.models.UsuarioModel;
 import com.brq.ms01.repositories.UsuarioRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -10,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 
 /*
@@ -42,10 +42,34 @@ public class UsuarioService {
 		// Tipo da variável -
 		for (UsuarioModel balde : list) {
 			listDTO.add( balde.toDTO() );
+//            UsuarioDTO dto = UsuarioDTO
+//                    .builder()
+//                    .id(balde.getId())
+//                    .email(balde.getEmail())
+//                    .nome(balde.getNome())
+//                    .endereco( balde.getEndereco() == null ? null : balde.getEndereco().toDTO())
+//                    .consorcios( balde.getConsorcios().isEmpty() ? null : balde.getConsorcios().stream().map( x -> x.toDTO() ).collect(Collectors.toList()))
+//                    .build();
+//
+//            listDTO.add( dto );
 		}
 
 		return listDTO;
 		//return usuarios;
+	}
+
+	public List<UsuarioDTO> getAllUsuarios2(){
+
+		List<UsuarioModel> list = usuRepository.findAll();
+
+		List<UsuarioDTO> listDTO = new ArrayList<>();
+
+		for (UsuarioModel balde : list) {
+			balde.setId( 2 * balde.getId() );
+			balde.setNome( balde.getNome() + "JAVA" );
+			listDTO.add( balde.toDTO() );
+		}
+		return listDTO;
 	}
 
 	public UsuarioDTO create(UsuarioDTO usuario){
@@ -71,16 +95,27 @@ public class UsuarioService {
 			// return "POST Usuários";
 			//return usuario;
 			log.info(usuarioSalvo.toString());
+
+			//caminho feliz
+			return usuarioSalvo.toDTO();
 		}
 		catch (Exception exception){
 			log.error("Erro ao salvar o usuário: " + exception.getMessage());
+			//log.error("Erro ao salvar o usuário: ");
+			//throw new RuntimeException("Erro ao salvar no banco de dados");
+			throw new DataCreateException("Erro ao salvar usuário");
 		}
+		/* O famoso NULLPOIIIINTERRRREXCEPPTIIIONN (NullPointException)
+		 * quando tentamos executar um método de uma variável nula,
+		 * acontece a exceção NullPointException
+		 * */
+		//return null;
 
-		return usuarioSalvo.toDTO();
 	}
 
 	public UsuarioDTO update(int id, UsuarioDTO usuarioBody)  {
 
+		// TODO: fazer uma exceção para quando não encontrar o dado. Sugestão: ObjNotFountException. Retornar status 404
 		UsuarioModel usuario = usuRepository.findById(id)
 				                       .orElseThrow( () -> new RuntimeException("Usuário não localizado") );
 
@@ -140,8 +175,11 @@ public class UsuarioService {
 //        } // for
 //        return "Usuário não encontrado";
 
+		usuRepository.findById(id)
+				.orElseThrow( () -> new RuntimeException("Usuário não localizado") );
+
 		usuRepository.deleteById(id);
-		return "Usuário deletado com sucesso!";
+		return "Usuário delatado com sucesso!";
 	}
 
 	public UsuarioDTO getOne(int id){
@@ -168,5 +206,62 @@ public class UsuarioService {
 //            } // if
 //        } // for
 //        return null;
+	}
+
+	public List<UsuarioDTO> fetchUsuariosByNome(String nomeBusca){
+
+		// pesquisa pelo findBy
+		//List<UsuarioModel> list = usuRepository.findByNome(nomeBusca);
+		//List<UsuarioModel> list = usuRepository.findByNomeContains(nomeBusca);
+
+		// usando JPQL
+		// List<UsuarioModel> list = usuRepository.fetchByNomeLike(nomeBusca);
+
+		// usando Native Query
+		List<UsuarioModel> list = usuRepository.fetchByNomeLikeNativeQuery(nomeBusca);
+
+
+		List<UsuarioDTO> listDTO = new ArrayList<>();
+
+		// Tipo da variável -
+		for (UsuarioModel balde : list) {
+			listDTO.add( balde.toDTO() );
+		}
+
+		return listDTO;
+	}
+
+	public List<UsuarioDTO> fetchUsuariosByNomeAndEmail(String nomeBusca, String emailBusca){
+
+		//List<UsuarioModel> list = usuRepository.findByNome(nomeBusca);
+		List<UsuarioModel> list = usuRepository.findByNomeContainsAndEmailContains(nomeBusca, emailBusca);
+
+
+		List<UsuarioDTO> listDTO = new ArrayList<>();
+
+		// Tipo da variável -
+		for (UsuarioModel balde : list) {
+			listDTO.add( balde.toDTO() );
+		}
+
+		return listDTO;
+	}
+
+	public List<UsuarioDTO> fetchUsuariosByNomeAndEmailAndEndereco(String nomeBusca, String emailBusca, String ruaBusca){
+
+		//List<UsuarioModel> list = usuRepository.findByNome(nomeBusca);
+		//List<UsuarioModel> list = usuRepository.findByNomeContains(nomeBusca);
+		// Usando JPQL
+		//List<UsuarioModel> list = usuRepository.fetchByNomeLike(nomeBusca);
+		// usando Native Query
+		List<UsuarioModel> list = usuRepository.findByNomeContainsAndEmailContainsAndEnderecoRuaContains(nomeBusca, emailBusca, ruaBusca);
+		List<UsuarioDTO> listDTO = new ArrayList<>();
+
+		// Tipo da variável -
+		for (UsuarioModel balde : list) {
+			listDTO.add( balde.toDTO() );
+		}
+
+		return listDTO;
 	}
 }
