@@ -50,4 +50,18 @@ public ResponseEntity<Void> delete(
 public ResponseEntity<UsuarioDTO> getOne(@PathVariable String id){
   return ResponseEntity.ok().body( service.getOne(id) );
 }
+
+@GetMapping(value = "find-by-nome/{nome}")
+public ResponseEntity< List<UsuarioDTO> > findByNome(
+  @PathVariable String nome){
+  return ResponseEntity.ok().body( service.findByNome(nome) );
+}
+
+@GetMapping(value = "find-by-all-attrs/{input}")
+public ResponseEntity< List<UsuarioDTO> > findByAllAttrs(
+  @PathVariable String input){
+  return ResponseEntity.ok().body( service.findByAllAttrs(input) );
+}
+
+
 }

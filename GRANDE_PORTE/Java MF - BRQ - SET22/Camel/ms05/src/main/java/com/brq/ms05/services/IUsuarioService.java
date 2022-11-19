@@ -16,4 +16,8 @@ UsuarioDTO update(String id, UsuarioDTO dto);
 void delete(String id);
 
 UsuarioDTO getOne(String id);
+
+List<UsuarioDTO> findByNome(String nome);
+
+List<UsuarioDTO> findByAllAttrs(String input);
 }

@@ -1,6 +1,7 @@
 package com.brq.ms05.services;
 
 import com.brq.ms05.dtos.UsuarioDTO;
+import com.brq.ms05.exceptions.NaoAcheiException;
 import com.brq.ms05.models.UsuarioModel;
 import com.brq.ms05.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,8 +63,25 @@ public void delete(String id){
 public UsuarioDTO getOne(String id){
 
   final var usuario = repository.findById(id)
-    .orElseThrow( () -> new RuntimeException("Usuário não localizado") );
+    .orElseThrow( () -> new NaoAcheiException("Usuário não localizado") );
 
   return usuario.toDTO();
+}
+
+public List<UsuarioDTO> findByNome(String nome){
+  final var dtos = repository.findByNomeContains(nome);
+  //final var dtos = repository.findByNome(nome);
+
+  return dtos.stream()
+    .map( el -> el.toDTO() )
+    .collect(Collectors.toList());
+}
+
+public List<UsuarioDTO> findByAllAttrs(String input){
+  final var dtos = repository.findByNomeContainsOrEmailContains(input, input);
+
+  return dtos.stream()
+    .map( el -> el.toDTO() )
+    .collect(Collectors.toList());
 }
 }
