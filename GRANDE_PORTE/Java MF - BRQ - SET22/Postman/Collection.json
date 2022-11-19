@@ -1,0 +1,260 @@
+{
+  "info": {
+    "_postman_id": "4a018750-0d91-46e3-8121-498b901e1aab",
+    "name": "curso-brq-2022-09-05",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "4969842"
+  },
+  "item": [
+    {
+      "name": "professores-gp",
+      "item": [
+        {
+          "name": "https://cors.grandeporte.com.br/cursos.grandeporte.com.br:8080/professores/1710",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "https://cors.grandeporte.com.br/cursos.grandeporte.com.br:8080/professores/1710",
+              "protocol": "https",
+              "host": ["cors", "grandeporte", "com", "br"],
+              "path": ["cursos.grandeporte.com.br:8080", "professores", "1710"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "https://cors.grandeporte.com.br/cursos.grandeporte.com.br:8080/professores/1683",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n   \"nome\" : \"Tia Maricota Alterada 6\",\n   \"email\" : \"tiamaricotacomupdate@escola.com\" \n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://cors.grandeporte.com.br/cursos.grandeporte.com.br:8080/professores/1683",
+              "protocol": "https",
+              "host": ["cors", "grandeporte", "com", "br"],
+              "path": ["cursos.grandeporte.com.br:8080", "professores", "1683"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "https://cors.grandeporte.com.br/cursos.grandeporte.com.br:8080/professores/1845",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://cors.grandeporte.com.br/cursos.grandeporte.com.br:8080/professores/1845",
+              "protocol": "https",
+              "host": ["cors", "grandeporte", "com", "br"],
+              "path": ["cursos.grandeporte.com.br:8080", "professores", "1845"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "https://cors.grandeporte.com.br/cursos.grandeporte.com.br:8080/professores",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://cors.grandeporte.com.br/cursos.grandeporte.com.br:8080/professores",
+              "protocol": "https",
+              "host": ["cors", "grandeporte", "com", "br"],
+              "path": ["cursos.grandeporte.com.br:8080", "professores"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "https://cors.grandeporte.com.br/cursos.grandeporte.com.br:8080/professores",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nome\": \"Tia Maricota\",\n    \"email\": \"tiamaricota@minhaescola.com\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://cors.grandeporte.com.br/cursos.grandeporte.com.br:8080/professores",
+              "protocol": "https",
+              "host": ["cors", "grandeporte", "com", "br"],
+              "path": ["cursos.grandeporte.com.br:8080", "professores"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "nosso-ms-usuarios",
+      "item": [
+        {
+          "name": "localhost:8080/usuarios",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nome\": \"Fabrizio\",\n    \"email\" : \"fabrizio@gp.com\",\n    \"telefone\" : \"(11) 98273-3817\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/usuarios",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["usuarios"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "localhost:8080/usuarios",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/usuarios",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["usuarios"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "localhost:8080/usuarios/1",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nome\" : \"Fabrizio Alterado\",\n    \"email\" : \"fabrizio@professor.com\",\n    \"telefone\" : \"123456789\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8080/usuarios/2",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["usuarios", "2"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "localhost:8080/usuarios/1",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/usuarios/636faaa962137dce7bdb7fe0",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["usuarios", "636faaa962137dce7bdb7fe0"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "localhost:8080/usuarios/1",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/usuarios/636fac2862137dce7bdb7fe6",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["usuarios", "636fac2862137dce7bdb7fe6"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "fetch-usuario-nome",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/usuarios/nome/Fa",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["usuarios", "nome", "Fa"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "find-by-nome",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/usuarios/find-by-nome/Fabrizio",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["usuarios", "find-by-nome", "Fabrizio"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "find-by-all-attrs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/usuarios/find-by-all-attrs/fab",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["usuarios", "find-by-all-attrs", "fab"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "fetch-nome-email",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:8080/usuarios/nome/elys/email/elys",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["usuarios", "nome", "elys", "email", "elys"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "email-nome-endereco",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
