@@ -1,4 +1,4 @@
-package com.brq.ms01.exceptions;
+package com.brq.ms05.exceptions;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,5 +12,5 @@ import java.util.List;
 @NoArgsConstructor
 public class ValidationError extends StandardError{
 
-private List<FieldMessage> errors = new ArrayList<>();
+    private List<FieldMessage> errors = new ArrayList<>();
 }
