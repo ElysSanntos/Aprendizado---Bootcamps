@@ -3,6 +3,7 @@ package com.brq.ms05.controllers;
 import com.brq.ms05.dtos.UsuarioDTO;
 import com.brq.ms05.mappers.UsuarioMapper;
 import com.brq.ms05.services.UsuarioService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+@ApiOperation (
+  value = "API de Usuários"
+)
 @RestController
 @RequestMapping(value = "${endpointDoDanilo}")
 public class UsuarioController {
@@ -20,6 +24,11 @@ private UsuarioService service;
 
 @Autowired
 private UsuarioMapper mapper;
+
+@ApiOperation(
+  value = "retorna todos os usuários",
+  notes = "retorna todos os usuários do Mongo"
+)
 
 @GetMapping
 public ResponseEntity<List<UsuarioDTO>> getAll(){
