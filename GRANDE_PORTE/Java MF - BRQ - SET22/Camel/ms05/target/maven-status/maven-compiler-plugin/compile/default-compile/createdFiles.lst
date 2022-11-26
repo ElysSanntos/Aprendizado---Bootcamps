@@ -1,0 +1,8 @@
+com\brq\ms05\Ms05Application.class
+com\brq\ms05\mappers\UsuarioMapper.class
+com\brq\ms05\dtos\UsuarioDTO.class
+com\brq\ms05\models\UsuarioModel.class
+com\brq\ms05\repositories\UsuarioRepository.class
+com\brq\ms05\services\IUsuarioService.class
+com\brq\ms05\controllers\UsuarioController.class
+com\brq\ms05\services\UsuarioService.class

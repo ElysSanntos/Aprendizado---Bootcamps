@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9a66552c-b669-492d-95f9-575318809810" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="MongoDB" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/../../../.." value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="MS05" />
+                    <option name="lastUsedInstant" value="1669284662" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1668851582" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="MongoDB" />
+                    <option name="lastUsedInstant" value="1668851543" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$/../../../.." />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2HYdbEW3ImI7Lqy12KVHkiINvGI" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Workspace/Aprendizado---Bootcamps/GRANDE_PORTE/Java MF - BRQ - SET22/Camel/ms05",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "spring.configuration.checksum": "4013eac0f5bb0a874e6a2ee63dd8a586"
+  },
+  "keyToStringList": {
+    "GitStage.ChangesTree.GroupingKeys": [
+      "directory",
+      "module",
+      "repository"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.brq.ms05.configs" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.ms05">
+    <configuration name="ms05" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.brq.ms05.Ms05Application" />
+      <module name="ms05" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="maven[clean compile]" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="compile" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="Ms05Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="ms05" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.brq.ms05.Ms05Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.ms05" />
+      <item itemvalue="Maven.maven[clean compile]" />
+      <item itemvalue="Spring Boot.Ms05Application" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9a66552c-b669-492d-95f9-575318809810" name="Changes" comment="" />
+      <created>1668466022467</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1668466022467</updated>
+      <workItem from="1668466024153" duration="749000" />
+      <workItem from="1668466873031" duration="180000" />
+      <workItem from="1668467068685" duration="23214000" />
+      <workItem from="1668782826245" duration="403000" />
+      <workItem from="1668783538396" duration="17684000" />
+      <workItem from="1669284613004" duration="1646000" />
+    </task>
+    <task id="LOCAL-00001" summary="Aula 39  - Camel - 16/11/2022 - Revisão com exercicio">
+      <created>1668725957743</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1668725957743</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Aula 40  - Camel - 16/11/2022 - Revisão com exercicio Parte 2">
+      <created>1668807316519</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1668807316520</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Aula 41  - Camel - 18/11/2022 - Revisão com exercicio Parte 2: Termino do CRUD - Busca por nome">
+      <created>1668851505582</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1668851505582</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Aula 41  - Camel - 18/11/2022 - Revisão com exercicio Parte 2: Termino do CRUD - Busca por nome">
+      <created>1668857451482</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1668857451482</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Aula 39  - Camel - 16/11/2022 - Revisão com exercicio" />
+    <MESSAGE value="Aula 40  - Camel - 16/11/2022 - Revisão com exercicio Parte 2" />
+    <MESSAGE value="Aula 41  - Camel - 18/11/2022 - Revisão com exercicio Parte 2: Termino do CRUD - Busca por nome" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aula 41  - Camel - 18/11/2022 - Revisão com exercicio Parte 2: Termino do CRUD - Busca por nome" />
+  </component>
+</project>
