@@ -27,19 +27,19 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
     @Bean
     public Docket swaggerSpringView() {
         return new Docket(DocumentationType.SWAGGER_2).select()
-                       .apis(RequestHandlerSelectors.basePackage("com.brq.ms01")).paths(PathSelectors.any()).build()
-                       .apiInfo(metaData()).produces(DEFAULT_PRODUCES_AND_CONSUMES).consumes(DEFAULT_PRODUCES_AND_CONSUMES);
+                .apis(RequestHandlerSelectors.basePackage("com.brq.ms01")).paths(PathSelectors.any()).build()
+                .apiInfo(metaData()).produces(DEFAULT_PRODUCES_AND_CONSUMES).consumes(DEFAULT_PRODUCES_AND_CONSUMES);
     }
 
     private ApiInfo metaData() {
-        return new ApiInfoBuilder().title("MS 01 RESTFul Documentatation").description("MS 1 RESTFul."
-                                                                                               + "<br>Toda documentação pode ser encontrada no [Github](https://github.com/ElysSanntos)")
-                       .version("v1")
-                       .termsOfServiceUrl(
-                               "https://github.com/ElysSanntos/")
-                       .contact(new Contact("Código fonte",
-                               "https://github.com/ElysSanntos", null))
-                       .build();
+        return new ApiInfoBuilder().title("MS 01 RESTFul Documentatation").description("MS Mongo RESTFul."
+                        + "<br>Toda documentação pode ser encontrada no [Github](https://github.com/ffborelli/)")
+                .version("v1")
+                .termsOfServiceUrl(
+                        "https://github.com/ffborelli/")
+                .contact(new Contact("Código fonte",
+                        "https://github.com/ffborelli/", null))
+                .build();
     }
 
     @Override

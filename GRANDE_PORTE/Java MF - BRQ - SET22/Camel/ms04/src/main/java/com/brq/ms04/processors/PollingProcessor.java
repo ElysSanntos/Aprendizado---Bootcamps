@@ -9,16 +9,18 @@ public class PollingProcessor implements Processor {
     @Override
     public void process(Exchange exchange) throws Exception {
         final var messageIn = exchange.getIn().getBody(String.class);
-        System.out.println("GET IN " + messageIn);
+        //System.out.println("GET IN " + messageIn);
 
         final var objectMapper = new ObjectMapper();
 
-         var cotacao = objectMapper
-                        .readValue(messageIn, CotacaoUSDDTO.class);
-         cotacao.getUSDBRL().setCode(cotacao.getUSDBRL().getCode()+ "- BRQ");
-         exchange.getIn().setBody(cotacao);
+        var cotacao = objectMapper
+                              .readValue(messageIn, CotacaoUSDDTO.class);
 
+        cotacao.getUSDBRL()
+                .setCode( cotacao.getUSDBRL().getCode() + "-BRQ" );
 
-        System.out.println("GET OUT " + cotacao);
+        exchange.getIn().setBody(cotacao);
+
+        //System.out.println("GET OUT " + cotacao);
     }
 }
