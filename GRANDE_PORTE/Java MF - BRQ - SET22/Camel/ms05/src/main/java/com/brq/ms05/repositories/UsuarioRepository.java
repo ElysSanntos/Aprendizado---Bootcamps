@@ -8,14 +8,14 @@ import java.util.List;
 
 @Repository
 public interface UsuarioRepository
-  extends MongoRepository<UsuarioModel, String> {
+        extends MongoRepository<UsuarioModel, String> {
 
-List<UsuarioModel> findByNome(String nome);
+    List<UsuarioModel> findByNome(String nome);
 
-List<UsuarioModel> findByNomeContains(String nome);
+    List<UsuarioModel> findByNomeContains(String nome);
 
-List<UsuarioModel> findByEmailContains(String email);
-List<UsuarioModel> findByNomeContainsOrEmailContains(String nome, String email);
+    List<UsuarioModel> findByEmailContains(String email);
+    List<UsuarioModel> findByNomeContainsOrEmailContains(String nome, String email);
 
-List<UsuarioModel> findByNomeStartsWithOrEmailEndsWith(String nome, String email);
+    List<UsuarioModel> findByNomeStartsWithOrEmailEndsWith(String nome, String email);
 }

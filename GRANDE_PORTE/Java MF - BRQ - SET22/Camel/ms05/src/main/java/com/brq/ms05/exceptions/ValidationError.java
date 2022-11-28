@@ -1,6 +1,7 @@
 package com.brq.ms05.exceptions;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

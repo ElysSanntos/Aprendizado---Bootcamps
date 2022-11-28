@@ -1,87 +1,90 @@
 package com.brq.ms05.services;
 
 import com.brq.ms05.dtos.UsuarioDTO;
+import com.brq.ms05.enums.CanaisEntradaEnum;
+import com.brq.ms05.enums.MensagensExceptionEnum;
 import com.brq.ms05.exceptions.NaoAcheiException;
 import com.brq.ms05.models.UsuarioModel;
 import com.brq.ms05.repositories.UsuarioRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 public class UsuarioService implements IUsuarioService {
 
-@Autowired
-private UsuarioRepository repository;
+    @Autowired
+    private UsuarioRepository repository;
 
-public List<UsuarioDTO> getAll(){
-  //        List<UsuarioDTO> dtos = new ArrayList<>();
-//
-//        for(UsuarioModel item: models){
-//            dtos.add(item.toDTO());
-//        }
-//        return dtos;
+    public List<UsuarioDTO> getAll(){
 
-  //final var models= repository.findAll();
+        return repository.findAll()
+                .stream()
+                .map( UsuarioModel::toDTO )
+                .collect(Collectors.toList());
+    }
 
-  // stream é mais performático - converter List<Model> para List<DTO>
-  return repository.findAll()
-    .stream()
-    .map( x -> x.toDTO() )
-    .collect(Collectors.toList());
-}
+    public UsuarioDTO create(UsuarioModel model){
 
-public UsuarioDTO create(UsuarioModel model){
-  final var obj = repository.save(model);
+        if (model.getNome().equalsIgnoreCase(CanaisEntradaEnum.C3.getCodigo()) ){
+            log.info("Canal C3");
+            model.setNome(model.getNome() + "BRQ");
+        }
 
-  return obj.toDTO();
-}
+        final var obj = repository.save(model);
 
-public UsuarioDTO update(String id, UsuarioDTO dto){
+        return obj.toDTO();
+    }
 
-  var usuario = repository.findById(id)
-    .orElseThrow( () -> new RuntimeException("Objeto não encontrado"));
+    public UsuarioDTO update(String id, UsuarioDTO dto){
 
-  usuario.setEmail(dto.getEmail());
-  usuario.setNome(dto.getNome());
+        var usuario = repository.findById(id)
+                .orElseThrow( () -> new NaoAcheiException(
+                        MensagensExceptionEnum.USUARIO_NAO_ENCONTRADO.getMensagem())
+                );
 
-  usuario = repository.save(usuario);
+        usuario.setEmail(dto.getEmail());
+        usuario.setNome(dto.getNome());
 
-  return usuario.toDTO();
-}
+        usuario = repository.save(usuario);
 
-public void delete(String id){
+        return usuario.toDTO();
+    }
 
-  final var usuario = repository.findById(id)
-    .orElseThrow( () -> new RuntimeException("Usuário não localizado") );
+    public void delete(String id){
 
-  repository.deleteById(usuario.getId());
-}
+        final var usuario = repository.findById(id)
+                .orElseThrow( () -> new NaoAcheiException(MensagensExceptionEnum.USUARIO_NAO_ENCONTRADO.getMensagem()) );
 
-public UsuarioDTO getOne(String id){
+        repository.deleteById(usuario.getId());
+    }
 
-  final var usuario = repository.findById(id)
-    .orElseThrow( () -> new NaoAcheiException("Usuário não localizado") );
+    public UsuarioDTO getOne(String id){
 
-  return usuario.toDTO();
-}
+        final var usuario = repository.findById(id)
+                .orElseThrow( () -> new NaoAcheiException(MensagensExceptionEnum.USUARIO_NAO_ENCONTRADO.getMensagem()) );
 
-public List<UsuarioDTO> findByNome(String nome){
-  final var dtos = repository.findByNomeContains(nome);
-  //final var dtos = repository.findByNome(nome);
+        return usuario.toDTO();
+    }
 
-  return dtos.stream()
-    .map( el -> el.toDTO() )
-    .collect(Collectors.toList());
-}
+    public List<UsuarioDTO> findByNome(String nome){
 
-public List<UsuarioDTO> findByAllAttrs(String input){
-  final var dtos = repository.findByNomeContainsOrEmailContains(input, input);
+        final var dtos = repository.findByNomeContains(nome);
 
-  return dtos.stream()
-    .map( el -> el.toDTO() )
-    .collect(Collectors.toList());
-}
+        return dtos.stream()
+                .map( UsuarioModel::toDTO )
+                .collect(Collectors.toList());
+    }
+
+    public List<UsuarioDTO> findByAllAttrs(String input){
+        final var dtos = repository.findByNomeContainsOrEmailContains(input, input);
+
+        return dtos.stream()
+                .map( UsuarioModel::toDTO )
+                .collect(Collectors.toList());
+    }
 }
