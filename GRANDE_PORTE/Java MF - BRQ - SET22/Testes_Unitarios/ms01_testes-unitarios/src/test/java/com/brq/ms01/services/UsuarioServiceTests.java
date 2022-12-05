@@ -1,6 +1,7 @@
 package com.brq.ms01.services;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.brq.ms01.dtos.UsuarioDTO;
@@ -106,4 +108,47 @@ import com.brq.ms01.repositories.UsuarioRepository;
 	                .isEqualTo(id * 2);
 
 	    }
+	 	
+	 	@Test
+	 	void createWhenSucess() {
+	 		
+	 		String email= "email";
+	 		String nome = "nome";
+	 		
+	 		//Usuário para mokar a repository
+	 		UsuarioDTO dto = new UsuarioDTO();
+	 		dto.setEmail(email);
+	 		dto.setNome(nome);
+	 		
+	 		UsuarioModel model = dto.toModel();
+	 		model.setId(1);
+	 		
+	 		when(usuarioRepository.save(dto.toModel()))
+	 		.thenReturn(model);
+	 		
+	 		//CHAMAR O MÉTODO A SER TESTADO
+	 		
+	 		UsuarioDTO salvoDTO = usuarioService.create(dto);
+	 		
+	 		//VERIFICAR SE ESTÁ CORRETO
+	 		
+	 		assertThat(salvoDTO.getNome()).isEqualTo(nome);
+	 		assertThat(salvoDTO.getEmail()).isEqualTo(email);
+	 		assertThat(salvoDTO.getId()).isPositive();
+	 		
+	 	}
+	 	
+	 	@Test
+	 	void createWhenFail() {
+	 		
+	 		//MOKAR O USO DO SAVE
+	 		
+	 		when(usuarioRepository.save(null)).thenThrow(new DataIntegrityViolationException(""));
+	 		
+	 		//TESTAR O METODO EM QUESTÃO
+	 		
+	 		assertThrows(NullPointerException.class, ()-> usuarioService.create(null));
+	 		
+	 		
+	 	}
 }

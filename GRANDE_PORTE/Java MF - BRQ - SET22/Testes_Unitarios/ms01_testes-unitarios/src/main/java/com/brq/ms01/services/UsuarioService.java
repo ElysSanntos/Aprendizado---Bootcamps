@@ -57,7 +57,7 @@ public class UsuarioService implements IUsuarioService {
         return listDTO;
         //return usuarios;
     }
-    
+
 
     public List<UsuarioDTO> getAllUsuarios2(){
 
@@ -103,14 +103,15 @@ public class UsuarioService implements IUsuarioService {
         catch (Exception exception){
             log.error("Erro ao salvar o usuário: " + exception.getMessage());
             //log.error("Erro ao salvar o usuário: ");
-            //throw new RuntimeException("Erro ao salvar no banco de dados");
-            throw new DataCreateException("Erro ao salvar usuário");
+            //throw new RuntimeException("Erro ao salvar no banco de dados");//Alterar no tipo de tratativa no teste de acordo com a escolha
+            //throw new DataCreateException("Erro ao salvar usuário");
         }
         /* O famoso NULLPOIIIINTERRRREXCEPPTIIIONN (NullPointException)
         * quando tentamos executar um método de uma variável nula,
         * acontece a exceção NullPointException
         * */
         //return null;
+        return usuarioSalvo.toDTO();
 
     }
 
