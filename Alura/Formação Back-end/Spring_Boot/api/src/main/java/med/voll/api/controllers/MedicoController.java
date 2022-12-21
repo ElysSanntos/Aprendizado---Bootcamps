@@ -12,6 +12,7 @@ import med.voll.api.pacientes.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,7 +34,7 @@ public Medico cadastrar (@RequestBody @Valid DadosCadastroMedico dados) {
 }
 
 @GetMapping
-public Page<DadosListarMedico> listarMedicos(Pageable paginacao){
+public Page<DadosListarMedico> listarMedicos(@PageableDefault(size = 5, sort = {"nome"}) Pageable paginacao){
 
   return repository.findAll(paginacao).map(DadosListarMedico::new);
 
