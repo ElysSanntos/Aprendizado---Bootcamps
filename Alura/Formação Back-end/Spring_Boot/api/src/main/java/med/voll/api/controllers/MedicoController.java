@@ -31,9 +31,9 @@ public Medico cadastrar (@RequestBody @Valid DadosCadastroMedico dados) {
 }
 
 @GetMapping
-public Page<DadosListarMedico> listarMedicos(@PageableDefault(size = 5, sort = {"nome"}) Pageable paginacao){
+public Page<DadosListarMedico> listarMedicos(@PageableDefault(sort = {"nome"}) Pageable paginacao){
 
-  return repository.findAll(paginacao).map(DadosListarMedico::new);
+  return repository.findAllByAtivoTrue(paginacao).map(DadosListarMedico::new);
 
 }
 
@@ -52,26 +52,16 @@ public Medico atualizarMedicos(@RequestBody @Valid DadosAtualizarMedico dados){
 @DeleteMapping("/{id}")
 @Transactional
 public void excluirMedico(@PathVariable Long id){
-  repository.deleteById (id);
+  //repository.deleteById (id); //Exclusão física
 
+  /*Exclusão lógica*/
+  var medico = repository.getReferenceById(id);
+  medico.excluir();
 
 }
-@RestController
-@RequestMapping ("pacientes")
-public class PacienteController {
-
-  @Autowired
-  private PacienteRepository repository;
-
-  @PostMapping
-  @Transactional
-  public Paciente cadastrar (@RequestBody @Valid DadosCadastroPaciente dados) {
-    return repository.save (new Paciente (dados));
-
-  }
 
 
 
 
 }
-}
+

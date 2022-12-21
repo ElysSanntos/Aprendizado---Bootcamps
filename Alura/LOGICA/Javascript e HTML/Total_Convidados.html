@@ -1,0 +1,55 @@
+/*Goretti criou um programa simples para somar o total de convidados de sua festa com o total de convidados VIPs. Com certeza ela poderia utilizar a calculadora, mas achou relevante para exercitar seus conhecimentos elaborar um programa. Então, Goretti escreveu o seguinte:*/
+//107 - Exatamente como o retorno da função prompt() é sempre string ao utilizar o operador + é aplicado uma concatenação.
+
+
+<meta charset="UTF-8">
+
+<script>
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    var convidados = prompt("Número de convidados");
+    var vips = prompt("Número de convidados VIP's");
+
+    var total = convidados + vips;
+
+    mostra("O total de convidados é " + total);
+
+</script>
+
+
+/*Qual das opções abaixo possui o código anterior alterado para que calcule corretamente o total de convidados?*/
+
+
+<meta charset="UTF-8">
+
+<script>
+    function pulaLinha() {
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    var convidados = parseInt(prompt("Número de convidados"));
+    var vips = parseInt(prompt("Número de convidados VIP's"));
+
+    var total = convidados + vips;
+
+    mostra("O total de convidados é " + total);
+
+</script>
+
+
+/*Como a função prompt sempre retorna o que digitamos no formato texto, ou seja, como um string, é uma boa prática sempre convertermos o valor digitado para número quando nossa intenção é ler um número. Vamos analisar esta instrução:
+
+var convidados = parseInt(prompt("Número de convidados"));
+A função prompt retorna o que digitamos como string e esse retorno é passado para parseInt. É esta função que recebe uma string e a converte para número. Agora, como temos dois números ligados, não acontecerá mais a concatenação, mas sim a soma.*/

@@ -1,0 +1,36 @@
+<meta charset="UTF-8">
+<script>
+    function mostra(mensagem) {
+        document.write(mensagem);
+
+    }
+
+
+    //Math.round = arredonda o numero
+    //Math.random = randomiza a escolha dos numeros
+
+    function sorteia(n) {
+
+        return Math.round(Math.random() * n);
+    }
+
+
+
+    var numeroPensado = sorteia(10);
+
+    var chute = parseInt(prompt("Já pensei em um numero de 0 a 10. Qual você acha que é?"));
+
+    if (chute == numeroPensado) {
+
+        mostra("Uau! Você acertou, pois eu também pensei no numero: " + numeroPensado);
+    } else {
+        if (chute > numeroPensado) {
+            mostra("Você errou! Seu chute é MAIOR do que  eu havia pensado");
+        } else {
+            mostra("Você errou! Seu chute é MENOR do que  eu havia pensado");
+        }
+		
+
+
+    }
+</script>

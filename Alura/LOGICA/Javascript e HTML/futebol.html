@@ -1,0 +1,32 @@
+<meta charset="UTF-8">
+<script>
+    function mostra(mensagem) {
+        document.write(mensagem);
+        pulaLinha();
+
+    }
+
+    function pulaLinha() {
+        document.write("<br><br>");
+    }
+    var nome = prompt("Informe seu nome");
+    var time = prompt(nome + " Qual o time do seu coração?");
+
+    var vitorias = parseInt(prompt(nome + " Informe o numero de vitorias do " + time));
+    var empates = parseInt(prompt(nome + " Agora infome o numero de empates do " + time));
+
+
+    var pontos = (vitorias * 3) + empates;
+
+    mostra("Os pontos somados do " + time + " até o momento é: " + pontos);
+    if (pontos > 28) {
+        mostra(time + " está MELHOR que o ano passado");
+    }
+    if (pontos < 28) {
+        mostra(time + " está PIOR que o ano passado");
+    }
+    if (pontos == 28) {
+        mostra(time + " está IGUAL que o ano passado");
+    }
+    mostra("FIM");
+</script>
