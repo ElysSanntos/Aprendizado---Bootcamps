@@ -2,10 +2,7 @@ package med.voll.api.controllers;
 
 
 import jakarta.validation.Valid;
-import med.voll.api.medicos.DadosCadastroMedico;
-import med.voll.api.medicos.DadosListarMedico;
-import med.voll.api.medicos.Medico;
-import med.voll.api.medicos.MedicoRepository;
+import med.voll.api.medicos.*;
 import med.voll.api.pacientes.DadosCadastroPaciente;
 import med.voll.api.pacientes.Paciente;
 import med.voll.api.pacientes.PacienteRepository;
@@ -40,6 +37,25 @@ public Page<DadosListarMedico> listarMedicos(@PageableDefault(size = 5, sort = {
 
 }
 
+@PutMapping
+@Transactional
+public Medico atualizarMedicos(@RequestBody @Valid DadosAtualizarMedico dados){
+
+  /*Primeiro carregar o objeto médico do BD*/
+  var medico = repository.getReferenceById (dados.id ());
+
+  /*O obj médico que chegou está com as informações desatualizadas,
+  * Para atualizar: */
+  return medico.atualizarInformacoes(dados);
+
+}
+@DeleteMapping("/{id}")
+@Transactional
+public void excluirMedico(@PathVariable Long id){
+  repository.deleteById (id);
+
+
+}
 @RestController
 @RequestMapping ("pacientes")
 public class PacienteController {
