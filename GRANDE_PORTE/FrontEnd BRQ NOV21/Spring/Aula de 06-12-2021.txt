@@ -1,0 +1,9 @@
+Aula de 06/12/2021 - Spring
+
+https://www.javadevjournal.com/spring-boot/spring-boot-mysql/
+
+# Para configurar o mysql - topico 3
+spring.datasource.url=jdbc:mysql://localhost:3306/javadevjournal
+spring.datasource.username=javadevjournal
+spring.datasource.password=ThePassword
+spring.jpa.hibernate.ddl-auto=update

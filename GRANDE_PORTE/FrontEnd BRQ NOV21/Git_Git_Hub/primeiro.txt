@@ -1,0 +1,45 @@
+Comandos
+
+-git      ==> verifica se o git está instalado na máquina
+-git clone + paste ==> clona o repositorio criado no gitHub
+-code .   ==> abre o visual code
+-git status  ==> O comando git status exibe a lista de arquivos alterados juntamente com os arquivos que ainda não foram adicionados ou confirmados.
+-git add <nome do aquivo>  ==> versionando o arquivo
+-git add * ==> versionando de todos os  arquivo
+-git add . ==> versionando de todos os  arquivo
+-git add -A ==> versionando de todos os  arquivo
+-git commit  -m "o que foi alterado? Por que foi alterado?" ==> joga as alterações do arquivo para o repositorio local. O comando git commit é usado para confirmar as alterações na cabeça. 
+Tenha em atenção que quaisquer alterações efetuadas não irão para o repositório remoto. 
+-git push ==> envia as alterações feitas para o ramo mestre do repositório remoto associado ao diretório de trabalho. 
+-git checkout ==> navegar entre as branches
+-git checkout -b <nome da branch> ==> criar ramos ou navegar entre as branches
+-git branch ==> O comando git branch pode ser usado para listar, criar ou excluir ramos. 
+-git branch –d <branch-name> ==>Para excluir um ramo:
+-git push --set-upstream origin cadastro-usuario ==>Cria a branch no repositorio remoto e sincronizar
+-git merge <nome da branch que virá as alterações> // aqui estou na master
+----deletar remote branch
+-git push origin --delete <nome da branch>
+--- deletar branch local
+git branch -d <nome da branch>
+--git pull ==> buscando alterações remotas o Git vai buscar as alterações de código dos outros desenvolvedores e tentar fazer o merge daquelas alterações no seu código. Caso o Git não consiga fazer o merge automático ele marcará as seções do código onde há conflito e você precisará juntar os código manualmente
+-- arquivo .gitignore ==> O .gitignore é um arquivo que criamos na raiz do nosso projeto para poder ignorar arquivos e pastas do versionamento.
+Dentro do .gitignore colocamos todos os arquivos e pastas para serem ignorados pelo git.
+# Ignora todos os arquivos com extensão .txt
+*.txt
+
+# Ignora uma pasta
+build
+
+# Remove do .gitignore o arquivo .gitkeep dentro da pasta
+!uploads/.gitkeep
+Já o .gitkeep é um arquivo oculto pelo sistema que serve apenas para versionar pastas vázias, ]
+basta cria-lo dentro da pasta a ser versionada.
+
+***Reverter um commit***
+https://www.atlassian.com/br/git/tutorials/undoing-changes
+--git log ==> No repositorio clique na branch>commits>copia o numero do hash (d3c99b5dcd0d3b8a11b0e2f116998ea2149aec39)
+--git revert <id_commit> ==> desfaz alterações
+--git revert d3c99b5dcd0d3b8a11b0e2f116998ea2149aec39 ==>
+--git reset --hard ==> reverte tudo o que foi feito e volta ao estado original da branch -- Se perde as alterações não comitadas
+--git branch ==>é usado para ver e visitar outras ramificações. 
+--git branch -a ==>vai retornar uma lista de todos os nomes conhecidos de ramificações.

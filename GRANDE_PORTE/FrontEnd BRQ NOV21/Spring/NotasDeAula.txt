@@ -1,0 +1,40 @@
+entity é o modelo
+repositorio onde acessa a base de dados
+service é uma etapa do controler (nao temos acesso direto, precisamos de uma classe de entidade)
+
+classes de entidade: classes de dominio, em um sistema, são os elementos importantes que compoe o sistema.
+
+exemplo de entity: entidade chamada usuario que vai ser mapeada para criar uma camada chamada usuario.
+para fazer as manipulações com o usuário é na camdada de repositório.
+
+service: meio para falar com a camada resouce, onde está a regra de negócio
+
+Resource: base pro endpoint, quando requisitado algo pelo usuário ele bate no resource, pede ao service, que acessa a base de dados pelo repositorio e busca isso no entity...
+depois esse caminho é traçado todo novamente até a tela do usuário.
+
+ar e War são arquivos onde seu projeto estará empacotado, War pra web, Jar pra endpoint
+Toda vez que criar uma aplicação web com tudo feito pelo springboot, não precisa usar angular! Pode fazer apenas com springboot, caso por isso, seleciona o packaging War, com angular escolher Jar
+
+Maven: não é necessário ir na biblioteca externa pra baixar o que você quer, e quando necessário mudar de versão o Maven faz isso pra você. Faz o controle de dependência  de biblioteca do seu projeto.
+
+@entity representa uma tabela no banco de dados 
+
+@id - chave primária da tabela
+
+ENCAPSULAMENTO- deixar que outra classe acesse o id, pra gerar é GetId e pra pegar é SetId
+
+AlunoRepository "" = Instanciar (mas no spring nao precisa, só em alguns momentos: por exemplo quando queremos usar um recurso da interface e depois muda-lo)
+Autowired..usamos quando iremos usar um recurso daquela interface e vamos parar de usar.
+Ele tem uma variavel para que possamos nos conectar com o repositório.
+
+public(tipo) List<Aluno>(mandando retornar uma lista tipo aluno) buscarTodosAlunos( nome do metodo)
+
+return "". (retorna um metodo, o .findAll por exemplo que procura todos)
+
+application.properties -> pra que qualquer banco de dados possa se conectar com spring ele precisa de 3 iunformações, a url, usename e password. Na constante spring.datasource.url="" é para onde o banco irá olhar, a url muda para cada tipo de banco de dados..
+
+aplicationListener -> fica ouvindo pra saber sempre que a aplicação subiu, se subiu, ele executa o metodo
+
+.save -> faz um insert na base de dados
+
+Como levanta a aplicação -> na pasta do projeto com botão direito de um ' run as ' e ' spring boot app ', sempre que levanta ele faz um insert. é possivel acessa-lo pelo localhost.

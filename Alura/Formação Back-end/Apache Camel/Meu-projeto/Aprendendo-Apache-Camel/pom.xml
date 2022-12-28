@@ -34,6 +34,12 @@
 		<sonar.language>java</sonar.language>
 	</properties>
 	<dependencies>
+<!--Dependencias Camel -->
+		<dependency>
+			<groupId>org.apache.camel.springboot</groupId>
+			<artifactId>camel-spring-boot-starter</artifactId>
+			<version>3.20.0</version>
+		</dependency>
 		<!-- dependência core para criar serviço web spring boot-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

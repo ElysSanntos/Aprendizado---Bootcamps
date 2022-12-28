@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<testsuite name="Firefox 83.0 (Mac OS 10.15)" package="" timestamp="2020-11-27T12:49:12" id="0" hostname="MacBook-Pro-de-Flavio.local" tests="8" errors="0" failures="0" time="0.119">
+  <properties>
+    <property name="browser.fullName" value="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:83.0) Gecko/20100101 Firefox/83.0"/>
+  </properties>
+  <testcase name="LikeWidgetComponent Should create component" time="0.067" classname="Firefox_83_0_(Mac_OS_10_15).LikeWidgetComponent"/>
+  <testcase name="LikeWidgetComponent Should NOT auto-generate ID during ngOnInit when (@Input id) is assigned" time="0.02" classname="Firefox_83_0_(Mac_OS_10_15).LikeWidgetComponent"/>
+  <testcase name="LikeWidgetComponent Should auto-generate ID during ngOnInit when (@Input id) is not assigned" time="0.013" classname="Firefox_83_0_(Mac_OS_10_15).LikeWidgetComponent"/>
+  <testcase name="LikeWidgetComponent #like&#xA;    should trigger (@Output liked) when called" time="0.016" classname="Firefox_83_0_(Mac_OS_10_15).LikeWidgetComponent"/>
+  <testcase name="UniqueIdService #generateUniqueIdWithPrefix&#xA;    should generate id when called with prefix" time="0.001" classname="Firefox_83_0_(Mac_OS_10_15).UniqueIdService"/>
+  <testcase name="UniqueIdService #generateUniqueIdWithPrefix&#xA;    should throw when called with empty" time="0.001" classname="Firefox_83_0_(Mac_OS_10_15).UniqueIdService"/>
+  <testcase name="UniqueIdService #getNumberOfGeneratedUniqueIds&#xA;    should return the number of generatedIds when called" time="0" classname="Firefox_83_0_(Mac_OS_10_15).UniqueIdService"/>
+  <testcase name="UniqueIdService #generateUniqueIdWithPrefix&#xA;    should not generate duplicate IDs when called multiple times" time="0.001" classname="Firefox_83_0_(Mac_OS_10_15).UniqueIdService"/>
+  <system-out>
+    <![CDATA[
+]]>
+  </system-out>
+  <system-err/>
+</testsuite>
