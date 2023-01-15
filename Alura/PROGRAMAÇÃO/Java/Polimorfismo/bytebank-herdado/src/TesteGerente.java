@@ -12,5 +12,7 @@ public class TesteGerente {
         g1.setSenha(2222);
         boolean autenticou = g1.autentica(2222);
         System.out.println("A senha esá correta? " + autenticou);
+
+        System.out.println("Bonificação do Gerente: " + g1.getBonificacao());
     }
 }
