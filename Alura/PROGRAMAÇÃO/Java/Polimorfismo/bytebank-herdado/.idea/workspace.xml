@@ -48,7 +48,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TesteGerente">
+  <component name="RunManager" selected="Application.TesteReferencias">
     <configuration name="Teste" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Teste" />
       <module name="bytebank-herdado" />
@@ -70,8 +70,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TesteReferencias" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TesteReferencias" />
+      <module name="bytebank-herdado" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TesteReferencias" />
         <item itemvalue="Application.TesteGerente" />
         <item itemvalue="Application.Teste" />
         <item itemvalue="Application.TesteFuncionario" />
@@ -86,7 +94,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1673638682544</updated>
-      <workItem from="1673638683786" duration="8937000" />
+      <workItem from="1673638683786" duration="12950000" />
     </task>
     <servers />
   </component>
