@@ -16,8 +16,8 @@ public class TesteReferencias {
         ev.setSalario(2500.0);
 
         Designer designer = new Designer();
-        ev.setNome("Maria");
-        ev.setSalario(2000.0);
+        designer.setNome("Maria");
+        designer.setSalario(2000.0);
 
         ControleBonificacao controle = new ControleBonificacao();
         controle.registra(g1);
@@ -26,10 +26,11 @@ public class TesteReferencias {
         controle.registra(designer);
 
 
+        System.out.println();
 
         System.out.println("Nome do Gerente: " + nome);
         System.out.println("Sálario do Generate: " + g1.getSalario());
-        System.out.println("Bonificação do Gerente: " + controle.getSoma());
+
 
         System.out.println();
 
@@ -40,10 +41,17 @@ public class TesteReferencias {
 //        System.out.println();
 
         System.out.println("Nome do Editor Video: " + ev.getNome());
-        System.out.println("Sálario do Editor Video: " + ev.getSalario());
-        System.out.println("Bonificação do Editor Video: " + controle.getSoma());
+       System.out.println("Sálario do Editor Video: " + ev.getSalario());
+      // System.out.println("Bonificação do Editor Video: " + controle.getSoma());
 
+        System.out.println();
 
+        System.out.println("Nome do Designer: " + designer.getNome());
+        System.out.println("Sálario do Designer: " + designer.getSalario());
+
+        System.out.println();
+
+        System.out.println("Soma das bonificações " + controle.getSoma());
 
     }
 }

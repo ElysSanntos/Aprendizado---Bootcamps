@@ -1,3 +1,4 @@
+// Não podemos mais criar um "Funcionario", ou seja não podemos instanciar uma Funcionario.
 public class TesteFuncionario {
     public static void main(String[] args) {
         Funcionario nico = new Gerente();
