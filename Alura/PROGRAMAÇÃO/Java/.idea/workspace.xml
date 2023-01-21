@@ -3199,7 +3199,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2KDhgHQ6c20SO9EJkb0pPLmq7wi" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -3209,7 +3215,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Workspace/Aprendizado---Bootcamps/ALURA/PROGRAMAÇÃO/Java",
+    "last_opened_file_path": "D:/Workspace/Aprendizado---Bootcamps/ALURA/PROGRAMAÇÃO/Java/Aplicando Exceções",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -3217,6 +3223,12 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Workspace\Aprendizado---Bootcamps\ALURA\PROGRAMAÇÃO\Java\Aplicando Exceções\java-pilha\src" />
+      <recent name="D:\Workspace\Aprendizado---Bootcamps\ALURA\PROGRAMAÇÃO\Java\Aplicando Exceções" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -3226,6 +3238,7 @@
       <option name="presentableId" value="Default" />
       <updated>1673515170192</updated>
       <workItem from="1673515171527" duration="2017000" />
+      <workItem from="1674209783785" duration="576000" />
     </task>
     <servers />
   </component>
