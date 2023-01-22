@@ -1,8 +1,8 @@
 package br.com.elys.bytebank.banco.modelo;
 
-public class Conta {
-
-    private double saldo;
+public abstract class Conta {
+    // protected: visível no pacote e, público para os filhos
+    protected double saldo;
     private int agencia;
     private int numero;
     private Cliente titular;
@@ -22,8 +22,8 @@ public class Conta {
     }
 
     public void saca(double valor) throws SaldoInsuficienteException {
-        /*O trabalho com as exceções geralmente é realizado no inicio do método
-        * Assim colocamos todos as lógicas que podem gerar as exceções primeiro*/
+        /*O trabalho com as exceções são geralmente realizadas no início do método
+        * Assim colocamos todas as lógicas que podem gerar as exceções primeiro*/
 
         if (this.saldo < valor){
             throw new SaldoInsuficienteException("Saldo: "+ this.saldo + " Valor: " + valor);
