@@ -1,5 +1,11 @@
 package br.com.elys.bytebank.banco.modelo;
 
+/**
+ * Classe representa o molde de uma conta.
+ *
+ * @author elys Sanntos
+ */
+
 public abstract class Conta {
     // protected: visível no pacote e, público para os filhos
     protected double saldo;
@@ -8,6 +14,11 @@ public abstract class Conta {
     private Cliente titular;
     private static int total = 0;
 
+    /**
+     * Construtor para inicializar o objeto Conta a partir da agência e numero.
+     * @param agencia
+     * @param numero
+     */
     public Conta(int agencia, int numero){
         Conta.total++;
         System.out.println("O total de contas é " + Conta.total);
@@ -21,6 +32,13 @@ public abstract class Conta {
         this.saldo = this.saldo + valor;
     }
 
+    /**
+     * Valor precisa ser maior que o saldo.
+     *
+     *
+     * @param valor
+     * @throws SaldoInsuficienteException
+     */
     public void saca(double valor) throws SaldoInsuficienteException {
         /*O trabalho com as exceções são geralmente realizadas no início do método
         * Assim colocamos todas as lógicas que podem gerar as exceções primeiro*/
@@ -47,7 +65,7 @@ public abstract class Conta {
 
     public void setNumero(int numero){
         if(numero <= 0) {
-            System.out.println("Nao pode valor menor igual a 0");
+            System.out.println("Valor menor  ou igual a 0");
             return;
         }
         this.numero = numero;
