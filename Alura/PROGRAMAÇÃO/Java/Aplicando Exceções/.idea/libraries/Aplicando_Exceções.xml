@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="Aplicando Exceções">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/Projetos-finais/bytebank-encapsulado/src" />
+      <root url="file://$PROJECT_DIR$/Projetos-finais/bytebank-herdado-conta/src" />
+      <root url="file://$PROJECT_DIR$/Projetos-finais/bytebank-herdado/src" />
+      <root url="file://$PROJECT_DIR$/Projetos-finais/java-pilha/src" />
+      <root url="file://$PROJECT_DIR$/bytebank-herdado-conta/src" />
+      <root url="file://$PROJECT_DIR$/java-pilha/src" />
+    </SOURCES>
+  </library>
+</component>

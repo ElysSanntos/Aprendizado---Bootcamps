@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"br.com.bytebank.banco.modelo"}]
