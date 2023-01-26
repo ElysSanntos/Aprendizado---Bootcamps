@@ -1,9 +1,9 @@
 package br.com.bytebank.banco.modelo;
 
 /**
- * Classe que representa um cliente no Bytebank 
- * 
- * @author André Chaves
+ * Classe que representa um cliente no Bytebank
+ *
+ * @author Elys Sanntos
  * @version 0.1
  */
 public class Cliente {
@@ -30,5 +30,9 @@ public class Cliente {
     public void setProfissao(String profissao) {
         this.profissao = profissao;
     }
+@Override
+	public String toString() {
 
+		return "Cliente: ";
+	}
 }
