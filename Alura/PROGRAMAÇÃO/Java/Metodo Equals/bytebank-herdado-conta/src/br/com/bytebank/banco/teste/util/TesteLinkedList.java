@@ -1,17 +1,18 @@
 package br.com.bytebank.banco.teste.util;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 import br.com.bytebank.banco.modelo.Conta;
 import br.com.bytebank.banco.modelo.ContaCorrente;
 
-public class Teste {
+public class TesteLinkedList {
 
 	public static void main(String[] args) {
 
 
-		//<Conta> ==> Generics
-		ArrayList<Conta> lista = new ArrayList<Conta>(); //Internamente é o guardador de referencia
+		List<Conta> lista = new ArrayList<Conta>(); //Internamente é o guardador de referencia
 
 		Conta cc = new ContaCorrente(1233, 3213);
 		lista.add(cc);
@@ -19,7 +20,7 @@ public class Teste {
 		Conta cc1 = new ContaCorrente(12333, 32113);
 		lista.add(cc1);
 
-		//Quantas referências foram guardadas até agora?
+		//Quantas referencias foram guardadas até agora?
 
 		System.out.println("Qtde de referencias armazenadas: " +lista.size());
 

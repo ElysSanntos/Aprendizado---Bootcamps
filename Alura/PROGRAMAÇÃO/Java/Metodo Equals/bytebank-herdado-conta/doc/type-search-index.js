@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"br.com.bytebank.banco.modelo","l":"Conta"}]
