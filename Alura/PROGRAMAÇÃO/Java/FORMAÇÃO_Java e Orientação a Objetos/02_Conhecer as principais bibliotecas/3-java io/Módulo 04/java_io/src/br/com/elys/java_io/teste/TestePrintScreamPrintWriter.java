@@ -8,7 +8,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintStream;
 import java.io.Writer;
 
-public class TestePrintScream {
+public class TestePrintScreamPrintWriter {
 
 	public static void main(String[] args)throws IOException {
 
