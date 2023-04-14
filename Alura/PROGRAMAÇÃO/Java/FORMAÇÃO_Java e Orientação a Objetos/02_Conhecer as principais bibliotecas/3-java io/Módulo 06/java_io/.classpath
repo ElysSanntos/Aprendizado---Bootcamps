@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="src" path="/bytebank-herdado-conta">
+		<attributes>
+			<attribute name="module" value="true"/>
+			<attribute name="add-reads" value="bytebank.herdado.conta=java.rmi:bytebank.herdado.conta=jdk.management.jfr:bytebank.herdado.conta=jdk.jdi:bytebank.herdado.conta=jdk.charsets:bytebank.herdado.conta=java.xml:bytebank.herdado.conta=jdk.xml.dom:bytebank.herdado.conta=java.datatransfer:bytebank.herdado.conta=jdk.jstatd:bytebank.herdado.conta=jdk.httpserver:bytebank.herdado.conta=jdk.jcmd:bytebank.herdado.conta=java.desktop:bytebank.herdado.conta=java.se:bytebank.herdado.conta=java.security.sasl:bytebank.herdado.conta=jdk.zipfs:bytebank.herdado.conta=java.base:bytebank.herdado.conta=jdk.crypto.ec:bytebank.herdado.conta=jdk.javadoc:bytebank.herdado.conta=jdk.management.agent:bytebank.herdado.conta=jdk.jshell:bytebank.herdado.conta=jdk.editpad:bytebank.herdado.conta=java.sql.rowset:bytebank.herdado.conta=jdk.jsobject:bytebank.herdado.conta=jdk.sctp:bytebank.herdado.conta=java.smartcardio:bytebank.herdado.conta=jdk.jlink:bytebank.herdado.conta=jdk.unsupported:bytebank.herdado.conta=java.security.jgss:bytebank.herdado.conta=java.compiler:bytebank.herdado.conta=jdk.nio.mapmode:bytebank.herdado.conta=jdk.dynalink:bytebank.herdado.conta=jdk.unsupported.desktop:bytebank.herdado.conta=jdk.accessibility:bytebank.herdado.conta=jdk.security.jgss:bytebank.herdado.conta=java.sql:bytebank.herdado.conta=jdk.hotspot.agent:bytebank.herdado.conta=java.logging:bytebank.herdado.conta=java.transaction.xa:bytebank.herdado.conta=java.xml.crypto:bytebank.herdado.conta=jdk.jfr:bytebank.herdado.conta=jdk.internal.vm.ci:bytebank.herdado.conta=jdk.crypto.cryptoki:bytebank.herdado.conta=jdk.net:bytebank.herdado.conta=jdk.random:bytebank.herdado.conta=java.naming:bytebank.herdado.conta=jdk.internal.ed:bytebank.herdado.conta=java.prefs:bytebank.herdado.conta=java.net.http:bytebank.herdado.conta=jdk.compiler:bytebank.herdado.conta=jdk.internal.opt:bytebank.herdado.conta=jdk.naming.rmi:bytebank.herdado.conta=jdk.jconsole:bytebank.herdado.conta=jdk.attach:bytebank.herdado.conta=java_io:bytebank.herdado.conta=jdk.crypto.mscapi:bytebank.herdado.conta=jdk.internal.le:bytebank.herdado.conta=java.management:bytebank.herdado.conta=jdk.jdwp.agent:bytebank.herdado.conta=jdk.internal.jvmstat:bytebank.herdado.conta=java.instrument:bytebank.herdado.conta=jdk.internal.vm.compiler:bytebank.herdado.conta=jdk.internal.vm.compiler.management:bytebank.herdado.conta=jdk.management:bytebank.herdado.conta=jdk.security.auth:bytebank.herdado.conta=java.scripting:bytebank.herdado.conta=jdk.jdeps:bytebank.herdado.conta=jdk.jartool:bytebank.herdado.conta=java.management.rmi:bytebank.herdado.conta=jdk.jpackage:bytebank.herdado.conta=jdk.naming.dns:bytebank.herdado.conta=jdk.localedata"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
