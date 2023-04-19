@@ -1,0 +1,5 @@
+# Aula 06 - Para saber mais: tags semânticas
+
+Quando começamos um arquivo HTML, há uma estrutura padrão que é usada em qualquer projeto. É importante saber quais são as tags que precisam ser implementadas e entender suas funções dentro do código. Para facilitar esse processo, utilizamos as **tags semânticas**, que são tags descritivas sobre o conteúdo que armazenam, como é o caso das tags `<header>`, `<main>` e `<footer>`, que conhecemos nessa aula. Elas servem tanto para otimizar a leitura pelos navegadores, como pelas pessoas desenvolvedoras que vão fazer a manutenção do código.
+
+Para aprender mais sobre as tags que fazem parte da base de um arquivo HTML, você pode ler a documentação MDN [“Semântica”](https://developer.mozilla.org/pt-BR/docs/Glossary/Semantics) e conhecer outros elementos semânticos disponíveis para tornar o seu código mais claro, seja para outras pessoas programadoras, para navegadores ou mecanismos de buscas.
