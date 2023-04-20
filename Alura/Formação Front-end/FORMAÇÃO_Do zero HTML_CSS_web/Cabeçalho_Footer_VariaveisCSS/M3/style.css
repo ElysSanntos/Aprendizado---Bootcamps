@@ -15,7 +15,7 @@ body {
 }
 
 .apresentacao {
-    margin: 10% 15%;
+    padding: 8% 15%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -79,4 +79,12 @@ body {
 
     background-color: #272727;
     padding: 3%
+}
+.rodape{
+    color: #000000;
+    background-color: #22D4FD;
+    padding: 24px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
 }
