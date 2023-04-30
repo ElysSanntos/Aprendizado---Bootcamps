@@ -1,0 +1,66 @@
+Working directory           git add
+Staging area                git commit
+Git Directory 
+
+
+
+
+Iniciar em:
+Propriedades e setar o caminho:"copiar o caminho e colar"
+Caminho padrão>> %HOMEDRIVE%%HOMEPATH%
+
+Para localizar pastas:
+cd "nome da pasta"
+
+Para voltar uma pasta:
+cd ..
+
+Para limpar a tela:
+
+clear
+
+Criar repositorio:
+
+git init
+
+git status
+
+git add "nome do arquivo" ou git add*.txt ou git add.>> para adicionar arquivo
+git rm nomedoarquivo.extensãoo >>remove o arquivo
+
+git commit -m "mensagem para identificar o arquivo"/// 
+**comite direto git commit -a -m"mensagem"
+
+
+**Arquivos para serem ignorados pelo GIT.
+Criar um arquivo.gitignore e colocar nele os arquivos a serem ignorados.
+
+git diff >> consulta arquivos adicionados ou editados, mas não foi para a stage area
+
+git diff --stagged >> visualiza as alterações
+
+git log>> mostra histórico de todos os logs
+
+git log -p >>Mostra o hostorico dos logs em ordem decrescente, e diff de cada commit. junção de git log e git diff
+git log -p -1 >> limita a quantidade do historico
+git log --pretty=oneline >>mostra id dos comites
+
+
+**gitk >> abre a interfaçe grafica
+
+**Commit antes da hora?**
+
+Criar um novo arquivo com a correção, adicionar
+
+git commit --amend -m "novas funcionalidades(edição)"
+
+**Remover arquivo da stage area**
+
+git reset head nomedoarquivo.extensão
+
+**reverter arquivo**
+
+Para descartar as mudanças em arquivos
+
+git checkout --nomedoarquivo
+

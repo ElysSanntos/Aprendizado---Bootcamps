@@ -1,0 +1,118 @@
+    header {
+        background: #BBB;
+        padding: 20px 0;
+    }
+    
+    .caixa {
+        position: relative;
+        width: 940px;
+        margin: 0 auto;
+    }
+    
+    nav {
+        position: absolute;
+        top: 110px;
+        right: 0;
+    }
+    
+    nav li {
+        display: inline;
+        margin: 0 0 0 15px;
+    }
+    
+    nav a {
+        text-transform: uppercase;
+        color: black;
+        font-weight: bold;
+        font-size: 22px;
+        text-decoration: none;
+    }
+    
+    nav a:hover {
+        color: #c78c19;
+        text-decoration: underline;
+    }
+    
+    main {
+        width: 940px;
+        margin: 0 auto;
+    }
+    
+    form {
+        margin: 40px 0;
+    }
+    
+    form label,
+    form legend {
+        display: block;
+        font-size: 20px;
+        margin: 0 0 10px;
+    }
+    
+    .input-padrao {
+        display: block;
+        margin: 0 0 20px;
+        padding: 10px 25px;
+        width: 50%;
+    }
+    
+    .checkbox {
+        margin: 20px 0;
+    }
+    
+    .enviar {
+        width: 40%;
+        padding: 15px 0;
+        background: #c78c19;
+        color: rgb(247, 243, 243);
+        font-weight: bold;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        transition: 1s all;
+    }
+    
+    .enviar:hover {
+        background: #dfb45e;
+        transform: scale(1.2);
+    }
+    
+    table {
+        margin: 20px 0 40px;
+    }
+    
+    thead {
+        background: #555;
+        color: whitesmoke;
+        font-weight: bold;
+    }
+    
+    td,
+    th {
+        border: 1px solid #000;
+        padding: 15px 8px;
+    }
+    
+    footer {
+        text-align: center;
+        background: url(/img/bg.jpg);
+        padding: 40px 0;
+    }
+    
+    .copyright {
+        color: #fff;
+        font-size: 13px;
+        margin: 20px 0 0;
+    }
+    
+    @media screen and ( max-width:480px) {
+        caixa {
+            width: auto;
+        }
+        nav {
+            position: static;
+        }
+        h1 {
+            text-align: center;
+        }
+    }
