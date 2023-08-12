@@ -790,4 +790,44 @@ export class FormularioComponent implements OnInit {
 
 }
 ------------
+import { DataSource } from '@angular/cdk/collections';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { catchError, retry, switchMap, tap, debounceTime } from 'rxjs/operators';
+import { IDataSource } from 'src/app/componentes/orquestrador-motores/regras-parametrizacao/iDataSource';
+import { urlConfig } from 'src/app/config/url.config';
+import { CriptografiaService } from 'src/app/service/criptografia/criptografia.service';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class OrquestradorMotoresService {
+
+    private readonly API = 'urlConfig.getRulesOrchestrator';
+    dataSource: IDataSource[];
+
+constructor(
+    private http: HttpClient,
+    private criptoService: CriptografiaService
+) { }
+
+/*Lista todas as regras da API */
+
+getOrchestradorAllRules(): Observable<any>{
+    return this.http.get(urlConfig.getRulesOrchestrator).pipe(
+
+        debounceTime(2000),
+        switchMap((response)=>{
+            return of(response);
+        }),
+        retry(2),
+        catchError((err) =>{
+            throw new Error(err);
+        })
+        
+    )
+}
+
+}
 
