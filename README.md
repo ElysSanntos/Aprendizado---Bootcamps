@@ -831,3 +831,152 @@ getOrchestradorAllRules(): Observable<any>{
 
 }
 
+
+-----------------------------------------------------
+formulario.html
+
+import { Component, Input, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { DssOptionInterface } from "@dss/components";
+import { IDataSource } from "../regras-parametrizacao/iDataSource";
+import { HttpClient } from "@angular/common/http";
+import { urlConfig } from "src/app/config/url.config";
+import { RegrasParametrizacaoComponent } from "../regras-parametrizacao/regras-parametrizacao.component";
+import { MappingIds } from "../regras-parametrizacao/mapping-ids";
+
+
+
+
+@Component({
+    selector: "app-formulario",
+    templateUrl: "./formulario.component.html",
+    styleUrls: ["./formulario.component.scss"],
+})
+export class FormularioComponent implements OnInit {
+   
+
+
+    channels: MappingIds;
+    modalities: MappingIds;
+
+    private apiAdd = urlConfig.addModalitiesChannelOrchestrator;
+    private regras = RegrasParametrizacaoComponent;
+
+    @Input() formParameterRules: FormGroup;
+    @Input() editingRule: IDataSource | null;
+
+
+
+
+    public input = '';
+
+
+    public optionChannel: Array<DssOptionInterface> = [
+        { value: "C2", viewValue: "C2" },
+        { value: "C3", viewValue: "C3" },
+        { value: "FVE", viewValue: "FVE" },
+        { value: "IB", viewValue: "IB" },
+        { value: "Mobile", viewValue: "Mobile" },
+        { value: "PNG", viewValue: "PNG" },
+        { value: "WPC", viewValue: "WPC" },
+    ];
+    public optionModality: Array<DssOptionInterface> = [
+        { value: "AUTO", viewValue: "AUTO" },
+        { value: "ELETRO", viewValue: "ELETRO" },
+        { value: "IMÓVEL", viewValue: "IMÓVEL" },
+        { value: "MOTO", viewValue: "MOTO" },
+        { value: "PESADO", viewValue: "PESADO" },
+        { value: "SERVIÇOS", viewValue: "SERVIÇOS" },
+
+    ];
+    public optionCluster: Array<DssOptionInterface> = [
+        { value: "Alto", viewValue: "Alto" },
+        { value: "Médio", viewValue: "Médio" },
+        { value: "Baixo", viewValue: "Baixo" },
+    ];
+
+    public optionRisk: Array<DssOptionInterface> = [
+        { value: "1", viewValue: "1" },
+        { value: "2", viewValue: "2" },
+        { value: "3", viewValue: "3" },
+    ];
+
+    constructor(
+        private http: HttpClient,
+
+    ) {}
+
+    public ngOnInit(): void {
+        if(this.editingRule){
+            const channelId = this.editingRule.channelName;
+            const modalityId = this.editingRule.modalityCode;
+
+            //Obter IDs correspondentes ao nome
+            const channelIdAsId = this.getChannelIdFromName(channelId);
+            const modalityAsId = this.getModalityIdFromCode(modalityId);
+
+            //Preencher os campos do forms com os ids
+            this.formParameterRules.patchValue({
+
+                ruleId: this.editingRule.ruleId,
+                channelId: this.editingRule.channelId,
+                modalityId: this.editingRule.modalityId,
+                primarySegmentCode: this.editingRule.primarySegmentCode,
+                secondarySegmentCode: this.editingRule.secondarySegmentCode,
+                fopa: this.editingRule.fopa,
+                clusterRisk: this.editingRule.clusterRisk,
+                riskGroup: this.editingRule.riskGroup,
+                effectiveDate: this.editingRule.effectiveDate,
+                endDateValidity: this.editingRule.endDateValidity,
+                activeRule: this.editingRule.activeRule
+            })
+        }
+
+
+    }
+
+
+    public onSubmit(): void {
+        const formData: IDataSource = this.formParameterRules.value;
+
+        console.log(this.formParameterRules.value);
+        if (this.formParameterRules.valid) {
+            //Solicitação de Post para a API
+            this.http.post<ResponseType>(this.apiAdd,formData).subscribe(
+                (response) =>{
+                    console.log('Regra adicionada com Sucesso: ', response);
+                    this.formParameterRules.reset();
+                },
+                (err) =>{
+                    console.log('Erro ao adicionar a regra',err);
+                }
+            )
+
+        }
+    }
+
+    public isError(channelName: string): boolean {
+        const input = this.formParameterRules.get(channelName);
+        return input !== null && input.invalid && input.dirty && input.touched;
+    }
+
+    public isSuccess(name: string): boolean {
+        const input = this.formParameterRules.get(name);
+        return input !== null && input.valid && input.dirty && input.touched;
+    }
+    public getChannelIdFromName(channelName: string): string{
+        return this.channels[channelName] || "";
+    }
+    public getModalityIdFromCode(modalityId: string): string{
+        return this.channels[modalityId] || "";
+    }
+    get editingTitle(): string{
+        return this.editingTitle ? "Editar Regra" : "Nova Regra";
+    }
+    get editingSubtitle(): string{
+        return this.editingSubtitle ? "Edite os campos abaixo para atualizar a regra existente." : "Preencha os campos  abaixo para criar uma nova regra.";
+    }
+
+}
+
+
