@@ -1,4 +1,34 @@
-import { HttpClient } from "@angular/common/http";
+ ID 	 Modalidade 	 Idade máxima para validar o prazo 	 Idade + prazo restante (cota) 	  
+col.key: id
+161	col.key: modality
+[object Object]	col.key: maxAge
+col.key: maxAgeCote
+col.key: isEdit
+
+col.key: id
+153	col.key: modality
+[object Object]	col.key: maxAge
+col.key: maxAgeCote
+col.key: isEdit
+
+col.key: id
+148	col.key: modality
+[object Object]	col.key: maxAge
+col.key: maxAgeCote
+col.key: isEdit
+
+col.key: id
+166	col.key: modality
+[object Object]	col.key: maxAge
+col.key: maxAgeCote
+col.key: isEdit
+
+
+
+
+
+
+=====import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
