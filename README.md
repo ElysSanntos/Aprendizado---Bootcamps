@@ -1,3 +1,56 @@
+
+regras-idade-modalidade.component.ts:71 Chamando metodo getRulesAges em onInit
+regras-idade-modalidade.component.ts:120 Pegando dados da API 
+{_pageable: null, _content: Array(4)}
+_content
+: 
+Array(4)
+0
+: 
+activeRule
+: 
+"S"
+id
+: 
+"161"
+maximumAge
+: 
+"9"
+modality
+: 
+{modalityId: '4', modalityCode: 'AUTO'}
+remainingDeadline
+: 
+"70"
+[[Prototype]]
+: 
+Object
+1
+: 
+{id: '153', remainingDeadline: '80', maximumAge: '10', activeRule: 'S', modality: {…}}
+2
+: 
+{id: '148', remainingDeadline: '80', maximumAge: '10', activeRule: 'S', modality: {…}}
+3
+: 
+{id: '166', remainingDeadline: '50', maximumAge: '80', activeRule: 'S', modality: {…}}
+length
+: 
+4
+[[Prototype]]
+: 
+Array(0)
+_pageable
+: 
+null
+[[Prototype]]
+: 
+Object
+
+
+
+
+
 import { HttpClient } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
