@@ -1,16 +1,11 @@
- <td class="center-td" *dssCell="let element">
-                               DATASource: {{ageDataSource | json}}
-                                <div [ngSwitch]="col.key" *ngIf="!element.isEdit">
-                                    <div *ngSwitchCase="'isEdit'">
-                                        <button
-                                            dssIconButton
-                                            (click)="edit(element)"
-                                        >
-                                            <span dssIcon name="subscription"></span>
-                                        </button>
-                                    </div>
-                                    <ng-container *ngSwitchDefault>
-                                        {{ element[col.key] }}
-                                    </ng-container>
-                                </div>
-                            </td>
+nsole.log("Dados brutos da API:", res); // Debug ---- realemnte traz os dados da API
+            
+            this.ageDataSource = res._content.map((item: any) => {
+                console.log("Valor de item.modality.modalityCode:", item.modality.modalityCode); // Debug ---- verificar o valor da modalidade
+                return {
+                    id: item.id,
+                    modality: item.modality.modalityCode, // Certifique-se de que modalityCode é a propriedade correta
+                    maxAge: item.maximumAge,
+                    maxAgeCote: item.remainingDeadline,
+                    isEdit: false, // Defina o valor padrão de isEdit aqui
+                };
