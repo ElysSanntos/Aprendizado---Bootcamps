@@ -1,4 +1,23 @@
+ return  activeRules$.pipe(
+            mergeMap(this.activeRules =>{
+                return inactiveRules$.pipe(
+                    map(this.inactiveRules =>({ this.activeRules, this.inactiveRules}))
+                );
+            })
+        );
 
+        Nenhuma sobrecarga corresponde a esta chamada.
+  A sobrecarga 1 de 3, '(project: (value: string, index: number) => ObservableInput<any>, concurrent?: number): OperatorFunction<string, any>', gerou o seguinte erro.
+    O argumento do tipo 'string' não é atribuível ao parâmetro do tipo '(value: string, index: number) => ObservableInput<any>'.
+  A sobrecarga 2 de 3, '(project: (value: string, index: number) => ObservableInput<any>, resultSelector: undefined, concurrent?: number): OperatorFunction<string, any>', gerou o seguinte erro.
+    O argumento do tipo 'string' não é atribuível ao parâmetro do tipo '(value: string, index: number) => ObservableInput<any>'.
+  A sobrecarga 3 de 3, '(project: (value: string, index: number) => ObservableInput<any>, resultSelector: (outerValue: string, innerValue: any, outerIndex: number, innerIndex: number) => any, concurrent?: number): OperatorFunction<...>', gerou o seguinte erro.
+    O argumento do tipo 'string' não é atribuível ao parâmetro do tipo '(value: string, index: number) => ObservableInput<any>'.ts(2769)
+
+
+
+
+--------------------
 O argumento do tipo 'string[]' não é atribuível ao parâmetro do tipo '(value: [string, string], index: number) => { activeRules: string; inactiveRules: string; }'.ts(2345)
 return forkJoin([activeRules$,inactiveRules$]).pipe(
             map(([this.activeRules,this.inactiveRules]) => ({
