@@ -1,89 +1,141 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { DssOptionInterface } from '@dss/components';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable, forkJoin, of, throwError } from 'rxjs';
+import { catchError, debounceTime, map, mergeMap, retry, switchMap } from 'rxjs/operators';
+import { IDataSource } from 'src/app/componentes/orquestrador-motores/regras-parametrizacao/iDataSource';
 import { urlConfig } from 'src/app/config/url.config';
-import { CustomValidators, segmentValidator } from '../validators/custom-validators';
+import { CriptografiaService } from 'src/app/service/criptografia/criptografia.service';
+import { Rule } from './rule';
+import { ApiService } from './api.service';
 
-@Component({
-  selector: 'app-formulario',
-  templateUrl: './formulario.component.html',
-  styleUrls: ['./formulario.component.scss'],
+@Injectable({
+  providedIn: 'root'
 })
-export class FormularioComponent implements OnInit {
-  // ... (existing code)
+export class OrquestradorMotoresService {
 
-  constructor(
+    apiMessage: string = "";
+    activeApiMessage: string = '';
+    inactiveApiMessage: string = '';
+
+    private readonly activeRules = 'urlConfig.getActiveRulesOrchestrator';
+    private readonly inactiveRules = 'urlConfig.getInactiveRulesOrchestrator';
+    dataSource: IDataSource[];
+
+constructor(
     private http: HttpClient,
-    private router: Router,
-    private formBuilder: FormBuilder
-  ) {
-    this.formParameterRules = this.formBuilder.group({
-      channelName: [null, Validators.required],
-      modalityCode: [null, Validators.required],
-      primarySegmentCode: [
-        null,
-        [
-          Validators.required,
-          Validators.maxLength(6),
-          Validators.minLength(6),
-          segmentValidator(),
-        ],
-      ],
-      secondarySegmentCode: [
-        null,
-        [
-          Validators.required,
-          Validators.maxLength(6),
-          Validators.minLength(6),
-          CustomValidators.SecondaryCodeValidators,
-        ],
-      ],
-      fopa: [null, Validators.required],
-      clusterRisk: [null, Validators.required],
-      riskGroup: [null, Validators.required],
-      effectiveDate: [null, Validators.required],
-      endDateValidity: [null, Validators.required],
-    });
-  }
+    private apiService: ApiService,
+    private criptoService: CriptografiaService,
 
-  ngOnInit(): void {
-    // ... (existing code)
-  }
+) { }
 
-  onSubmit(): void {
-    console.log('onSubmit(), called');
+ngOnInit(): void {
+   this.fetchApiMessages();
 
-    const formData: IDataSource = this.formParameterRules.value;
-    // ... (existing code)
-
-    if (this.formParameterRules.valid) {
-      console.log('Form is valid');
-      this.http.post<ResponseType>(this.addRules, formData).subscribe(
-        (response) => {
-          console.log('Regra adicionada com Sucesso: ', response);
-          this.formParameterRules.reset();
-          this.router.navigate(['/yzju-regras-parametrizacao']);
-        },
-        (err) => {
-          console.log('Erro ao adicionar a regra', err);
-        }
-      );
-    } else {
-      console.log('Form is invalid');
-    }
-  }
-
-  isError(controlName: string): boolean {
-    const input = this.formParameterRules.get(controlName);
-    return input !== null && input.invalid && input.dirty && input.touched;
-  }
-
-  isSuccess(controlName: string): boolean {
-    const input = this.formParameterRules.get(controlName);
-    return input !== null && input.valid && input.dirty && input.touched;
-  }
-
-  // ... (existing code)
 }
+
+getApiMessage(): Observable<{ activeRules: string; inactiveRules: string}>{
+
+    const activeRules$ = this.http.get<string>(this.activeRules).pipe(
+        catchError(this.handleError));
+
+    const inactiveRules$ = this.http.get<string>(this.inactiveRules).pipe(
+        catchError(this.handleError));
+
+        return  activeRules$.pipe(
+            mergeMap(activeRules =>{
+                return inactiveRules$.pipe(
+                    map(inactiveRules =>({ activeRules, inactiveRules}))
+                );
+            })
+        );
+    }
+
+
+
+/*Lista regras ativas*/
+
+getActiveRules(): Observable<Rule[]>{
+
+    return this.http.get(urlConfig.getActiveRulesOrchestrator).pipe(
+
+        debounceTime(2000),
+        switchMap((response)=>{
+            console.log('listagem das regras ativas');
+            return of(response);
+
+        }),
+        retry(2),
+        catchError((err) =>{
+            const errorMessage = 'Ocorreu um erro ao buscar as regras ativas'
+            return throwError(errorMessage);
+        })
+
+    );
+
+}
+/*Lista regras inativas*/
+
+getOrchestradorInactiveRules(): Observable<any>{
+    console.log('Chamando o metodo regras inativas do metodo getOrchestradorInactiveRules');
+    return this.http.get(urlConfig.getInactiveRulesOrchestrator).pipe(
+
+
+        debounceTime(2000),
+        switchMap((response)=>{
+            console.log('listagem das regras inativas');
+            return of(response);
+
+        }),
+        retry(2),
+
+        catchError((err) =>{
+            console.log('listagem de Erros regras inativas');
+            const errorMessage = 'Ocorreu um erro ao buscar as regras inativas'
+            return throwError(errorMessage);
+        })
+
+    );
+
+}
+
+saveNewRule(ruleData: any): Observable<any>{
+    const apiURL = 'urlConfig.saveRulesOrchestrator';
+    return this.http.post(apiURL,ruleData).pipe(
+        retry(2),
+        catchError((err)=>{
+            throw new Error(err)
+        })
+    )
+
+}
+
+private handleError(error: HttpErrorResponse){
+    let errorMessage = "Ocorreu um erro";
+    if (error.error instanceof ErrorEvent){
+        errorMessage = 'Error: ${error.error.message}';
+    }else{
+        errorMessage = 'Error Code: ${error.status}\nMessage: ${error.message}';
+    }
+    console.error(errorMessage);
+    return throwError(errorMessage);
+}
+
+fetchApiMessages(): void{
+
+    this.getApiMessage().subscribe(
+        (response) =>{
+            this.activeApiMessage = response.activeRules;
+            this.inactiveApiMessage = response.inactiveRules;
+        },
+        (error) => {
+            console.error('Erro na chamada à API: ', error);
+            this.activeApiMessage = 'Erro ao obter mensagens para regras ativas.'
+            this.inactiveApiMessage = 'Erro ao obter mensagens para regras inativas.'
+        }
+        );
+    }
+
+
+}
+
+
