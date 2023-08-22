@@ -1,3 +1,13 @@
+
+O argumento do tipo 'string[]' não é atribuível ao parâmetro do tipo '(value: [string, string], index: number) => { activeRules: string; inactiveRules: string; }'.ts(2345)
+return forkJoin([activeRules$,inactiveRules$]).pipe(
+            map(([this.activeRules,this.inactiveRules]) => ({
+                this.activeRules, this.inactiveRules
+            }))
+        );
+
+-------
+
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
