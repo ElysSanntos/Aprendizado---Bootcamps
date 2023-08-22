@@ -1,74 +1,38 @@
-import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
-
-
-export class CustomValidators {
-    pattern: RegExp = /^[A-Z]{3}[0-9]{3}$/;
-    static letters: RegExp = /^[A-Z]+$/;
-    static numbers: RegExp = /^\d+$/;
-
-
-    // static primarySecondaryCodeValidators(
-    //     control: AbstractControl
-    // ): ValidationErrors | null {
-    //     const value: string = control.value;
-
-    //     //verifica se o valor possui exatamente 6 caracteres
-    //     if (value && value.length === 6) {
-    //         //Verifica os 3 primeiros maiusculos
-    //         const firstThreeChars = value.substring(0, 3);
-
-
-
-    //         if (!this.letters.test(firstThreeChars)) {
-    //             return { invalidFormat: true };
-    //         }
-
-    //         //Verifica 3 ultimos são numeros
-    //         const lastThreeChars = value.substring(3);
-    //         if (!this.numbers.test(lastThreeChars)) {
-    //             return { invalidFormat: true };
-    //         }
-
-    //         //valor valido
-    //         return null;
-    //     }
-    //     //Caso não tenha 6 caracteres
-    //     return { invalidFormat: true };
-    // }
-    // static snPatterns(control: AbstractControl): ValidationErrors | null {
-    //     const snPattern: RegExp = /^[SN]$/;
-    //     const value: string = control.value;
-
-    //     if (!snPattern.test(value.charAt(0))) {
-    //         return { snCode: true };
-    //     }
-    //     return null;
-    // }
-
-
-
-}
-export function segmentValidator(): ValidatorFn {
-    return(control: AbstractControl):{ [key: string]: any } | null =>{
-        console.log("validação customizada............")
-        const segmentValue = control.value;
-        console.log("valor do segmento: ", segmentValue)
-        if( segmentValue && segmentValue.length === 6){
-            const primarySegment = segmentValue.substring(0,3);
-            const numericPart = segmentValue.substring(3);
-
-            console.log( "Primary Segment: ", primarySegment )
-            console.log( "Numeric Part: ", numericPart )
-
-            if( primarySegment === "PRI" && /\d{3}$/.test(numericPart)){
-                return null; //validação bem sucedida
-            }
+{
+    "traceId": null,
+    "errors": [
+        {
+            "field": null,
+            "message": null,
+            "code": 404,
+            "_code": 404,
+            "_field": null,
+            "_message": null
         }
-        return {invalidSegment: true}; //validação falhou
-    };
-
+    ],
+    "timestamp": null,
+    "message": "Não foi possível localizar as regras no banco de dados.",
+    "errorCode": 404,
+    "details": "HTTP operation failed invoking https://yz.paas.santanderbr.pre.corp/yz-consortium-orchestrator-group/api/v1/rules/find-all/N with statusCode: 404",
+    "_errorCode": 404,
+    "_message": "Não foi possível localizar as regras no banco de dados.",
+    "_details": "HTTP operation failed invoking https://yz.paas.santanderbr.pre.corp/yz-consortium-orchestrator-group/api/v1/rules/find-all/N with statusCode: 404",
+    "_timestamp": null,
+    "_traceId": null,
+    "_errors": [
+        {
+            "field": null,
+            "message": null,
+            "code": 404,
+            "_code": 404,
+            "_field": null,
+            "_message": null
+        }
+    ]
 }
--------
+
+
+---------------------------------------------------------
 <div class="container">
     <form [formGroup]="formParameterRules" (ngSubmit)="onSubmit()">
         <div class="grid-container">
@@ -150,7 +114,7 @@ export function segmentValidator(): ValidatorFn {
                     <div
                         *ngIf="formParameterRules.get('primarySegmentCode').hasError('required')"> Campo obrigatório!</div>
                     <div
-                        *ngIf=" formParameterRules.get('primarySegmentCode').hasError('invalidSegment')">Valor Inválido - EX PRI000</div>
+                        *ngIf="formParameterRules.get('primarySegmentCode').hasError('invalidSegment')">Valor Inválido - EX PRI000</div>
                     <div
                         *ngIf="formParameterRules.get('primarySegmentCode').hasError('minLength')">Mínimo de 6 caracteres!</div>
                     <div
@@ -158,9 +122,22 @@ export function segmentValidator(): ValidatorFn {
                 </div>
             </dss-form-field>
 
-            <dss-form-field>
+            <dss-form-field
+                [isError]="isError('secondarySegmentCode')"
+                [isSuccess]="isSuccess('secondarySegmentCode')"
+            >
                 <input type="text" formControlName="secondarySegmentCode" />
                 <label dssLabel>Segmento Secundário</label>
+                <div *ngIf="isError('secondarySegmentCode')">
+                    <div
+                        *ngIf="formParameterRules.get('secondarySegmentCode').hasError('required')"> Campo obrigatório!</div>
+                    <div
+                        *ngIf="formParameterRules.get('secondarySegmentCode').hasError('invalidSegment')">Valor Inválido - EX PRI000</div>
+                    <div
+                        *ngIf="formParameterRules.get('secondarySegmentCode').hasError('minLength')">Mínimo de 6 caracteres!</div>
+                    <div
+                        *ngIf="formParameterRules.get('secondarySegmentCode').hasError('maxLength')">Máximo de 6 caracteres!</div>
+                </div>
             </dss-form-field>
 
             <!-- Datapicker -->
@@ -173,11 +150,12 @@ export function segmentValidator(): ValidatorFn {
                 <label for="endDateValidity">Fim Vigência</label>
             </dss-datepicker>
 
-            {{ formParameterRules.value | json }}
+
         </div>
     </form>
+    {{ formParameterRules.value | json }}
 </div>
-----
+------------------------------------------
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
@@ -188,7 +166,7 @@ import { urlConfig } from 'src/app/config/url.config';
 import { IDataSource } from '../regras-parametrizacao/iDataSource';
 import { IDataSourceAge } from '../regras-parametrizacao/IDataSourceAge';
 import { MappingIds } from '../regras-parametrizacao/mapping-ids';
-import { segmentValidator } from '../validators/custom-validators';
+import { CustomValidators, segmentValidator } from '../validators/custom-validators';
 
 @Component({
     selector: "app-formulario",
@@ -255,8 +233,23 @@ export class FormularioComponent implements OnInit {
         this.formParameterRules = this.formBuilder.group({
             channelName: [null, Validators.required],
             modalityCode: [null, Validators.required],
-            primarySegmentCode: [null, [Validators.required, Validators.maxLength(6),Validators.minLength(6), segmentValidator()]],
-            secondarySegmentCode: [null, Validators.required],
+            primarySegmentCode: [
+                null,
+                 [
+                    Validators.required,
+                    Validators.maxLength(6),
+                    Validators.minLength(6),
+                    segmentValidator()
+                ]
+            ],
+            secondarySegmentCode: [
+                null,
+                Validators.required,
+                Validators.maxLength(6),
+                Validators.minLength(6),
+                CustomValidators.SecondaryCodeValidators,
+
+            ],
             fopa: [null, Validators.required],
             clusterRisk: [null, Validators.required],
             riskGroup: [null, Validators.required],
@@ -346,7 +339,9 @@ export class FormularioComponent implements OnInit {
             : "Preencha os campos  abaixo para criar uma nova regra.";
     }
 }
--------import { Component, OnInit } from '@angular/core';
+
+------------------------------------
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DssSortChangeInterface } from '@dss/components/data-table';
 
@@ -588,7 +583,78 @@ export class RegrasParametrizacaoComponent implements OnInit {
 
 
 }
--------
+--------------------------------------------------
+import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
+
+
+export class CustomValidators {
+    pattern: RegExp = /^[A-Z]{3}[0-9]{3}$/;
+    static letters: RegExp = /^[A-Z]+$/;
+    static numbers: RegExp = /^\d+$/;
+
+
+    static SecondaryCodeValidators(
+        control: AbstractControl
+    ): ValidationErrors | null {
+        const value: string = control.value;
+
+        //verifica se o valor possui exatamente 6 caracteres
+        if (value && value.length === 6) {
+            //Verifica os 3 primeiros maiusculos
+            const firstThreeChars = value.substring(0, 3);
+
+
+
+            if (!this.letters.test(firstThreeChars)) {
+                return { invalidFormat: true };
+            }
+
+            //Verifica 3 ultimos são numeros
+            const lastThreeChars = value.substring(3);
+            if (!this.numbers.test(lastThreeChars)) {
+                return { invalidFormat: true };
+            }
+
+            //valor valido
+            return null;
+        }
+        //Caso não tenha 6 caracteres
+        return { invalidFormat: true };
+    }
+    // static snPatterns(control: AbstractControl): ValidationErrors | null {
+    //     const snPattern: RegExp = /^[SN]$/;
+    //     const value: string = control.value;
+
+    //     if (!snPattern.test(value.charAt(0))) {
+    //         return { snCode: true };
+    //     }
+    //     return null;
+    // }
+
+
+
+}
+export function segmentValidator(): ValidatorFn {
+    return(control: AbstractControl):{ [key: string]: any } | null =>{
+        console.log("validação customizada............")
+        const segmentValue = control.value;
+        console.log("valor do segmento: ", segmentValue)
+        if( segmentValue && segmentValue.length === 6){
+            const primarySegment = segmentValue.substring(0,3);
+            const numericPart = segmentValue.substring(3);
+
+            console.log( "Primary Segment: ", primarySegment )
+            console.log( "Numeric Part: ", numericPart )
+
+            if( primarySegment === "PRI" && /\d{3}$/.test(numericPart)){
+                return null; //validação bem sucedida
+            }
+        }
+        return {invalidSegment: true}; //validação falhou
+    };
+
+}
+-----------------------------------------
 <section class="container">
 
     <span class="title__page">Regras de Parametrização</span>
@@ -717,8 +783,10 @@ export class RegrasParametrizacaoComponent implements OnInit {
 
       <button dssOutlineButton (click)="open = false" buttons-group__download>Cancelar</button>
       <button type="submit"[disabled]="!formParameterRules.valid" dssFilledButton buttons-group__newRule>Adicionar regra</button>
+
+
       <!-- <button [routerLink]="['/web']" dssFilledButton [disabled]="formParameterRules.invalid" >Adicionar regra</button> -->
     </dss-dialog-footer>
 
-  </dss-dialog>
 
+  </dss-dialog>
