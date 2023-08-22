@@ -1,183 +1,159 @@
- return  activeRules$.pipe(
-            mergeMap(this.activeRules =>{
-                return inactiveRules$.pipe(
-                    map(this.inactiveRules =>({ this.activeRules, this.inactiveRules}))
-                );
-            })
-        );
+<section class="container">
+    <span class="title__page">Regras de Parametrização</span>
 
-        Nenhuma sobrecarga corresponde a esta chamada.
-  A sobrecarga 1 de 3, '(project: (value: string, index: number) => ObservableInput<any>, concurrent?: number): OperatorFunction<string, any>', gerou o seguinte erro.
-    O argumento do tipo 'string' não é atribuível ao parâmetro do tipo '(value: string, index: number) => ObservableInput<any>'.
-  A sobrecarga 2 de 3, '(project: (value: string, index: number) => ObservableInput<any>, resultSelector: undefined, concurrent?: number): OperatorFunction<string, any>', gerou o seguinte erro.
-    O argumento do tipo 'string' não é atribuível ao parâmetro do tipo '(value: string, index: number) => ObservableInput<any>'.
-  A sobrecarga 3 de 3, '(project: (value: string, index: number) => ObservableInput<any>, resultSelector: (outerValue: string, innerValue: any, outerIndex: number, innerIndex: number) => any, concurrent?: number): OperatorFunction<...>', gerou o seguinte erro.
-    O argumento do tipo 'string' não é atribuível ao parâmetro do tipo '(value: string, index: number) => ObservableInput<any>'.ts(2769)
+    <!-- segment-control 1 -->
+    <dss-segment-control class="segment-control">
+        <dss-segment-control-item class="segment-control__item__active">
+            <dss-segment-control-item-header
+                >Regras ativas</dss-segment-control-item-header
+            >
 
-
-
-
---------------------
-O argumento do tipo 'string[]' não é atribuível ao parâmetro do tipo '(value: [string, string], index: number) => { activeRules: string; inactiveRules: string; }'.ts(2345)
-return forkJoin([activeRules$,inactiveRules$]).pipe(
-            map(([this.activeRules,this.inactiveRules]) => ({
-                this.activeRules, this.inactiveRules
-            }))
-        );
-
--------
-
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
-import { catchError, debounceTime, retry, switchMap } from 'rxjs/operators';
-import { IDataSource } from 'src/app/componentes/orquestrador-motores/regras-parametrizacao/iDataSource';
-import { urlConfig } from 'src/app/config/url.config';
-import { CriptografiaService } from 'src/app/service/criptografia/criptografia.service';
-
-@Injectable({
-  providedIn: 'root'
-})
-export class OrquestradorMotoresService {
-
-    apiMessage: string = "";
-    activeApiMessage: string = '';
-    inactiveApiMessage: string = '';
-
-    private readonly activeRules = 'urlConfig.getActiveRulesOrchestrator';
-    private readonly inactiveRules = 'urlConfig.getInactiveRulesOrchestrator';
-    dataSource: IDataSource[];
-
-constructor(
-    private http: HttpClient,
-    private criptoService: CriptografiaService,
-
-) { }
-
-ngOnInit(): void {
-   this.fetchApiMessages();
-
-}
-
-getApiMessage(): Observable<{ activeRules: string; inactiveRules: string}>{
-
-    const activeRules$ = this.http.get<string>(activeApiURL).pipe(
-        catchError(this.handleError));
-
-    const inactiveRules$ = this.http.get<string>(inactiveApiURL).pipe(
-        catchError(this.handleError));
-    }
-
-
-
-/*Lista regras ativas*/
-
-getOrchestradorActiveRules(): Observable<any>{
-
-    return this.http.get(urlConfig.getActiveRulesOrchestrator).pipe(
-
-        debounceTime(2000),
-        switchMap((response)=>{
-            console.log('listagem das regras ativas');
-            return of(response);
-
-        }),
-        retry(2),
-        catchError((err) =>{
-            throw new Error(err);
-        })
-
-    );
-
-}
-/*Lista regras inativas*/
-
-getOrchestradorInactiveRules(): Observable<any>{
-    console.log('Chamando o metodo regras inativas do metodo getOrchestradorInactiveRules');
-    return this.http.get(urlConfig.getInactiveRulesOrchestrator).pipe(
-
-
-        debounceTime(2000),
-        switchMap((response)=>{
-            console.log('listagem das regras inativas');
-            return of(response);
-
-        }),
-        retry(2),
-
-        catchError((err) =>{
-            console.log('listagem de Erros regras inativas');
-            throw new Error(err);
-        })
-
-    );
-
-}
-
-saveNewRule(ruleData: any): Observable<any>{
-    const apiURL = 'urlConfig.saveRulesOrchestrator';
-    return this.http.post(apiURL,ruleData).pipe(
-        retry(2),
-        catchError((err)=>{
-            throw new Error(err)
-        })
-    )
-
-}
-
-private handleError(error: HttpErrorResponse){
-    let errorMessage = "Ocorreu um erro";
-    if (error.error instanceof ErrorEvent){
-        errorMessage = 'Error: ${error.error.message}';
-    }else{
-        errorMessage = 'Error Code: ${error.status}\nMessage: ${error.message}';
-    }
-    console.error(errorMessage);
-    return throwError(errorMessage);
-}
-
-fetchApiMessages(): void{
-
-    this.getApiMessage().subscribe(
-        (response) =>{
-            this.activeApiMessage = response.activeRules;
-            this.inactiveApiMessage = response.inactiveRules;
-        },
-        (error) => {
-            console.error('Erro na chamada à API: ', error);
-            this.activeApiMessage = 'Erro ao obter mensagens para regras ativas.'
-            this.inactiveApiMessage = 'Erro ao obter mensagens para regras inativas.'
-        }
-        );
-    }
-
-
-}
-
-}
-------------------------------
-Erros:
-declaração não utilizada:
- private readonly activeRules = 'urlConfig.getActiveRulesOrchestrator';
-    private readonly inactiveRules = 'urlConfig.getInactiveRulesOrchestrator';
-
-
-    A function whose declared type is neither 'undefined', 'void', nor 'any' must return a value.ts(2355)
-    const activeRules$ = this.http.get<string>(activeApiURL).pipe(
-        catchError(this.handleError));
-
-    const inactiveRules$ = this.http.get<string>(inactiveApiURL).pipe(
-        catchError(this.handleError));
-    }
-
-
-
----------------html
- <td class="center-td" *dssCell="let element">
+            <dss-segment-control-item-content>
+                <!-- Tabelas -->
+                <dss-data-table [dataSource]="activeDataSource">
+                    <table>
+                        <ng-container *ngFor="let col of columnsSchema">
+                            <th class="center-th" *dssHeaderCell>
+                                {{ col.label }}
+                            </th>
+                            <td class="center-td" *dssCell="let element">
                                 <div>
-                                    <p>{{ apiMessage }}</p>
+                                    <p>{{ activeApiMessage }}</p>
+                                </div>
+
+                                <!-- Linhas padrões -->
+                                <div
+                                    [ngSwitch]="col.type"
+                                    *ngIf="!element.isEdit"
+                                >
+                                    <!-- Botões -->
+                                    <div *ngSwitchCase="'isEdit'">
+                                        <!-- Botão editar -->
+                                        <button
+                                            dssIconButton
+                                            (click)="edit(element)"
+                                        >
+                                            <span
+                                                dssIcon
+                                                name="subscription"
+                                            ></span>
+                                        </button>
+                                    </div>
+                                    <span *ngSwitchCase="'object'">{{
+                                        element[col.key][col.keyObject]
+                                    }}</span>
+                                    <span *ngSwitchDefault>{{
+                                        element[col.key]
+                                    }}</span>
+                                </div>
+                            </td>
+                        </ng-container>
+                    </table>
+                    <dss-pagination optionDefault="10"></dss-pagination>
+                </dss-data-table>
+            </dss-segment-control-item-content>
+        </dss-segment-control-item>
+
+        <!-- segment-control 2 -->
+        <dss-segment-control-item class="segment-control__item__inactive">
+            <dss-segment-control-item-header
+                >Regras inativas</dss-segment-control-item-header
+            >
+            <dss-segment-control-item-content>
+                <!-- Tabelas -->
+                <dss-data-table [dataSource]="inactiveDataSource">
+                    <table>
+                        <ng-container *ngFor="let col of columnsSchema">
+                            <th class="center-th" *dssHeaderCell>
+                                {{ col.label }}
+                            </th>
+                            <td class="center-td" *dssCell="let element">
+                                <div>
+                                    <p>{{ inactiveApiMessage }}</p>
                                 </div>
                                 <!-- Linhas padrões -->
                                 <div
                                     [ngSwitch]="col.type"
                                     *ngIf="!element.isEdit"
+                                >
+                                    <!-- Botões -->
+                                    <div *ngSwitchCase="'isEdit'">
+                                        <!-- Botão editar -->
+                                        <button dssIconButton disabled>
+                                            <span
+                                                dssIcon
+                                                name="subscription"
+                                            ></span>
+                                        </button>
+                                    </div>
+
+                                    <span *ngSwitchCase="'object'">{{
+                                        element[col.key][col.keyObject]
+                                    }}</span>
+                                    <span *ngSwitchDefault>{{
+                                        element[col.key]
+                                    }}</span>
+                                </div>
+                            </td>
+                        </ng-container>
+                    </table>
+                    <dss-pagination optionDefault="5"></dss-pagination>
+                </dss-data-table>
+            </dss-segment-control-item-content>
+        </dss-segment-control-item>
+    </dss-segment-control>
+
+    <spaui-preloader id="preLoader"></spaui-preloader>
+
+    <div class="buttons-group-rules">
+        <button dssOutlineButton class="buttons-group__download">
+            Baixar regras
+        </button>
+        <button
+            dssFilledButton
+            class="buttons-group__newRule"
+            dssButton
+            (click)="open = true"
+        >
+            Nova regra
+        </button>
+    </div>
+</section>
+
+<!-- Modal para Create e Edit -->
+
+<dss-dialog [open]="open">
+    <dss-dialog-header>
+        <div class="title__dialog">Nova Regra</div>
+        <span class="text__dialog"
+            >Preencha todos os campos para adição de nova regra</span
+        >
+    </dss-dialog-header>
+
+    <dss-dialog-body>
+        <app-formulario
+            [formParameterRules]="formParameterRules"
+        ></app-formulario>
+    </dss-dialog-body>
+
+    <dss-dialog-footer>
+        <hr dssDivider />
+
+        <button dssOutlineButton (click)="open = false" buttons-group__download>
+            Cancelar
+        </button>
+        <button
+            type="submit"
+            [disabled]="!formParameterRules.valid"
+            dssFilledButton
+            buttons-group__newRule
+        >
+            Adicionar regra
+        </button>
+
+        <!-- <button [routerLink]="['/web']" dssFilledButton [disabled]="formParameterRules.invalid" >Adicionar regra</button> -->
+    </dss-dialog-footer>
+</dss-dialog>
+
+
+![image](https://github.com/ElysSanntos/Aprendizado---Bootcamps/assets/62489007/fae64fe0-f3e4-4120-ba7c-dc94c1f5d1a2)
