@@ -1,3 +1,95 @@
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable, of, throwError } from 'rxjs';
+import { catchError, debounceTime, retry, switchMap } from 'rxjs/operators';
+import { IDataSource } from 'src/app/componentes/orquestrador-motores/regras-parametrizacao/iDataSource';
+import { urlConfig } from 'src/app/config/url.config';
+import { CriptografiaService } from 'src/app/service/criptografia/criptografia.service';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class OrquestradorMotoresService {
+
+    private readonly activeRules = 'urlConfig.getActiveRulesOrchestrator';
+    private readonly inactiveRules = 'urlConfig.getInactiveRulesOrchestrator';
+    dataSource: IDataSource[];
+
+constructor(
+    private http: HttpClient,
+    private criptoService: CriptografiaService
+) { }
+
+/*Lista regras ativas*/
+
+getOrchestradorActiveRules(): Observable<any>{
+
+    return this.http.get(urlConfig.getActiveRulesOrchestrator).pipe(
+
+        debounceTime(2000),
+        switchMap((response)=>{
+            console.log('listagem das regras ativas');
+            return of(response);
+
+        }),
+        retry(2),
+        catchError((err) =>{
+            throw new Error(err);
+        })
+
+    );
+
+}
+/*Lista regras inativas*/
+
+getOrchestradorInactiveRules(): Observable<any>{
+    console.log('Chamando o metodo regras inativas do metodo getOrchestradorInactiveRules');
+    return this.http.get(urlConfig.getInactiveRulesOrchestrator).pipe(
+
+
+        debounceTime(2000),
+        switchMap((response)=>{
+            console.log('listagem das regras inativas');
+            return of(response);
+
+        }),
+        retry(2),
+
+        catchError((err) =>{
+            console.log('listagem de Erros regras inativas');
+            throw new Error(err);
+        })
+
+    );
+
+}
+
+saveNewRule(ruleData: any): Observable<any>{
+    const apiURL = 'urlConfig.saveRulesOrchestrator';
+    return this.http.post(apiURL,ruleData).pipe(
+        retry(2),
+        catchError((err)=>{
+            throw new Error(err)
+        })
+    )
+
+}
+
+private handleError(error: HttpErrorResponse){
+    let errorMessage = "Ocorreu um erro";
+    if (error.error instanceof ErrorEvent){
+        errorMessage = 'Error: ${error.error.message}';
+    }else{
+        errorMessage = 'Error Code: ${error.status}\nMessage: ${error.message}';
+    }
+    console.error(errorMessage);
+    return throwError(errorMessage);
+}
+
+}
+
+
+---------------------------
 {
     "traceId": null,
     "errors": [
