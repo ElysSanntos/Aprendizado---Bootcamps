@@ -1,3 +1,14 @@
+.dss-segment-control__bar {
+    background-color: #c00;
+    bottom: 0;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    transition-duration: .2s;
+    transition-property: left,width;
+    transition-timing-function: cubic-bezier(.6,0,.2,1);
+}
+----------------------------------------------------
 .dss-segment-control__item {
   appearance: none;
   background-color: var(--token-segment-control-background-color-default);
