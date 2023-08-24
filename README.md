@@ -1,3 +1,118 @@
+:host {
+    margin-left: 7%;
+    margin-top: 16px;
+    width: 1106px;
+    height: 809px;
+}
+
+.segment-control {
+    top: 262px;
+    left: 211px;
+    width: 100%;
+    height: 38px;
+    margin-top: 50px;
+}
+
+.segment-control__item__active {
+    margin-right: 0px;
+    width: 553px !important;
+    white-space: break-spaces !important;
+}
+
+.center-th {
+    white-space: break-spaces !important;
+    padding: 8px 8px;
+    text-align: center;
+    color: rgba(68, 68, 68, 1);
+    font-family: "SantanderMicroText-Bd";
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    letter-spacing: 0px;
+    line-height: 22px;
+    opacity: 1;
+}
+
+.center-td {
+    padding: 6px 6px;
+    text-align: center;
+    opacity: 1;
+    color: rgba(68, 68, 68, 1);
+    font-family: "SantanderMicroText";
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0px;
+    line-height: 22px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.flex-item {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.buttons-group-rules {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Ajuste para estilos encapsulados */
+}
+
+.buttons-group__download {
+    border-radius: 4px;
+    border: 1px solid rgba(204, 0, 0, 1);
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 8px 16px;
+    width: 133px;
+    height: 48px;
+    opacity: 1;
+    color: rgba(204, 0, 0, 1);
+    font-family: "SantanderText-Regular";
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0px;
+    text-align: center;
+    line-height: 28px;
+}
+
+.buttons-group__newRule {
+    border-radius: 4px;
+    border: 1px solid rgba(204, 0, 0, 1);
+    opacity: 1;
+    background-color: rgba(204, 0, 0, 1);
+    padding: 8px 16px;
+    margin-left: 25px;
+    width: 133px;
+    height: 48px;
+    opacity: 1;
+    color: rgba(255, 255, 255, 1);
+    font-family: "SantanderText-Regular";
+    font-size: 18px;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0px;
+    text-align: center;
+    line-height: 28px;
+}
+
+
+
+
+------------------------------------------
+
+
 export interface IDataSource {
 
 
