@@ -1,3 +1,51 @@
+.dss-segment-control__item {
+  appearance: none;
+  background-color: var(--token-segment-control-background-color-default);
+  border-radius: var(--token-segment-control-border-radius);
+  border-width: 0;
+  color: var(--token-segment-control-color-default);
+  cursor: pointer;
+  font-family: var(--token-segment-control-font-family);
+  font-size: var(--token-segment-control-font-size);
+  font-weight: var(--token-segment-control-font-weight);
+  line-height: var(--token-segment-control-line-height);
+  margin: var(--token-segment-control-margin);
+  outline: 0;
+  padding: var(--token-segment-control-padding-vertical) var(--token-segment-control-padding-horizontal);
+  position: relative;
+  text-align: var(--token-segment-control-text-align);
+  transition-duration: var(--token-segment-control-motion-duration);
+  transition-property: background-color, color;
+  transition-timing-function: var(--token-segment-control-motion-timing-function);
+  white-space: nowrap;
+
+  &::after {
+    background-color: var(--token-segment-control-background-color-activated);
+    content: '';
+    height: 1px;
+    left: -4px;
+    position: absolute;
+    top: calc(100% + var(--token-segment-control-margin));
+    width: calc(100% + (var(--token-segment-control-margin) * 2));
+  }
+
+  &.dss-segment-control__item--active:not(.dss-segment-control__item--disabled) {
+    color: var(--token-segment-control-color-selected);
+  }
+
+  &.dss-segment-control__item--disabled {
+    color: var(--token-segment-control-color-disabled);
+    cursor: var(--cursor-disabled);
+
+    &::after {
+      background-color: var(--token-segment-control-background-color-disabled);
+    }
+  }
+}
+
+
+
+-----------------------------------------
 :host {
     margin-left: 7%;
     margin-top: 16px;
