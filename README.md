@@ -1,3 +1,48 @@
+core.js:7744 ERROR Error: This component must be used with an NgModel, FormControl or FormControlName directive.
+    at DssFormFieldComponent.hasModelOrFormControl (dss-components-form-field.js:578:23)
+    at DssFormFieldComponent.ngAfterViewInit (dss-components-form-field.js:385:14)
+    at callHook (core.js:2539:22)
+    at callHooks (core.js:2508:17)
+    at executeInitAndCheckHooks (core.js:2459:9)
+    at refreshView (core.js:9642:21)
+    at refreshComponent (core.js:10742:13)
+    at refreshChildComponents (core.js:9367:9)
+    at refreshView (core.js:9621:13)
+    at refreshEmbeddedViews (core.js:10696:17)
+defaultErrorLogger @ core.js:7744
+handleError @ core.js:7792
+(anônimo) @ core.js:29798
+invoke @ zone.js:372
+run @ zone.js:134
+runOutsideAngular @ core.js:28679
+tick @ core.js:29798
+(anônimo) @ core.js:29646
+invoke @ zone.js:372
+onInvoke @ core.js:28780
+invoke @ zone.js:371
+run @ zone.js:134
+run @ core.js:28634
+next @ core.js:29645
+__tryOrUnsub @ Subscriber.js:183
+next @ Subscriber.js:122
+_next @ Subscriber.js:72
+next @ Subscriber.js:49
+next @ Subject.js:39
+emit @ core.js:26042
+checkStable @ core.js:28702
+onHasTask @ core.js:28797
+hasTask @ zone.js:426
+_updateTaskCount @ zone.js:447
+_updateTaskCount @ zone.js:274
+runTask @ zone.js:195
+drainMicroTaskQueue @ zone.js:585
+invokeTask @ zone.js:491
+invokeTask @ zone.js:1661
+globalCallback @ zone.js:1692
+globalZoneAwareCallback @ zone.js:1725
+zone.js:1724 [Violation] 'click' handler took 399ms
+zone.js:2384 [Violation] 'setInterval' handler took 87ms
+-------------------------
 <div class="container">
     <form [formGroup]="formParameterRules" (ngSubmit)="onSubmit()">
         <div class="grid-container">
