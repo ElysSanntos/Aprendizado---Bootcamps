@@ -2,20 +2,33 @@
   "pensamentos": [
     {
       "id": 1,
-      "conteudo": "Que bom que vc veio",
-      "autoria": "Nay",
+      "conteudo": "We are the champions my friends!",
+      "autoria": "Queen",
       "modelo": "modelo1"
-  },{
-    "id": 2,
-    "conteudo": "Estudando Angular",
-    "autoria": "Dev Alura",
-    "modelo": "modelo2"
-},
-{
-    "id": 3,
-    "conteudo": "Angular é o melhor'",
-    "autoria": "Dev Alura",
-    "modelo": "modelo3"
-}
+    },
+    {
+      "id": 2,
+      "conteudo": "Na minha máquina funciona!",
+      "autoria": "Dev da madrugada",
+      "modelo": "modelo2"
+    },
+    {
+      "id": 3,
+      "conteudo": "Continue a codar, continue a codar'",
+      "autoria": "Dory programador",
+      "modelo": "modelo3"
+    },
+    {
+      "conteudo": "A arte de programar consiste em organizar e dominar a complexidade.",
+      "autoria": "Edsger W. Dijkstra",
+      "modelo": "modelo2",
+      "id": 4
+    },
+    {
+      "conteudo": "“Medir o progresso da programação por linhas de código é como medir o progresso da construção de aeronaves em termos de peso.”",
+      "autoria": "Bill Gates",
+      "modelo": "modelo1",
+      "id": 5
+    }
   ]
 }
